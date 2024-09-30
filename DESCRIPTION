@@ -1,0 +1,28 @@
+Package: sautilities
+Title: Seasonal Adjustment Utilities For Use With the Seasonal Package
+Version: 5.0
+Authors@R: 
+    person(given = "Brian",
+           family = "Monsell",
+           role = c("aut", "cre"),
+           email = "monsell.brian@bls.gov")
+Description: Several utilities to provide support for the seasonal package. This includees routines 
+   that select the X-11 seasonal filter based on the magnitude of the estimate of the 
+   seasonal moving average coefficient from the airline model, duplicates the functionality of the 
+   TERROR software that performs quality control on time series based on one step ahead forecasts,
+   generate model summaries from seas objects, generate names and abbreviations for X-13ARIMA-SEATS
+   tables, save spec files, seasonal objects, and metafiles into external files, process list objects
+   of numbers, indicate which elements of a list have try-errors, replace NA with a string, set outlier
+   critical values, add an outlier spec to a static seas element, get indexes and entries from UDG output
+   generated from seasonal, save seasonal objects into R scripts and X-13ARIMA-SEATS spec files, 
+   and functions to collect diagnostics summaries for various X-13ARIMA-SEATS diagnostics.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Depends: 
+    R (>= 2.10)
+Imports: 
+    seasonal,
+    stringr
