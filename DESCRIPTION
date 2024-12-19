@@ -1,6 +1,6 @@
 Package: sautilities
 Title: Seasonal Adjustment Utilities For Use With the Seasonal Package
-Version: 5.1
+Version: 5.2
 Authors@R: 
     person(given = "Brian",
            family = "Monsell",
@@ -15,7 +15,8 @@ Description: Several utilities to provide support for the seasonal package. This
    of numbers, indicate which elements of a list have try-errors, replace NA with a string, set outlier
    critical values, add an outlier spec to a static seas element, get indexes and entries from UDG output
    generated from seasonal, save seasonal objects into R scripts and X-13ARIMA-SEATS spec files, 
-   and functions to collect diagnostics summaries for various X-13ARIMA-SEATS diagnostics.
+   and functions to collect diagnostics summaries for various X-13ARIMA-SEATS diagnostics, and read in 
+   files output by the regCMPNT program.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
