@@ -1,6 +1,6 @@
 Package: sautilities
 Title: Seasonal Adjustment Utilities For Use With the Seasonal Package
-Version: 5.2
+Version: 5.3
 Authors@R: 
     person(given = "Brian",
            family = "Monsell",
