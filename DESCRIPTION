@@ -1,6 +1,6 @@
 Package: sautilities
 Title: Seasonal Adjustment Utilities For Use With the Seasonal Package
-Version: 5.3
+Version: 5.4
 Authors@R: 
     person(given = "Brian",
            family = "Monsell",
@@ -26,4 +26,5 @@ Depends:
     R (>= 3.6)
 Imports: 
     seasonal (>= 1.10.0),
-    stringr
+    stringr,
+	stringi
