@@ -7,7 +7,7 @@
 get_mq_key(this_label = NULL)
 }
 \arguments{
-\item{this_label}{character string; name of an \code{X-11-ARIMA} M and Q statistics
+\item{this_label}{character string; name of an \code{X-11-ARIMA} M and Q statistics.
 This is a required entry.}
 }
 \value{
@@ -15,13 +15,18 @@ character string with the corresponding UDG label for \code{this_label}.
 If incorrect label is specified, returns \code{NULL}.
 }
 \description{
-Generates the UDG key for \code{X-11-ARIMA} M and Q statistics based on a label
+Generates the UDG key for \code{X-11-ARIMA} M and Q statistics based on a label.
+For more information on the X-11-ARIMA quality control statistics,
+\insertCite{@see @LothianMorry78 and @LadirayQuenneville2001;textual}{sautilities}.
 }
 \details{
-Version 1.3, 05/24/2023
+Version 2.0, 2026-03-06
 }
 \examples{
 m7_key  <- get_mq_key('M7')
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

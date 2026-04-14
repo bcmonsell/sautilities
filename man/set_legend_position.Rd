@@ -14,24 +14,26 @@ set_legend_position(
 )
 }
 \arguments{
-\item{data_matrix}{numeric matrix; matrix where all series being plotted are stored as columns.
-This is a required entry.}
+\item{data_matrix}{numeric matrix; Matrix where all series being plotted
+are stored as columns. This is a required entry.}
 
 \item{this_plot_start}{Integer scalar; start date of the plot.
 This is a required entry.}
 
-\item{this_plot_freq}{Integer scalar; Frequency of time series plotted. Default is 12.}
+\item{this_plot_freq}{Integer scalar; Frequency of time series plotted.
+Default is 12.}
 
-\item{time_disp}{Integer scalar; number of observations on the x-axis taken up by the legend.
-Default is 3.}
+\item{time_disp}{Integer scalar; number of observations on the x-axis taken up
+by the legend. Default is 3.}
 
-\item{value_disp}{Numeric scalar; factor representing the percentage of the y axis taken up
-by the legend. Default is 1/6.}
+\item{value_disp}{Numeric scalar; factor representing the percentage of the
+y axis taken up by the legend. Default is 1/6.}
 
 \item{default_code}{Character string; default position code if the corners are not available.
-Default is \code{"top"}. Possible values are \code{"bottomright"}, \code{"bottom"},
+Possible values are \code{"bottomright"}, \code{"bottom"},
 \code{"bottomleft"}, \code{"left"}, \code{"topleft"}, \code{"topright"},
-\code{"top"}, \code{"right"} and \code{"center"}.}
+\code{"top"}, \code{"right"} and \code{"center"}.
+Default is \code{"top"}.}
 }
 \value{
 Position codes for the legend command. Possible values are \code{"bottomright"},
@@ -39,21 +41,28 @@ Position codes for the legend command. Possible values are \code{"bottomright"},
 and the value of \code{default_code}.
 }
 \description{
-Generate position code for the \code{legend} command based on the series being plotted.
+Generate position code for the \code{legend} command based on the series being
+plotted.
 }
 \details{
-Version 2.8, 5/25/2023
+Version 2.9, 2026-03-04
 }
 \examples{
 shoes_seas <- 
-    seasonal::seas(shoes2007, slidingspans = "", transform.function = "log", x11 = "",
-                   forecast.maxlead=36, check.print = c( "pacf", "pacfplot" ))
-this_series <- shoes2007
-this_sa     <- seasonal::final(shoes_seas)
+   seasonal::seas(shoes2007, 
+      transform.function = "log", 
+      check.print = c( "pacf", "pacfplot" ),
+      forecast.maxlead=36, 
+      x11 = "", 
+      slidingspans = "")
+this_matrix <- cbind(shoes2007, seasonal::final(shoes_seas))
 this_legend_position <- 
-    set_legend_position(cbind(this_series, this_sa), start(this_series),
-                        this_plot_freq = 4, time_disp = 8, value_disp = 1/8,
-                        default_code = "top")                      
+   set_legend_position(this_matrix, 
+      this_plot_start = start(shoes2007),
+      this_plot_freq = frequency(shoes2007), 
+      time_disp = 8, 
+      value_disp = 1/8,
+      default_code = "top")                      
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

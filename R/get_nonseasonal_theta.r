@@ -2,35 +2,47 @@
 #'
 #' Get the value of a nonseasonal moving average coefficient estimated from an airline model.
 #'
-#' Version 1.10, May 14, 2024
+#' Version 2.0, 2026-02-25
 #'
-#' @param seas_obj A seas object for a single series generated from the \code{seasonal} package.
+#' @param seas_obj A seas object for a single series generated from the 
+#'        \code{seasonal} package \insertCite{seasonal2018}{sautilities}.
 #'        This is a required entry.
 #' @param this_index An integer scalar, an index of the vector values to be passed. 
 #'        Acceptable values are \code{1} (nonseasonal MA coefficient value), 
 #'        \code{2} (nonseasonal MA coefficent standard error), or 
 #'        \code{3} (t-value of the nonseasonal MA coefficient). 
 #'        Default is \code{1}.
-#' @param return_string A Logical scalar; indicates whether value returned is a string or numeric. 
-#'        Default is \code{TRUE}.
-#' @param significant_digits an integer scalar; significant digits to be saved when a string 
-#'        is returned. Default is \code{3}.
-#' @return Character string containing a value related to the seasonal MA coefficient from the 
-#'         regARIMA model fit in the \code{seas} object \code{seas_obj}. 
+#' @param return_string A Logical scalar; indicates whether value returned is a string  
+#'        or numeric. Default is \code{TRUE}.
+#' @param significant_digits an integer scalar; significant digits to be saved when  
+#'        a string is returned. Default is \code{3}.
+#' @return Character string containing a value related to the seasonal MA coefficient 
+#'         from the regARIMA model fit in the \code{seas} object \code{seas_obj}. 
 #'         If \code{return_string} is \code{FALSE}, this is a numeric. 
-#'         The standard error or t-value of the seasonal MA coefficient can be returned depending 
-#'         on the value of \code{this_index}.
+#'         The standard error or t-value of the seasonal MA coefficient can be returned  
+#'         depending on the value of \code{this_index}.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
+#' @references
+#'  \insertAllCited{}
+#'
 #' @examples
-#' air_seas <- seasonal::seas(AirPassengers, transform.function = "log", 
-#'                            arima.model = "(0 1 1)(0 1 1)", x11="")
-#' this_nonseasonal_theta <- get_nonseasonal_theta(air_seas, return_string = FALSE)
+#' air_seas <- 
+#'    seasonal::seas(AirPassengers, 
+#'                   transform.function = "log", 
+#'                   arima.model = "(0 1 1)(0 1 1)", 
+#'                   x11="")
+#' this_nonseasonal_theta <- 
+#'    get_nonseasonal_theta(air_seas, return_string = FALSE)
+#' @importFrom Rdpack reprompt
 #' @export
-get_nonseasonal_theta <- function(seas_obj = NULL, this_index = 1, return_string = TRUE, 
-                                  significant_digits = 3) {
-    # Author: Brian C. Monsell (OEUS) Version 1.10, May 14, 2024
+get_nonseasonal_theta <- 
+   function(seas_obj = NULL, 
+            this_index = 1, 
+            return_string = TRUE, 
+            significant_digits = 3) {
+    # Author: Brian C. Monsell (OEUS) Version 2.0, 2026-02-25
     
     # check if a value is specified for \code{seas_obj}
     if (is.null(seas_obj)) {

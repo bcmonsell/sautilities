@@ -11,17 +11,19 @@ update_diag_matrix(
 )
 }
 \arguments{
-\item{this_diag_list}{list object with elements for seasonal adjustment or modeling diagnostic,
-titles, and the number of columns. This is a required entry.}
-
-\item{this_test_list}{list object of a specific seasonal adjustment or modeling diagnostic.
+\item{this_diag_list}{List object with elements for seasonal adjustment or
+modeling diagnostic, titles, and the number of columns.
 This is a required entry.}
 
-\item{this_label}{character string; name of diagnostic in \code{this_test_list}.
+\item{this_test_list}{List object of a specific seasonal adjustment or
+modeling diagnostic.
+This is a required entry.}
+
+\item{this_label}{Character string; name of diagnostic in \code{this_test_list}.
 This is a required entry.}
 }
 \value{
-list object with updated elements for seasonal adjustment or modeling diagnostic,
+List object with updated elements for seasonal adjustment or modeling diagnostic,
 titles, and the number of columns.
 }
 \description{
@@ -29,28 +31,33 @@ Update the matrix of diagnostics used to generate the diagnostic data frame
 in \code{make_diag_df}.
 }
 \details{
-Version 4.3, 5/24/2023
+Version 4.4, 2026-03-04
 }
 \examples{
-unemp_seas_list <- seasonal::seas(unemployment_list,
-           x11 = "", slidingspans = "",
-           arima.model = "(0 1 1)(0 1 1)",
-           transform.function = "log",
-           regression.aictest = NULL, 
-           forecast.maxlead=60,
-           check.print = c( "pacf", "pacfplot" ))
+unemp_seas_list <- 
+   seasonal::seas(unemployment_list,
+      transform.function = "log",
+      arima.model = "(0 1 1)(0 1 1)",
+      regression.aictest = NULL, 
+      forecast.maxlead=60,
+      check.print = c( "pacf", "pacfplot" ),
+      x11 = "", 
+      slidingspans = "")
 test_seas_update <- 
      Filter(function(x) inherits(x, "seas"), unemp_seas_list)
-test_acf <- lapply(test_seas_update, function(x) try(acf_test(x, return_this = 'both')))
+test_acf <- 
+   lapply(test_seas_update, function(x) try(acf_test(x, return_this = 'both')))
 test_names <- names(xt_data_new)
 num_names <- length(test_names)
 all_diag_list <- list(n = 0, diag = 0, titles = 0)
 if (!is.null(test_acf)) {
     if (length(test_acf) < num_names) {
-        this_acf_test <- fix_diag_list(test_acf, test_names, return_this = 'both')
+       this_acf_test <- 
+          fix_diag_list(test_acf, test_names, return_this = 'both')
     }
     all_diag_list <- 
-        update_diag_matrix(all_diag_list, test_acf, "ACF")
+       update_diag_matrix(this_diag_list = all_diag_list, 
+          this_test_list = test_acf, this_label = "ACF")
 }
 }
 \author{

@@ -1,30 +1,40 @@
 #' List of outliers generated from a list of seasonal objects
 #'
-#' Generate a summary of model outliers from a list of \code{seas} objects series.
+#' Generate a summary of regARIMA model outliers from a list of \code{seas} objects.
+#' For more information on outliers, see Table 4.1 of Section 4.3 of 
+#' \insertCite{Census2025;textual}{sautilities}.
 #'
-#' Version 2.3, 5/7/2024
+#' Version 3.1, 2026-03-06
 #'
-#' @param seas_obj_list list of \code{seas} objects generated from a call of \code{seas} 
-#'        on a single time series. A required argument.
-#' @return vector of model diagnostics for a given series
+#' @param seas_obj_list List object of \code{seas} objects generated from a call 
+#'        of \code{seas} on a list consisting of individual time series.
+#'        Information on generating adjustments of multiple time series stored in a
+#'        list object with the \code{seasonal} package can be found in 
+#'        \insertCite{rprojectAdjustingMultiple;textual}{sautilities}. 
+#'        This is a required entry.
+#' @return vector of regARIMA model outliers for a given series.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
+#'
+#' @references
+#'  \insertAllCited{}
 #'
 #' @examples
 #' unemp_seas_list <- 
 #'    seasonal::seas(unemployment_list, slidingspans = "", 
-#'                   transform.function = "log", 
-#'                   outlier.types = "all",
-#'                   arima.model = "(0 1 1)(0 1 1)",
-#'                   forecast.maxlead=36, x11 = "",
-#'                   check.print = c( "pacf", "pacfplot" ))
+#'       transform.function = "log", 
+#'       outlier.types = "all",
+#'       arima.model = "(0 1 1)(0 1 1)",
+#'       forecast.maxlead=36, x11 = "",
+#'       check.print = c( "pacf", "pacfplot" ))
 #' unemp_seas_update <- 
 #'      Filter(function(x) inherits(x, "seas"), unemp_seas_list)
 #' unemp_diag <- 
 #'     get_outlier_list(unemp_seas_update)
+#' @importFrom Rdpack reprompt
 #' @export
 get_outlier_list <- function(seas_obj_list = NULL) {
-  # Author: Brian C. Monsell (OEUS) Version 2.3, 5/7/2024
+  # Author: Brian C. Monsell (OEUS) Version 3.1, 2026-03-06
 
   # check if a value is specified for \code{seas_obj_list}
   if (is.null(seas_obj_list)) {

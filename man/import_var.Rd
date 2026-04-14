@@ -11,9 +11,11 @@ import_var(file_name = NULL, column_name = NULL, return_matrix = TRUE)
 This is a required entry}
 
 \item{column_name}{Array of character strings; names for the columns of the
-estimates matrix. Array must be of length 4.
+estimates matrix. Array must be of length 3 or 4.
 Default is \code{c("Unscaled_Stochastic", "Scaled_Stochastic", 
-       "Regression_Estimation", "Combined")}.}
+       "Regression_Estimation", "Combined")} if regressors are used,
+or \code{c("Unscaled_Stochastic", "Scaled_Stochastic", "Combined")}
+if regressors are not used.}
 
 \item{return_matrix}{Logical scalar; determines if a matrix object is returned.
 Default is \code{TRUE}, which forces the function to return a data frame object.}
@@ -25,9 +27,10 @@ The file name for the for the component file has an \code{.var} file extension.
 }
 \description{
 Reads in variances for a component from a file saved by regCMPNT
+\insertCite{Bell2011}{sautilities}.
 }
 \details{
-Version 1.3, 12/12/2024
+Version 2.0, 2026-02-25
 }
 \examples{
 \dontrun{
@@ -36,6 +39,9 @@ n3000019_seasonal_var_df      <- import_var("n300019_rev2_comp02.var", return_ma
 n3000019_irregular_var_df     <- import_var("n300019_rev2_comp03.var", return_matrix = FALSE)
 n3000019_samplingerror_var_df <- import_var("n300019_rev2_comp04.var", return_matrix = FALSE)
 }
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

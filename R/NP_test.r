@@ -1,11 +1,12 @@
-#' Non-Parametric test from Maravall (2012)
+#' Non-Parametric test from \insertCite{Maravall2012;textual}{sautilities}
 #'
-#' Non-Parametric test for seasonality based on Kendall and Ord (1990), and
-#' originally due to Friedman from a paper by Maravall.
+#' Non-Parametric test for seasonality based on 
+#' \insertCite{KendalOrd90;textual}{sautilities}, 
+#' and originally due to Friedman from \insertCite{Maravall2012;textual}{sautilities}.
 #' This code is adapted from \code{kendalls} subroutine in \code{ansub11.f} 
-#' from the \code{X-13ARIMA-SEATS} source code
+#' from the \code{X-13ARIMA-SEATS} source code \insertCite{Census2025}{sautilities}.
 #'
-#' Version 1.7, 5/23/2023
+#' Version 2.1, 2026-03-09
 #'
 #' @param x \code{ts} time series object. This is a required entry.
 #' @return List object with three elements: \code{ken} (test statistic), \code{df} 
@@ -13,11 +14,15 @@
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
+#' @references
+#'  \insertAllCited{}
+#'
 #' @examples
 #' NP_test_air <- NP_test(AirPassengers)
+#' @importFrom Rdpack reprompt
 #' @export
 NP_test <- function(x = NULL) {
-    # Author: Brian C. Monsell (OEUS) Version 1.7, 5/23/2023
+    # Author: Brian C. Monsell (OEUS) Version 2.1, 2026-03-09
    if (is.null(x)) {
        stop(" Must specify time series")
    }

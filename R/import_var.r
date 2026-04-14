@@ -1,15 +1,18 @@
 #' Import regCMPNT Variance file
 #'
 #' Reads in variances for a component from a file saved by regCMPNT
+#' \insertCite{Bell2011}{sautilities}.
 #'
-#' Version 1.3, 12/12/2024
+#' Version 2.0, 2026-02-25
 #'
 #' @param file_name Character string; file name for regCMPNT variance file.
 #'        This is a required entry
 #' @param column_name Array of character strings; names for the columns of the 
-#'        estimates matrix. Array must be of length 4.
+#'        estimates matrix. Array must be of length 3 or 4.
 #'        Default is \code{c("Unscaled_Stochastic", "Scaled_Stochastic", 
-#'        "Regression_Estimation", "Combined")}.
+#'        "Regression_Estimation", "Combined")} if regressors are used,  
+#'        or \code{c("Unscaled_Stochastic", "Scaled_Stochastic", "Combined")}
+#'        if regressors are not used.
 #' @param return_matrix Logical scalar; determines if a matrix object is returned.
 #'        Default is \code{TRUE}, which forces the function to return a data frame object.
 #' @return A \code{ts} matrix object or a data frame of \code{ts} objects which contains 
@@ -18,6 +21,9 @@
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
+#' @references
+#'  \insertAllCited{}
+#'
 #' @examples
 #' \dontrun{
 #' n3000019_trend_var_df         <- import_var("n300019_rev2_comp01.var", return_matrix = FALSE)
@@ -25,21 +31,22 @@
 #' n3000019_irregular_var_df     <- import_var("n300019_rev2_comp03.var", return_matrix = FALSE)
 #' n3000019_samplingerror_var_df <- import_var("n300019_rev2_comp04.var", return_matrix = FALSE)
 #' }
+#' @importFrom Rdpack reprompt
 #' @export
 import_var <- 
 	function(file_name = NULL,
              column_name = NULL,
 			 return_matrix = TRUE) {
-    # Author: Brian C. Monsell (OEUS) Version 1.3, 12/12/2024
+    # Author: Brian C. Monsell (OEUS) Version 2.0, 2026-02-25
 	if (is.null(file_name)) {
 		stop("Must specify valid file name in first argument")
 	}
 	
-  this_table <- read.table(file_name)
-  ncol_table <- ncol(this_table)
+	this_table <- read.table(file_name)
+	ncol_table <- ncol(this_table)
 	
 	if (is.null(column_name)) {
-	  if (ncol_table == 4) {
+	  if (ncol_table < 4) {
 	    column_name <- 
 	      c("Unscaled_Stochastic", "Scaled_Stochastic", 
 	        "Combined")

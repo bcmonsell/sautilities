@@ -7,21 +7,29 @@
 get_transform(seas_obj = NULL)
 }
 \arguments{
-\item{seas_obj}{\code{seas} object generated from a call of \code{seas} on a single time series
+\item{seas_obj}{A \code{seas} object for a single series generated from the
+\code{seasonal} package \insertCite{seasonal2018}{sautilities}.
 This is a required entry.}
 }
 \value{
-Character string with transformation used to model time series in \code{seas} run
+Character string with transformation used to model time series in
+\code{seas} run
 }
 \description{
 Get transformation from the \code{seas} object of a single time series
 }
 \details{
-Version 1.10, 5/15/2024
+Version 2.0, 2026-02-25
 }
 \examples{
-air_seas <- seasonal::seas(AirPassengers, arima.model = "(0 1 1)(0 1 1)", x11="")
+air_seas <- 
+   seasonal::seas(AirPassengers, 
+                  arima.model = "(0 1 1)(0 1 1)", 
+                  x11="")
 air_trans <- get_transform(air_seas)
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

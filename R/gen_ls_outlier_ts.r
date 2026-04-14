@@ -1,15 +1,21 @@
 #' Level change regression variable as a \code{ts} object
 #'
 #' Generates a ts object for a LS (level shift) outlier regressor.
+#' For more information on LS outliers, see Sections 4.3 and 7.11 of 
+#' \insertCite{Census2025;textual}{sautilities}.
 #'
-#' Version 1.8, 5/23/2023
+#' Version 2.0, 2026-02-24
 #'
 #' @param ls_date Integer vector of length two - dates for LS outlier to be generated.
+#'        This is a required entry.
 #' @param this_start Numeric vector; start date of LS outlier regressor generated.
+#'        This is a required entry.
 #' @param this_end Numeric vector; end date of LS outlier regressor generated.
+#'        This is a required entry.
 #' @param this_freq Numeric scalar; frequency of time series. 
 #'        Default: \code{12}, for a monthly series
 #' @param x13type Logical scalar; Indicates if level change outlier is defined as in X-13ARIMA-SEATS. 
+#'        Otherwise, the regressor is defined as 0 before the change in level, and 1 otherwise.
 #'        Default: \code{TRUE}
 #' @param return_matrix Logical scalar; If true, the object returned is a one column time series 
 #'        matrix object. Default: \code{TRUE}
@@ -17,16 +23,27 @@
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
+#' @references
+#'  \insertAllCited{}
+#'
 #' @examples
 #' UKgas_ls_date <- c(1970, 2)
 #' UKgas_ls_1970_2 <-
-#'    gen_ls_outlier_ts(UKgas_ls_date, this_start = c(1960, 1), this_end = c(1990, 4), 
+#'    gen_ls_outlier_ts(UKgas_ls_date, 
+#'                      this_start = c(1960, 1), 
+#'                      this_end = c(1990, 4), 
 #'                      this_freq = 4)
 #' @import stats
+#' @importFrom Rdpack reprompt
 #' @export
-gen_ls_outlier_ts <- function(ls_date, this_start, this_end, this_freq = 12, x13type = TRUE, 
-                              return_matrix = TRUE) {
-    # Author: Brian C. Monsell (OEUS), Version 1.8, 5/23/2023
+gen_ls_outlier_ts <- 
+   function(ls_date = NULL, 
+            this_start = NULL, 
+			this_end = NULL, 
+			this_freq = 12, 
+			x13type = TRUE, 
+            return_matrix = TRUE) {
+    # Author: Brian C. Monsell (OEUS), Version 2.0, 2026-02-24
     
     # Set number of outliers, length of outlier regressors
     this_ls_outlier <- ts(0, start = this_start, end = this_end, frequency = this_freq)

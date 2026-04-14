@@ -1,9 +1,11 @@
 #' Save Series
 #'
-#' Save a user-defined regression array or matrix with time series attributes to an external ASCII file 
-#' in X-13ARIMA-SEATS' datevalue format
+#' Save an R object with time series attributes (\code{ts})
+#' to an external ASCII file in X-13ARIMA-SEATS' \code{datevalue} format.
+#' For more information on the \code{datevalue} format of X-13ARIMA-SEATS,
+#' see \insertCite{MonsellLytrasFindley2016;textual}{sautilities}.
 #'
-#' Version 1.2, 5/25/2023
+#' Version 2.0, 2026-03-03
 #'
 #' @param this_series double precision time series array to be saved.
 #'        This is a required entry.
@@ -13,18 +15,26 @@
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
+#' @references
+#'  \insertAllCited{}
+#'
 #' @examples
-#' ukgas_seas <- 
-#'    seasonal::seas(UKgas, series.period = 4, arima.model = "(0 1 1)(0 1 1)", 
-#'                   x11="", transform.function = "log", forecast.maxlead=20, 
-#'                   slidingspans = "", check.print = c( "pacf", "pacfplot" ))
+#' ukgas_seas <-
+#'    seasonal::seas(UKgas, 
+#'       series.period = 4, 
+#'       transform.function = "log", 
+#'       arima.model = "(0 1 1)(0 1 1)", 
+#'       forecast.maxlead = 20,
+#'       check.print = c( "pacf", "pacfplot" ),
+#'       x11 = "")
 #' ukgas_sa <- seasonal::final(ukgas_seas)
 #' \dontrun{save_series(ukgas_sa, 'ukgas_sa.txt')}
 #' @import stats
 #' @import utils
+#' @importFrom Rdpack reprompt
 #' @export
 save_series <- function(this_series = NULL, this_file = NULL) {
-    # Author: Brian C. Monsell (OEUS), Version 1.2, 5/25/2023
+    # Author: Brian C. Monsell (OEUS), Version 2.0, 2026-03-03
     
     # check if a value is specified for \code{this_series}
     if (is.null(this_series)) {

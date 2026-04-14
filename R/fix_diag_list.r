@@ -1,8 +1,8 @@
 #' Fix Diagnostic List
 #'
-#' Fix an incomplete diagnostic list by filling in missing elements with NAs
+#' Fix an incomplete diagnostic list by filling in missing elements with NAs.
 #'
-#' Version 1.6, 5/25/2023
+#' Version 1.7, 2026-02-24
 #'
 #' @param this_test list object of a seasonal adjustment or modeling diagnostic
 #'        This is a required entry.
@@ -35,6 +35,7 @@
 #'      try(mq_test(x, return_this = 'both')))
 #' test_names <- names(xt_data_new)
 #' num_names <- length(test_names)
+#'
 #' if (!is.null(xt_test_m7)) {
 #'     if (length(xt_test_m7) < num_names) {
 #'       xt_test_m7 <- 
@@ -42,8 +43,11 @@
 #'     }
 #' }
 #' @export
-fix_diag_list <- function(this_test = NULL, this_names = NULL, return_this = "both") {
-    # Author: Brian C. Monsell (OEUS) Version 1.6, 5/25/2023
+fix_diag_list <- 
+   function(this_test = NULL, 
+            this_names = NULL, 
+            return_this = "both") {
+    # Author: Brian C. Monsell (OEUS) Version 1.7, 2026-02-24
 
     # check if a value is specified for \code{this_test}
     if (is.null(this_test)) {

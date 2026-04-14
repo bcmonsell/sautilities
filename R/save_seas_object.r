@@ -1,50 +1,72 @@
 #' Save seas objects
 #'
-#' Stores \code{seas} command to reproduce the \code{seas} object \code{seas_obj} 
-#' into the file \code{file_name.r}.
+#' Saves the \code{seas} command to reproduce the \code{seas} object \code{seas_obj} 
+#' into the file \code{file_name.r}. More information on the \code{seasonal} package 
+#' can be found at \insertCite{seasonal2018;textual}{sautilities}.
 #'
-#' Version 9.5, 5/14/2024
+#' Version 10.1, 2026-03-05
 #'
-#' @param seas_obj seasonal object. This is a required entry.
-#' @param file_name character string; file name where \code{seas} object is stored; 
-#'        default is the name of the seasonal object.
-#' @param series_name character string; name of time series object used by the \code{seas} object; 
-#'        default is the name of the seasonal object.
-#' @param data_list character string; name of the list object that holds data; there is no default.
-#' @param list_element character string; name of the list element used as data; 
-#'        default is the name of the seasonal object.
-#' @param user_reg character string; name of a time series matrix containing user defined 
-#'        regressors; there is no default. 
-#'        If not set, will set variables related to user defined regressors to \code{NULL} 
-#'        in the static version of the \code{seas} object.
-#' @param this_window logical indicator variable; determines if a span of the original series 
-#         will be used in the analysis using the \code{window()} function.
+#' @param seas_obj \code{seas} object. This is a required entry.
+#' @param file_name character string; file name where \code{seas} object is stored.
+#'        Default is the name of the seasonal object.
+#' @param series_name character string; name of time series object used by the 
+#'        \code{seas} object. default is the name of the seasonal object.
+#' @param data_list character string; name of the list object that holds data. 
+#         There is no default.
+#' @param list_element character string; name of the list element used as data. 
+#'        Default is the name of the seasonal object.
+#' @param user_reg character string; name of a time series matrix containing 
+#'        user defined regressors. There is no default. 
+#'        If not set, will set variables related to user defined regressors to  
+#'        \code{NULL} in the static version of the \code{seas} object.
+#' @param this_window logical indicator variable; determines if a span of the  
+#         original series will be used in the analysis using the base R 
+#'        \code{window()} function. 
 #'        If \code{FALSE}, the entire series will be used in the saved file.
-#' @param this_directory character string; optional directory where the spec file is stored.
+#' @param this_directory character string; optional directory where the spec 
+#'        file is stored.
 #' @param this_sep character string; separator between elements of the file name. 
 #'        Default is \code{"_"}.
-#' @param print_out logical indicator variable; determines if an \code{out()} function is 
-#'        printed at the end of the script. If \code{FALSE}, the \code{out()} function is commented out.
-#'        Default is \code{FALSE}.
-#' @return stores the \code{seas} command to reproduce the \code{seas} object 
+#' @param print_out logical indicator variable; determines if a call to the 
+#'        \code{out()} function of the \code{seasonal} package is put
+#'        at the end of the script. If \code{FALSE}, the \code{out()} function 
+#'        is commented out. Default is \code{FALSE}.
+#' @return Stores the \code{seas} command to reproduce the \code{seas} object 
 #'         \code{seas_obj} into the file \code{file_name.r} - 
 #'         if \code{file_name} is not specified, the name of the seasonal object will be used 
 #'         to form the output file name.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
+#' @references
+#'  \insertAllCited{}
+#'
 #' @examples
 #' ukgas_seas <-
-#'    seasonal::seas(UKgas, series.period = 4, arima.model = "(0 1 1)(0 1 1)",
-#'                   x11 = "", transform.function = "log", forecast.maxlead = 20,
-#'                   check.print = c( "pacf", "pacfplot" ))
-#' \dontrun{save_seas_object(ukgas_seas, file_name = "ukgas_seas", series_name = "ukgas",
-#'                  print_out = TRUE)}
+#'    seasonal::seas(UKgas, 
+#'       series.period = 4, 
+#'       transform.function = "log", 
+#'       arima.model = "(0 1 1)(0 1 1)", 
+#'       forecast.maxlead = 20,
+#'       check.print = c( "pacf", "pacfplot" ),
+#'       x11 = "")
+#' \dontrun{save_seas_object(ukgas_seas, 
+#'             file_name = "ukgas_seas", series_name = "ukgas",
+#'             print_out = TRUE)}
+#' @importFrom Rdpack reprompt
 #' @export
-save_seas_object <- function(seas_obj = NULL, file_name = NULL, series_name = NULL, 
-    data_list = NULL, list_element = NULL, user_reg = NULL, this_window = FALSE, 
-    this_directory = NULL, this_sep = "_", print_out = FALSE) {
-    # Author: Brian C. Monsell (OEUS) Version 9.5, 5/14/2024
+save_seas_object <- 
+   function(seas_obj = NULL, 
+      file_name = NULL, 
+      series_name = NULL, 
+      data_list = NULL, 
+      list_element = NULL, 
+      user_reg = NULL, 
+      this_window = FALSE, 
+      this_directory = NULL, 
+      this_sep = "_", 
+      print_out = FALSE) {
+    # Author: Brian C. Monsell (OEUS) Version 10.1, 2026-03-05
 
     # check if a value is specified for \code{seas_obj}
     if (is.null(seas_obj)) {

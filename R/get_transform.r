@@ -2,20 +2,29 @@
 #'
 #' Get transformation from the \code{seas} object of a single time series
 #'
-#' Version 1.10, 5/15/2024
+#' Version 2.0, 2026-02-25
 #'
-#' @param seas_obj \code{seas} object generated from a call of \code{seas} on a single time series 
+#' @param seas_obj A \code{seas} object for a single series generated from the 
+#'        \code{seasonal} package \insertCite{seasonal2018}{sautilities}. 
 #'        This is a required entry.
-#' @return Character string with transformation used to model time series in \code{seas} run
+#' @return Character string with transformation used to model time series in 
+#'         \code{seas} run
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
+#' @references
+#'  \insertAllCited{}
+#'
 #' @examples
-#' air_seas <- seasonal::seas(AirPassengers, arima.model = "(0 1 1)(0 1 1)", x11="")
+#' air_seas <- 
+#'    seasonal::seas(AirPassengers, 
+#'                   arima.model = "(0 1 1)(0 1 1)", 
+#'                   x11="")
 #' air_trans <- get_transform(air_seas)
+#' @importFrom Rdpack reprompt
 #' @export
 get_transform <- function(seas_obj = NULL) {
-    # Author: Brian C. Monsell (OEUS) Version 1.10, 5/15/2024
+    # Author: Brian C. Monsell (OEUS) Version 2.0, 2026-02-25
     
     # check if a value is specified for \code{seas_obj}
     if (is.null(seas_obj)) {

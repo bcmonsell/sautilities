@@ -15,16 +15,23 @@ Default is 121.}
 \item{freq}{integer scalar; frequency of the time series; default is 12 (monthly).}
 }
 \value{
-List of critical values for each seasonal frequency for the 95th and 99th percentile.
+List of critical values for each seasonal frequency for the
+95th and 99th percentile.
 }
 \description{
-Generate critical values for AR(30) spectrum as in Maravall (2012).
+Generate critical values for AR(30) spectrum as in
+\insertCite{Maravall2012;textual}{sautilities}.
+For more information on the AR(30) specrum, see
+Section 6.1.2 of \insertCite{Census2025;textual}{sautilities}.
 }
 \details{
-Version 1.5, 5/25/2023
+Version 2.1, 2026-03-06
 }
 \examples{
 ar30_spec_cv <- gen_ar_spec_cv(1000, 97, 12)
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

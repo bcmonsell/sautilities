@@ -4,7 +4,12 @@
 \alias{import_est}
 \title{Import regCMPNT estimates file}
 \usage{
-import_est(file_name = NULL, column_name = NULL, return_matrix = TRUE)
+import_est(
+  file_name = NULL,
+  column_name = c("Unscaled_Stochastic", "Scale_Factors", "Scaled_Stochastic",
+    "Regression_Effects", "Combined_Estimate"),
+  return_matrix = TRUE
+)
 }
 \arguments{
 \item{file_name}{Character string; file name for regCMPNT estimate file.
@@ -16,7 +21,7 @@ Default is \code{c("Unscaled_Stochastic", "Scale_Factors", "Scaled_Stochastic",
        "Regression_Effects", "Combined_Estimate")}.}
 
 \item{return_matrix}{Logical scalar; determines if a matrix or data frame object is returned.
-Default is \code{TRUE}.}
+Default is \code{TRUE}, a \code{ts} matrix object will be returned.}
 }
 \value{
 A \code{ts} matrix object or a data frame of \code{ts} objects which contains
@@ -25,9 +30,10 @@ The file name for the for the component file has an \code{.est} file extension.
 }
 \description{
 Reads in an estimated component from a file saved by regCMPNT
+\insertCite{Bell2011}{sautilities}.
 }
 \details{
-Version 1.2, 12/12/2024
+Version 2.0, 2026-02-25
 }
 \examples{
 \dontrun{
@@ -36,6 +42,9 @@ n3000019_seasonal_df      <- import_est("n300019_rev2_comp02.est", return_matrix
 n3000019_irregular_df     <- import_est("n300019_rev2_comp03.est", return_matrix = FALSE)
 n3000019_samplingerror_df <- import_est("n300019_rev2_comp04.est", return_matrix = FALSE)
 }
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

@@ -1,30 +1,61 @@
 #' Generate level change regression variable as a \code{ts} object
 #'
 #' Generates a \code{ts} object for a AO (point) outlier regressor.
+#' For more information on AO outliers, see Sections 4.3 and 7.11 of 
+#' \insertCite{Census2025;textual}{sautilities}.
 #'
-#' Version 1.7, 5/23/2023
+#' Version 2.0, 2026-02-24
 #'
 #' @param ao_date Integer vector of length two - dates for AO outlier to be generated.
+#'        This is a required entry.
 #' @param this_start Numeric vector; start date of AO outlier regressor generated.
+#'        This is a required entry.
 #' @param this_end Numeric vector; end date of AO outlier regressor generated.
+#'        This is a required entry.
 #' @param this_freq Numeric scalar; frequency of time series. 
 #'        Default: \code{12}, for a monthly series.
-#' @param return_matrix Logical scalar; If true, the object returned is a one column time series matrix object. 
+#' @param return_matrix Logical scalar; If true, the object returned is a one column 
+#'        time series matrix object. 
 #'        Default: \code{TRUE}
 #' @return A \code{ts} object of a point outlier regressor.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
+#' @references
+#'  \insertAllCited{}
+#'
 #' @examples
 #' UKgas_ao_date <- c(1970, 2)
 #' UKgas_ao_1970_2 <-
-#'    gen_ao_outlier_ts(UKgas_ao_date, this_start = c(1960, 1), this_end = c(1990, 4), 
+#'    gen_ao_outlier_ts(UKgas_ao_date, 
+#'                      this_start = c(1960, 1), 
+#'                      this_end = c(1990, 4), 
 #'                      this_freq = 4)
 #' @import stats
+#' @importFrom Rdpack reprompt
 #' @export
-gen_ao_outlier_ts <- function(ao_date, this_start, this_end, this_freq = 12, return_matrix = TRUE) {
-    # Author: Brian C. Monsell (OEUS), Version 1.7, 5/23/2023
+gen_ao_outlier_ts <- 
+   function(ao_date = NULL, 
+            this_start = NULL, 
+			this_end = NULL, 
+			this_freq = 12, 
+			return_matrix = TRUE) {
+    # Author: Brian C. Monsell (OEUS), Version 2.0, 2026-02-24
+	
+    # check if a value is specified for \code{ao_date}, \code{this_start}, 
+    # and \code{this_end}
+	if (is.null(ao_date)) {
+        stop("must specify the date of the AO outlier")
+	}
     
+	if (is.null(this_start)) {
+        stop("must specify the starting date of the AO outlier regressor")
+	}
+
+	if (is.null(this_end)) {
+        stop("must specify the ending date of the AO outlier regressor")
+	}
+
     # Set number of outliers, length of outlier regressors
     this_ao_outlier <- ts(0, start = this_start, end = this_end, frequency = this_freq)
     this_tsp <- tsp(this_ao_outlier)

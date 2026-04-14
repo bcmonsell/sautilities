@@ -2,7 +2,7 @@
 #'
 #' Process name of outlier regressor to extract the dates associated with the outlier.
 #'
-#' Version 2.1, 5/2/2024
+#' Version 2.2, 2026-02-26
 #'
 #' @param this_outlier Character string; outlier regressor.
 #'        This is a required entry.
@@ -16,15 +16,19 @@
 #'
 #' @examples
 #' air_seas <- 
-#'    seasonal::seas(AirPassengers, x11="", slidingspans = "", 
-#'                      transform.function = "log", arima.model = "(0 1 1)(0 1 1)", 
-#'                      regression.aictest = 'td', forecast.maxlead=36, 
-#'                      check.print = c( "pacf", "pacfplot" ))
+#'    seasonal::seas(AirPassengers, 
+#'       transform.function = "log", 
+#'       arima.model = "(0 1 1)(0 1 1)", 
+#'       regression.aictest = 'td', 
+#'       forecast.maxlead=36, 
+#'       check.print = c( "pacf", "pacfplot" ), 
+#'       x11="", 
+#'       slidingspans = "",)
 #' this_auto_outlier <- get_auto_outlier_string(air_seas)
 #' this_outlier      <- proc_outlier(this_auto_outlier)
 #' @export
 proc_outlier <- function(this_outlier = NULL, this_freq = 12, add_type = TRUE) {
-    # Author: Brian C. Monsell (OEUS) Version 2.1, 5/2/2024
+    # Author: Brian C. Monsell (OEUS) Version 2.2, 2026-02-26
     
     # check if a value is specified for \code{this_outlier}
     if (is.null(this_outlier)) {

@@ -11,7 +11,8 @@ get_regarima_estimates_matrix(
 )
 }
 \arguments{
-\item{seas_obj}{\code{seas} object generated from a call of \code{seas} on a single time series
+\item{seas_obj}{A seas object for a single series generated from the
+\code{seasonal} package \insertCite{seasonal2018}{sautilities}.
 This is a required entry.}
 
 \item{add_diff}{logical scalar; add differencing information, if included in model}
@@ -23,20 +24,27 @@ if not, a warning message will be produced.}
 }
 \value{
 A matrix of regARIMA model coefficients, standard errors, and t-statistics
-for a given series
+for a given series.
 }
 \description{
-Generate a summary of coefficients from a regARIMA model for a single series
+Generate a summary of coefficients from a regARIMA model for a single series.
 }
 \details{
-Version 2.5, 5/14/2024
+Version 3.0, 2026-02-25
 }
 \examples{
-air_seas <- seasonal::seas(AirPassengers, x11="", slidingspans = "", 
-                           transform.function = "log", arima.model = "(0 1 1)(0 1 1)", 
-                           regression.aictest = 'td', forecast.maxlead=36, 
-                           check.print = c( "pacf", "pacfplot" ))
+air_seas <- 
+   seasonal::seas(AirPassengers, 
+                  transform.function = "log", 
+                  arima.model = "(0 1 1)(0 1 1)", 
+                  forecast.maxlead=36, 
+                  regression.aictest = 'td', 
+                  check.print = c( "pacf", "pacfplot" ), 
+                  x11 = "", slidingspans = "")
 air_regarima_matrix <- get_regarima_estimates_matrix(air_seas)
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

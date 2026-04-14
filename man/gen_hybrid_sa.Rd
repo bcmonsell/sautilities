@@ -25,14 +25,15 @@ adjustments replace multiplicative adjustment. This is a required entry.}
 replace multiplicative adjustment. This is a required entry.}
 }
 \value{
-time series object with hybrid seasonal adjustment.
+Time series object with hybrid seasonal adjustment.
 }
 \description{
 Generates a "hybrid" seasonal adjustment by replacing a span of a multiplicative seasonal
-adjustment with an additive adjustment.
+adjustment with an additive adjustment. For more information on the need for hybrid seasonal'
+adjustment, see \insertCite{Monsell2021;textual}{sautilities}.
 }
 \details{
-Version 2.2, 5/25/2023
+Version 3.0, 2026-02-25
 }
 \examples{
 air_mult_seas <- seasonal::seas(AirPassengers, transform.function = "log")
@@ -40,6 +41,9 @@ air_mult_sa   <- seasonal::final(air_mult_seas)
 air_add_seas  <- seasonal::seas(AirPassengers, transform.function = "none")
 air_add_sa    <- seasonal::final(air_add_seas)
 air_hybrid_sa <- gen_hybrid_sa(air_mult_sa, air_add_sa, c(1956,1), c(1956,12))
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

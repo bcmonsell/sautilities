@@ -17,13 +17,17 @@ several different elements specified by the user: diagnostics, matrices, spectru
 timeseries
 }
 \description{
-Generates a list of X-13 tables that can be extracted with the \code{seasonal} package.
+Generates a list of X-13 tables that can be extracted with the \code{seasonal} package
+\insertCite{seasonal2018}{sautilities}.
 }
 \details{
 Version 2.4, 05/24/2023
 }
 \examples{
 x13_tables_all <- gen_x13_table_list()
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

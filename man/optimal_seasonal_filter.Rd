@@ -19,15 +19,17 @@ optimal_seasonal_filter(
 )
 }
 \arguments{
-\item{this_series}{A time series object. This is a required entry.}
+\item{this_series}{A time series object.
+This is a required entry.}
 
-\item{aictest}{a character string with the entries for the \code{regression.aictest} argument
-to the \code{seas} function from the \code{seasonal} package.
+\item{aictest}{a character string with the entries for the \code{regression.aictest}
+argument to the \code{seas} function from the \code{seasonal} package.
 Default is \code{NULL}, AIC testing not done.}
 
-\item{model}{a character string with the entry for the \code{arima.model} argument to the
-\code{seas} function from the \code{seasonal} package.
-Default is \code{"(0 1 1)(0 1 1)"}. Model should have a \code{(0 1 1)} seasonal term.}
+\item{model}{a character string with the entry for the \code{arima.model} argument
+to the \code{seas} function from the \code{seasonal} package.
+Default is \code{"(0 1 1)(0 1 1)"}. Model should have a \code{(0 1 1)}
+seasonal term.}
 
 \item{variables}{a character string with the entries for the \code{regression.variables}
 argument to the \code{seas} function from the \code{seasonal} package.
@@ -41,41 +43,52 @@ Default is \code{TRUE}.}
 \code{transform.function} argument to the \code{seas} function.
 Default is \code{NULL}, and the entry \code{auto} will be used.}
 
-\item{missing_code}{numeric scalar, a number with the entry for the \code{series.missingcode}
-argument to the \code{seas} function.
+\item{missing_code}{numeric scalar, a number with the entry for the
+\code{series.missingcode} argument to the \code{seas} function.
 Default is \code{NULL}, no missing value code is used.}
 
 \item{this_xreg}{numeric matrix, a user defined regressor matrix to be used in the model
 estimation. Default is \code{NULL}, no user-defined regressors are used.}
 
-\item{dp_limits}{logical scalar, if \code{TRUE} limits from Deputot and Planas will be used
-to choose the moving average, else limits from Bell Chow and Chu will be used.
+\item{dp_limits}{logical scalar, if \code{TRUE} limits from
+\insertCite{PlanasDepoutot2002;textual}{sautilities} will be used
+to choose the moving average, else limits from
+\insertCite{ChuTiaoBell2012;textual}{sautilities} will be used.
 Default is \code{TRUE}.}
 
-\item{use_msr}{logical scalar, if \code{TRUE} result of MSR selection will be used if model cannot
-be estimated, otherwise function will return a \code{NULL} value.
+\item{use_msr}{logical scalar, if \code{TRUE} result of MSR selection will be used if
+model cannot be estimated, otherwise function will return a \code{NULL} value.
 Default is \code{FALSE}.}
 
-\item{use_3x15}{logical scalar, if \code{TRUE} 3x15 seasonal filter will be returned if chosen,
-otherwise function will return a \code{3x9} value.
+\item{use_3x15}{logical scalar, if \code{TRUE} 3x15 seasonal filter will be returned
+if chosen, otherwise function will return a \code{3x9} value.
 Default is \code{TRUE}.}
 }
 \value{
 The optimal X-11 seasonal filter, unless the airline model cannot be estimated.
 }
 \description{
-Determine the optimal X-11 seasonal moving average based on the value of the seasonal moving
-average coefficient from an airline model.
+Determine the optimal X-11 seasonal moving average based on the value of the
+seasonal moving average coefficient from an airline model. For more information
+about X-13ARIMA-SEATS and \code{seasonal} package input,
+\insertCite{@see @Census2025, and @seasonal2018;textual}{sautilities}.
 }
 \details{
-Version 4.3, 5/25/2023
+Version 5.1, 2026-03-05
 }
 \examples{
 this_seasonal  <- 
-   optimal_seasonal_filter(shoes2008, aictest = c("td", "easter"), use_msr = TRUE)
+   optimal_seasonal_filter(shoes2008, 
+      aictest = c("td", "easter"), 
+      use_msr = TRUE)
 this_seasonal2 <- 
-   optimal_seasonal_filter(shoes2008, aictest = c("td", "easter"), dp_limits = FALSE, 
-                           use_msr = TRUE)
+   optimal_seasonal_filter(shoes2008, 
+      aictest = c("td", "easter"), 
+      dp_limits = FALSE, 
+      use_msr = TRUE)
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

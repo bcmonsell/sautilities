@@ -12,7 +12,8 @@ get_nonseasonal_theta(
 )
 }
 \arguments{
-\item{seas_obj}{A seas object for a single series generated from the \code{seasonal} package.
+\item{seas_obj}{A seas object for a single series generated from the
+\code{seasonal} package \insertCite{seasonal2018}{sautilities}.
 This is a required entry.}
 
 \item{this_index}{An integer scalar, an index of the vector values to be passed.
@@ -21,29 +22,36 @@ Acceptable values are \code{1} (nonseasonal MA coefficient value),
 \code{3} (t-value of the nonseasonal MA coefficient).
 Default is \code{1}.}
 
-\item{return_string}{A Logical scalar; indicates whether value returned is a string or numeric.
-Default is \code{TRUE}.}
+\item{return_string}{A Logical scalar; indicates whether value returned is a string
+or numeric. Default is \code{TRUE}.}
 
-\item{significant_digits}{an integer scalar; significant digits to be saved when a string
-is returned. Default is \code{3}.}
+\item{significant_digits}{an integer scalar; significant digits to be saved when
+a string is returned. Default is \code{3}.}
 }
 \value{
-Character string containing a value related to the seasonal MA coefficient from the
-regARIMA model fit in the \code{seas} object \code{seas_obj}.
+Character string containing a value related to the seasonal MA coefficient
+from the regARIMA model fit in the \code{seas} object \code{seas_obj}.
 If \code{return_string} is \code{FALSE}, this is a numeric.
-The standard error or t-value of the seasonal MA coefficient can be returned depending
-on the value of \code{this_index}.
+The standard error or t-value of the seasonal MA coefficient can be returned
+depending on the value of \code{this_index}.
 }
 \description{
 Get the value of a nonseasonal moving average coefficient estimated from an airline model.
 }
 \details{
-Version 1.10, May 14, 2024
+Version 2.0, 2026-02-25
 }
 \examples{
-air_seas <- seasonal::seas(AirPassengers, transform.function = "log", 
-                           arima.model = "(0 1 1)(0 1 1)", x11="")
-this_nonseasonal_theta <- get_nonseasonal_theta(air_seas, return_string = FALSE)
+air_seas <- 
+   seasonal::seas(AirPassengers, 
+                  transform.function = "log", 
+                  arima.model = "(0 1 1)(0 1 1)", 
+                  x11="")
+this_nonseasonal_theta <- 
+   get_nonseasonal_theta(air_seas, return_string = FALSE)
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

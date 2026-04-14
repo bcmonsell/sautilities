@@ -1,26 +1,28 @@
 #' Subspan time series
 #'
-#' Generate subspan of time series
+#' Generate subspan of time series.
 #'
-#' Version 2.3, 5/25/2023
+#' Version 2.3, 2023-05-25
 #'
-#' @param X Time Series object.
+#' @param X Time Series (ts) object.
 #'        This is a required entry.
 #' @param plot_start Integer vector of length 2; Starting date for plot. 
 #'        Default is starting date for the time series. 
 #' @param plot_end Integer vector of length 2; Starting date for plot. 
 #'        Default is ending date for the time series. 
-#' @return generate subspan of time series \code{X} specified by \code{plot_start} and 
-#'         \code{plot_end}.
+#' @return Generate subspan of time series \code{X} specified by  
+#'         \code{plot_start} and \code{plot_end}.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
 #' @examples
-#' air50 <- get_window(AirPassengers, plot_start = c(1950,1), plot_end = c(1959,12))
+#' air50 <- 
+#'    get_window(AirPassengers, plot_start = c(1950,1), plot_end = c(1959,12))
 #' @import stats
 #' @export
-get_window <- function(X = NULL, plot_start = NULL, plot_end = NULL) {
-    # Author: Brian C. Monsell (OEUS) Version 2.3, 5/25/2023
+get_window <- 
+   function(X = NULL, plot_start = NULL, plot_end = NULL) {
+    # Author: Brian C. Monsell (OEUS) Version 2.3, 2023-05-25
     
     # check if a value is specified for \code{X}
     if (is.null(X)) {
@@ -37,7 +39,6 @@ get_window <- function(X = NULL, plot_start = NULL, plot_end = NULL) {
         }
     } else {
         if (is.null(plot_end)) {
-            11
             # if only \code{plot_end} is NULL, generate \code{X} with new starting date
             X <- window(X, start = plot_start)
         } else {

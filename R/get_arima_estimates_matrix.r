@@ -2,24 +2,35 @@
 #'
 #' Generate a summary of ARMA coefficients for a single series.
 #'
-#' Version 3.2, 5/14/2024
+#' Version 4.0, 2026-02-25
 #'
-#' @param seas_obj \code{seas} object generated from a call of \code{seas} on a single time series. 
+#' @param seas_obj A \code{seas} object for a single series generated from the 
+#'        \code{seasonal} package \insertCite{seasonal2018}{sautilities}. 
 #'        This is a required entry.
 #' @param add_diff logical scalar; add differencing information, if included in model
 #' @return matrix of ARMA coefficients, standard errors, and t-statistics for a given series
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
+#' @references
+#'  \insertAllCited{}
+#'
 #' @examples
 #' air_seas <- 
-#'    seasonal::seas(AirPassengers, x11="", slidingspans = "", transform.function = "log",
-#'                         arima.model = "(0 1 1)(0 1 1)", regression.aictest = 'td', 
-#'                         forecast.maxlead=36, check.print = c( "pacf", "pacfplot" ))
-#' air_arima_matrix <- get_arima_estimates_matrix(air_seas, add_diff = TRUE)
+#'    seasonal::seas(AirPassengers, 
+#'                   transform.function = "log",
+#'                   arima.model = "(0 1 1)(0 1 1)", 
+#'                   regression.aictest = 'td', 
+#'                   check.print = c( "pacf", "pacfplot" ),
+#'                   forecast.maxlead=36, 
+#'                   x11="", 
+#'                   slidingspans = "")
+#' air_arima_matrix <- 
+#'    get_arima_estimates_matrix(air_seas, add_diff = TRUE)
+#' @importFrom Rdpack reprompt
 #' @export
 get_arima_estimates_matrix <- function(seas_obj = NULL, add_diff = FALSE) {
-    # Author: Brian C. Monsell (OEUS) Version 3.2, 5/14/2024
+    # Author: Brian C. Monsell (OEUS) Version 4.0, 2026-02-25
     
     # check if a value is specified for \code{seas_obj}
     if (is.null(seas_obj)) {

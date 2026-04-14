@@ -18,13 +18,13 @@ This is a required entry.}
 \item{lbq_lags_fail}{Lags of the ACF to test.
 Default is \code{c(12, 24)}.}
 
-\item{p_limit}{\itemize{
-\item numeric limit for the p-value of the Ljung-Box Q.
-Default is \code{0.01}.
-}}
+\item{p_limit}{Numeric limit for the p-value of the Ljung-Box Q.
+Default is \code{0.01}.}
 
-\item{return_both}{Logical scalar indicating whether the calling function will return both the
-test results and why the test failed or just produce a warning. Default is \code{FALSE}.}
+\item{return_both}{Logical scalar indicating whether the calling function
+will return both the test results and why the test failed or just
+produce a warning.
+Default is \code{FALSE}.}
 }
 \value{
 character object tells why series fails the Ljung-Box Q test, \code{'pass'} otherwise.
@@ -34,17 +34,26 @@ Ljung-Box Q Test Failure Message
 }
 \details{
 Generates text on why the sample autocorrelation of the residuals from a time series model
-fails the Ljung-Box Q test
+fails the Ljung-Box Q test \insertCite{LjungBox78}{sautilities}.
 
-Version 1.11, 9/20/2023
+Version 2.2, 2026-03-09
 }
 \examples{
-ukgas_seas <- seasonal::seas(UKgas, series.period = 4, arima.model = "(0 1 1)(0 1 1)", 
-                             x11="", transform.function = "log", forecast.maxlead=20,
-                             check.maxlag = 12, check.save = 'acf')
-ukgas_acf <- ukgas_seas$series$acf
-ukgas_lbq_fail_why <- lbq_fail_why(ukgas_acf, lbq_lags_fail = c(4, 8), 
-                                   return_both = TRUE)
+ukgas_seas <- 
+     seasonal::seas(UKgas, 
+        series.period = 4, 
+        arima.model = "(0 1 1)(0 1 1)", 
+        x11="", 
+        transform.function = "log", 
+        forecast.maxlead=20,
+        check.print = c( "pacf", "pacfplot" ))
+ukgas_acf <- seasonal::series(ukgas_seas, "acf")
+ukgas_lbq_fail_why <- 
+   lbq_fail_why(ukgas_acf, lbq_lags_fail = c(4, 8), 
+                return_both = TRUE)
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

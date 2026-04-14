@@ -2,25 +2,36 @@
 #'
 #' Generate a summary of regression coefficients for a single series 
 #'
-#' Version 3.4, 5/14/2024
+#' Version 3.4, 2024-05-14
 #'
-#' @param seas_obj \code{seas} object generated from a call of \code{seas} on a single time series 
+#' @param seas_obj A seas object for a single series generated from the 
+#'        \code{seasonal} package \insertCite{seasonal2018}{sautilities}.
 #'        This is a required entry.
 #' @param this_xreg_names Character array; name of user defined regressors.  
 #'        Default is \code{NULL}, no user defined regressors.
-#' @return matrix of regression coefficients, standard errors, and t-statistics for a given series
+#' @return matrix of regression coefficients, standard errors, and 
+#'         t-statistics for a given series
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
+#' @references
+#'  \insertAllCited{}
+#'
 #' @examples
-#' air_seas <- seasonal::seas(AirPassengers, x11="", slidingspans = "", 
-#'                            transform.function = "log", arima.model = "(0 1 1)(0 1 1)", 
-#'                            regression.aictest = 'td', forecast.maxlead=36, 
-#'                            check.print = c( "pacf", "pacfplot" ))
+#' air_seas <- 
+#'    seasonal::seas(AirPassengers, 
+#'                   transform.function = "log", 
+#'                   arima.model = "(0 1 1)(0 1 1)", 
+#'                   forecast.maxlead=36, 
+#'                   regression.aictest = 'td', 
+#'                   check.print = c( "pacf", "pacfplot" ), 
+#'                   x11 = "", slidingspans = "")
 #' air_reg_matrix <- get_regression_estimates_matrix(air_seas)
+#' @importFrom Rdpack reprompt
 #' @export
-get_regression_estimates_matrix <- function(seas_obj = NULL, this_xreg_names = NULL) {
-    # Author: Brian C. Monsell (OEUS) Version 3.4, 5/14/2024
+get_regression_estimates_matrix <- 
+   function(seas_obj = NULL, this_xreg_names = NULL) {
+    # Author: Brian C. Monsell (OEUS) Version 3.4, 2024-05-14
     
     # check if a value is specified for \code{seas_obj}
     if (is.null(seas_obj)) {

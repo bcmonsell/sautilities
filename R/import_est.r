@@ -1,8 +1,9 @@
 #' Import regCMPNT estimates file
 #'
 #' Reads in an estimated component from a file saved by regCMPNT
+#' \insertCite{Bell2011}{sautilities}.
 #'
-#' Version 1.2, 12/12/2024
+#' Version 2.0, 2026-02-25
 #'
 #' @param file_name Character string; file name for regCMPNT estimate file.
 #'        This is a required entry
@@ -11,12 +12,15 @@
 #'        Default is \code{c("Unscaled_Stochastic", "Scale_Factors", "Scaled_Stochastic", 
 #'        "Regression_Effects", "Combined_Estimate")}.
 #' @param return_matrix Logical scalar; determines if a matrix or data frame object is returned.
-#'        Default is \code{TRUE}.
+#'        Default is \code{TRUE}, a \code{ts} matrix object will be returned.
 #' @return A \code{ts} matrix object or a data frame of \code{ts} objects which contains 
 #'         the contents of the estimates for a given component from a regCMPNT run. 
 #'         The file name for the for the component file has an \code{.est} file extension.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
+#'
+#' @references
+#'  \insertAllCited{}
 #'
 #' @examples
 #' \dontrun{
@@ -25,24 +29,23 @@
 #' n3000019_irregular_df     <- import_est("n300019_rev2_comp03.est", return_matrix = FALSE)
 #' n3000019_samplingerror_df <- import_est("n300019_rev2_comp04.est", return_matrix = FALSE)
 #' }
+#' @importFrom Rdpack reprompt
 #' @export
 import_est <- 
 	function(file_name = NULL,
-             column_name = NULL,
+             column_name = c("Unscaled_Stochastic", 
+			                 "Scale_Factors", 
+			                 "Scaled_Stochastic", 
+			                 "Regression_Effects", 
+			                 "Combined_Estimate"),
 			 return_matrix = TRUE) {
-    # Author: Brian C. Monsell (OEUS) Version 1.2, 12/12/2024
+    # Author: Brian C. Monsell (OEUS) Version 2.0, 2026-02-25
 	if (is.null(file_name)) {
 		stop("Must specify valid file name in first argument")
 	}
 	
-	if (is.null(column_name)) {
-		column_name <- 
-			c("Unscaled_Stochastic", "Scale_Factors", "Scaled_Stochastic", 
-			  "Regression_Effects", "Combined_Estimate")
-	} else {
-		if (length(column_name) != 5) {
-			stop("Must specify exactly 5 column names.")
-		}
+    if (length(column_name) != 5) {
+        stop("Must specify exactly 5 column names.")
 	}
 	
 	this_table <- read.table(file_name)

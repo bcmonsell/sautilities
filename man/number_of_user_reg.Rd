@@ -7,25 +7,34 @@
 number_of_user_reg(seas_obj = NULL)
 }
 \arguments{
-\item{seas_obj}{\code{seas} object generated from a call of \code{seas}
-on a single time series. A required argument.}
+\item{seas_obj}{A \code{seas} object for a single series generated from the
+\code{seasonal} package \insertCite{seasonal2018}{sautilities}.
+This is a required entry.}
 }
 \value{
-number of user defined regressors in the model contained in seas_obj
+number of user defined regressors in the model contained in \code{seas_obj}.
 }
 \description{
 Extreact the number of user-defined regressors in a \code{seas} objects series.
 }
 \details{
-Version 1.0, 5/1/2025
+Version 2.0, 2026-02-26
 }
 \examples{
-air_seas <- 
-   seasonal::seas(AirPassengers, x11="", slidingspans = "", 
-                  transform.function = "log", arima.model = "(0 1 1)(0 1 1)", 
-                  regression.aictest = "td", forecast.maxlead=36, 
-                  check.print = c( "pacf", "pacfplot" ), check.save = "acf")
-air_num_user_reg <- number_of_user_reg(air_seas)
+ukgas_seas <- 
+   seasonal::seas(UKgas, 
+      series.period = 4, 
+      transform.function = "log", 
+      arima.model = "(0 1 1)(0 1 1)", 
+      forecast.maxlead = 20,
+      check.print = c( "pacf", "pacfplot" ), 
+      check.save = "acf", 
+      x11="", 
+      slidingspans = "")
+ukgas_num_user_reg <- number_of_user_reg(ukgas_seas)
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

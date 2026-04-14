@@ -9,18 +9,18 @@ update_vector(this_series = NULL, this_num = NULL)
 \arguments{
 \item{this_series}{Original time series. This is a required entry.}
 
-\item{this_num}{Length of updated series. Must be more than the length of \code{this_series}.
-This is a required entry.}
+\item{this_num}{Length of updated series. Must be more than the length of
+\code{this_series}. This is a required entry.}
 }
 \value{
-An updated vector of length \code{this_num} augmented with the first value of the
-input series.
+An updated vector of length \code{this_num} augmented with the
+first value of the input series.
 }
 \description{
 Fill unspecified elements of a vector with the first element of the input series.
 }
 \details{
-Version 2.3, 5/25/2023
+Version 2.4, 2026-03-04
 }
 \examples{
 this_vector <- c(1,2)

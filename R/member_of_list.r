@@ -2,7 +2,7 @@
 #'
 #' Determines if a name is a member of a list.
 #'
-#' Version 1.4, 5/22/2023
+#' Version 1.4, 2023-05-22
 #'
 #' @param this_list A list of objects. This is a required entry.
 #' @param this_name character string; element name of \code{this_list}.
@@ -13,12 +13,13 @@
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
 #' @examples
-#' emp_seas_list <- seasonal::seas(employment_list, 
-#'                       slidingspans = "", x11 = "",
-#'                       transform.function = "log",
-#'                       arima.model = "(0 1 1)(0 1 1)",
-#'                       forecast.maxlead=36,
-#'                       check.print = c( "pacf", "pacfplot" ))
+#' emp_seas_list <- 
+#'    seasonal::seas(employment_list, 
+#'       slidingspans = "", x11 = "",
+#'       transform.function = "log",
+#'       arima.model = "(0 1 1)(0 1 1)",
+#'       forecast.maxlead=36,
+#'       check.print = c( "pacf", "pacfplot" ))
 #' emp_seas_update <- 
 #'      Filter(function(x) inherits(x, "seas"), emp_seas_list)
 #' if (member_of_list(emp_seas_update, 'n2000014')) {
@@ -29,7 +30,7 @@
 #' }
 #' @export
 member_of_list <- function(this_list = NULL, this_name = NULL) {
-    # Author: Brian C. Monsell (OEUS) Version 1.4, 5/22/2023
+    # Author: Brian C. Monsell (OEUS) Version 1.4, 2023-05-22
 
     # check if a value is specified for \code{this_list}
     if (is.null(this_list)) {

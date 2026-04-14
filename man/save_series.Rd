@@ -17,19 +17,28 @@ This is a required entry.}
 file with user-defined regressors will be produced
 }
 \description{
-Save a user-defined regression array or matrix with time series attributes to an external ASCII file
-in X-13ARIMA-SEATS' datevalue format
+Save an R object with time series attributes (\code{ts})
+to an external ASCII file in X-13ARIMA-SEATS' \code{datevalue} format.
+For more information on the \code{datevalue} format of X-13ARIMA-SEATS,
+see \insertCite{MonsellLytrasFindley2016;textual}{sautilities}.
 }
 \details{
-Version 1.2, 5/25/2023
+Version 2.0, 2026-03-03
 }
 \examples{
-ukgas_seas <- 
-   seasonal::seas(UKgas, series.period = 4, arima.model = "(0 1 1)(0 1 1)", 
-                  x11="", transform.function = "log", forecast.maxlead=20, 
-                  slidingspans = "", check.print = c( "pacf", "pacfplot" ))
+ukgas_seas <-
+   seasonal::seas(UKgas, 
+      series.period = 4, 
+      transform.function = "log", 
+      arima.model = "(0 1 1)(0 1 1)", 
+      forecast.maxlead = 20,
+      check.print = c( "pacf", "pacfplot" ),
+      x11 = "")
 ukgas_sa <- seasonal::final(ukgas_seas)
 \dontrun{save_series(ukgas_sa, 'ukgas_sa.txt')}
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

@@ -1,6 +1,6 @@
 Package: sautilities
 Title: Seasonal Adjustment Utilities For Use With the Seasonal Package
-Version: 5.4
+Version: 6.0
 Authors@R: 
     person(given = "Brian",
            family = "Monsell",
@@ -21,10 +21,13 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 Depends: 
     R (>= 3.6)
 Imports: 
-    seasonal (>= 1.10.0),
+    lubridate,
+	Rdpack,
+	seasonal (>= 1.10.0),
     stringr,
 	stringi
+RdMacros: Rdpack

@@ -7,7 +7,8 @@
 get_arima_estimates_matrix(seas_obj = NULL, add_diff = FALSE)
 }
 \arguments{
-\item{seas_obj}{\code{seas} object generated from a call of \code{seas} on a single time series.
+\item{seas_obj}{A \code{seas} object for a single series generated from the
+\code{seasonal} package \insertCite{seasonal2018}{sautilities}.
 This is a required entry.}
 
 \item{add_diff}{logical scalar; add differencing information, if included in model}
@@ -19,14 +20,23 @@ matrix of ARMA coefficients, standard errors, and t-statistics for a given serie
 Generate a summary of ARMA coefficients for a single series.
 }
 \details{
-Version 3.2, 5/14/2024
+Version 4.0, 2026-02-25
 }
 \examples{
 air_seas <- 
-   seasonal::seas(AirPassengers, x11="", slidingspans = "", transform.function = "log",
-                        arima.model = "(0 1 1)(0 1 1)", regression.aictest = 'td', 
-                        forecast.maxlead=36, check.print = c( "pacf", "pacfplot" ))
-air_arima_matrix <- get_arima_estimates_matrix(air_seas, add_diff = TRUE)
+   seasonal::seas(AirPassengers, 
+                  transform.function = "log",
+                  arima.model = "(0 1 1)(0 1 1)", 
+                  regression.aictest = 'td', 
+                  check.print = c( "pacf", "pacfplot" ),
+                  forecast.maxlead=36, 
+                  x11="", 
+                  slidingspans = "")
+air_arima_matrix <- 
+   get_arima_estimates_matrix(air_seas, add_diff = TRUE)
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

@@ -7,7 +7,7 @@
 get_window(X = NULL, plot_start = NULL, plot_end = NULL)
 }
 \arguments{
-\item{X}{Time Series object.
+\item{X}{Time Series (ts) object.
 This is a required entry.}
 
 \item{plot_start}{Integer vector of length 2; Starting date for plot.
@@ -17,17 +17,18 @@ Default is starting date for the time series.}
 Default is ending date for the time series.}
 }
 \value{
-generate subspan of time series \code{X} specified by \code{plot_start} and
-\code{plot_end}.
+Generate subspan of time series \code{X} specified by
+\code{plot_start} and \code{plot_end}.
 }
 \description{
-Generate subspan of time series
+Generate subspan of time series.
 }
 \details{
-Version 2.3, 5/25/2023
+Version 2.3, 2023-05-25
 }
 \examples{
-air50 <- get_window(AirPassengers, plot_start = c(1950,1), plot_end = c(1959,12))
+air50 <- 
+   get_window(AirPassengers, plot_start = c(1950,1), plot_end = c(1959,12))
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

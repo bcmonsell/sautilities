@@ -16,18 +16,21 @@ Default is \code{'NA'}.}
 Default is the \code{NA} is replaced by the string in \code{replace_string}.}
 }
 \value{
-A vector with all \code{NA}s replaced by either a character string or a number.
+A vector with all \code{NA}s replaced by either a character string
+or a number.
 }
 \description{
 Replace NA in a vector with a string or number.
 }
 \details{
-Version 2.4, 5/25/2023
+Version 2.5, 2026-03-03
 }
 \examples{
 sample_vec <- c(rnorm(25), NA, rnorm(24))
-sample_vec_missing  <- replace_na(sample_vec, replace_string = 'Missing')
-sample_vec_missing_number  <- replace_na(sample_vec, replace_number = -9999)
+sample_vec_missing  <- 
+   replace_na(sample_vec, replace_string = 'Missing')
+sample_vec_missing_number  <- 
+   replace_na(sample_vec, replace_number = -9999)
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

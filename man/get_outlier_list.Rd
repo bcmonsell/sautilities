@@ -7,30 +7,39 @@
 get_outlier_list(seas_obj_list = NULL)
 }
 \arguments{
-\item{seas_obj_list}{list of \code{seas} objects generated from a call of \code{seas}
-on a single time series. A required argument.}
+\item{seas_obj_list}{List object of \code{seas} objects generated from a call
+of \code{seas} on a list consisting of individual time series.
+Information on generating adjustments of multiple time series stored in a
+list object with the \code{seasonal} package can be found in
+\insertCite{rprojectAdjustingMultiple;textual}{sautilities}.
+This is a required entry.}
 }
 \value{
-vector of model diagnostics for a given series
+vector of regARIMA model outliers for a given series.
 }
 \description{
-Generate a summary of model outliers from a list of \code{seas} objects series.
+Generate a summary of regARIMA model outliers from a list of \code{seas} objects.
+For more information on outliers, see Table 4.1 of Section 4.3 of
+\insertCite{Census2025;textual}{sautilities}.
 }
 \details{
-Version 2.3, 5/7/2024
+Version 3.1, 2026-03-06
 }
 \examples{
 unemp_seas_list <- 
    seasonal::seas(unemployment_list, slidingspans = "", 
-                  transform.function = "log", 
-                  outlier.types = "all",
-                  arima.model = "(0 1 1)(0 1 1)",
-                  forecast.maxlead=36, x11 = "",
-                  check.print = c( "pacf", "pacfplot" ))
+      transform.function = "log", 
+      outlier.types = "all",
+      arima.model = "(0 1 1)(0 1 1)",
+      forecast.maxlead=36, x11 = "",
+      check.print = c( "pacf", "pacfplot" ))
 unemp_seas_update <- 
      Filter(function(x) inherits(x, "seas"), unemp_seas_list)
 unemp_diag <- 
     get_outlier_list(unemp_seas_update)
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

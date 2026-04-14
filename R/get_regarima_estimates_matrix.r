@@ -1,10 +1,11 @@
 #' Generate summary of regARIMA model coefficients
 #'
-#' Generate a summary of coefficients from a regARIMA model for a single series 
+#' Generate a summary of coefficients from a regARIMA model for a single series.
 #'
-#' Version 2.5, 5/14/2024
+#' Version 3.0, 2026-02-25
 #'
-#' @param seas_obj \code{seas} object generated from a call of \code{seas} on a single time series 
+#' @param seas_obj A seas object for a single series generated from the 
+#'        \code{seasonal} package \insertCite{seasonal2018}{sautilities}.
 #'        This is a required entry.
 #' @param add_diff logical scalar; add differencing information, if included in model
 #' @param this_xreg_names Character array; name of user defined regressors.  
@@ -12,20 +13,30 @@
 #'        Number of names in this vector should match number of user-defined regressors; 
 #'        if not, a warning message will be produced.
 #' @return A matrix of regARIMA model coefficients, standard errors, and t-statistics 
-#'         for a given series
+#'         for a given series.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
+#' @references
+#'  \insertAllCited{}
+#'
 #' @examples
-#' air_seas <- seasonal::seas(AirPassengers, x11="", slidingspans = "", 
-#'                            transform.function = "log", arima.model = "(0 1 1)(0 1 1)", 
-#'                            regression.aictest = 'td', forecast.maxlead=36, 
-#'                            check.print = c( "pacf", "pacfplot" ))
+#' air_seas <- 
+#'    seasonal::seas(AirPassengers, 
+#'                   transform.function = "log", 
+#'                   arima.model = "(0 1 1)(0 1 1)", 
+#'                   forecast.maxlead=36, 
+#'                   regression.aictest = 'td', 
+#'                   check.print = c( "pacf", "pacfplot" ), 
+#'                   x11 = "", slidingspans = "")
 #' air_regarima_matrix <- get_regarima_estimates_matrix(air_seas)
+#' @importFrom Rdpack reprompt
 #' @export
 get_regarima_estimates_matrix <- 
-    function(seas_obj = NULL, add_diff = FALSE, this_xreg_names = NULL) {
-    # Author: Brian C. Monsell (OEUS) Version 2.5, 5/14/2024
+    function(seas_obj = NULL, 
+	         add_diff = FALSE, 
+	         this_xreg_names = NULL) {
+    # Author: Brian C. Monsell (OEUS) Version 3.0, 2026-02-25
     
     # check if a value is specified for \code{seas_obj}
     if (is.null(seas_obj)) {

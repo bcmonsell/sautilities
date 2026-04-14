@@ -28,32 +28,38 @@ all_model_diag_list(
 )
 }
 \arguments{
-\item{seas_obj_list}{list of \code{seas} objects generated from a call of \code{seas}
-on a single time series. A required argument.}
+\item{seas_obj_list}{List object of \code{seas} objects generated from a call
+of \code{seas} on a list consisting of individual time series.
+can be found in \insertCite{rprojectAdjustingMultiple;textual}{sautilities}.
+This is a required entry.}
 
 \item{add_aicc}{logical scalar; add AICC value to the summary.
+\insertCite{Akaike73,BurnhamAnderson2004}{sautilities}.
 Default is \code{TRUE}}
 
 \item{add_norm}{logical scalar; add normality statistics to the summary.
 Default is \code{FALSE}}
 
-\item{add_auto_out}{logical scalar; add identified automatic outliers to the summary.
+\item{add_auto_out}{logical scalar; add identified automatic outliers to the
+summary.
 Default is \code{FALSE}}
 
 \item{add_seasonal}{logical scalar; add QS test for seasonality to the summary.
+For details on the QS test,
+see \insertCite{@Section 7.17 of @Census2025;textual}{sautilities}
+and \insertCite{Maravall2012;textual}{sautilities}.
 Default is \code{FALSE}.}
 
 \item{add_spec}{logical scalar; add test for spectral peaks to the summary.
 Default is \code{FALSE}}
 
-\item{add_lbq}{logical scalar; add test for Ljung-Box Q to the summary.
-Default is \code{TRUE}; if set to \code{FALSE}, a more extensive test of ACF
-will be done.}
+\item{add_lbq}{logical scalar; add test for Ljung-Box Q to the summary
+\insertCite{LjungBox78}{sautilities}.
+Default is \code{TRUE}; if set to \code{FALSE}, a more extensive test
+of ACF will be done.}
 
-\item{set_lbq_lags_fail}{\itemize{
-\item lags of the Ljung-Box Q to test
-Default is \code{c(12, 24)}.
-}}
+\item{set_lbq_lags_fail}{Integer vector; lags of the Ljung-Box Q to test
+Default is \code{c(12, 24)}.}
 
 \item{set_lbq_p_limit}{Numeric scalar; P-value limit for Ljung-Box Q test
 Default is \code{0.01}.}
@@ -61,48 +67,53 @@ Default is \code{0.01}.}
 \item{set_acf_num_sig}{Limit for number of lags with significant ACF values
 Default is \code{8}.}
 
-\item{set_acf_lags_fail}{\itemize{
-\item lags of the ACF to test
-Default is \code{c(1, 2, 3, 4, 12, 24)}.
-}}
+\item{set_acf_lags_fail}{Integer vector; lags of the ACF to test
+Default is \code{c(1, 2, 3, 4, 12, 24)}.}
 
-\item{set_acf_lags_warn}{\itemize{
-\item lags of the ACF to test for warnings
-Default is \code{c(12, 24)}.
-}}
+\item{set_acf_lags_warn}{Integer vector; lags of the ACF to test for warnings
+Default is \code{c(12, 24)}.}
 
 \item{add_pacf}{logical scalar; include PACF in ACF results.
 Default is \code{TRUE}}
 
-\item{qs_test_span}{logical scalar; test span of data in QS seasonal test rather than full series.
+\item{qs_test_span}{logical scalar; test span of data in QS seasonal test
+rather than the full series.
 Default is \code{FALSE}}
 
-\item{set_qs_p_limit_pass}{Numeric scalar; P-value limit for QS statistic for passing
+\item{set_qs_p_limit_pass}{Numeric scalar; P-value limit for QS statistic
+for passing.
 Default is \code{0.01}.}
 
-\item{set_qs_p_limit_warn}{Numeric scalar; P-value limit for QS statistic for warning
+\item{set_qs_p_limit_warn}{Numeric scalar; P-value limit for QS statistic
+for warning messages.
 Default is \code{0.05}.}
 
-\item{set_qs_robust_sa}{Logical scalar indicating if original series adjusted for extremes is
-included in testing. Default is \code{TRUE}.}
+\item{set_qs_robust_sa}{Logical scalar indicating if original series adjusted
+for extremes is included in testing.
+Default is \code{TRUE}.}
 
-\item{set_spec_peak_level}{Integer scalar - limit to determine if a frequency has a spectral peak.
+\item{set_spec_peak_level}{Integer scalar; limit to determine if a frequency
+has a spectral peak.
 Default is \code{6}.}
 
-\item{set_spec_peak_warn}{Integer scalar - limit to produce a warning that a frequency may have a
-spectral peak. Default is \code{3}.}
+\item{set_spec_peak_warn}{Integer scalar; limit to produce a warning that a
+frequency may have a spectral peak.
+Default is \code{3}.}
 
-\item{return_data_frame}{logical scalar; if \code{TRUE}, return a data frame of the diagnostics,
-otherwise return a matrix. Default is \code{FALSE}.}
+\item{return_data_frame}{logical scalar; if \code{TRUE}, return a data frame
+of the diagnostics, otherwise return a matrix.
+Default is \code{FALSE}.}
 }
 \value{
 matrix or data frame of model diagnostics for a given set of series series
 }
 \description{
 Generate a summary of model diagnostics from a list of \code{seas} objects series.
+See \insertCite{rprojectAdjustingMultiple;textual}{sautilities} for code to apply
+the \code{seasonal} package on multiple series.
 }
 \details{
-Version 8.0, 6/21/2024
+Version 9.3, 2026-03-06
 }
 \examples{
 unemp_seas_list <- 
@@ -116,9 +127,16 @@ unemp_seas_list <-
 unemp_seas_update <- 
      Filter(function(x) inherits(x, "seas"), unemp_seas_list)
 unemp_diag <- 
-    all_model_diag_list(unemp_seas_update, add_aicc = TRUE, 
-                        add_norm = TRUE, add_auto_out = TRUE, 
-                        add_spec = TRUE, add_pacf = FALSE, qs_test_span = TRUE)
+    all_model_diag_list(unemp_seas_update, 
+                        add_aicc = TRUE, 
+                        add_norm = TRUE, 
+                        add_auto_out = TRUE, 
+                        add_spec = TRUE, 
+                        add_pacf = FALSE, 
+                        qs_test_span = TRUE)
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

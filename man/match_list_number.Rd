@@ -4,31 +4,36 @@
 \alias{match_list_number}
 \title{Number of list element matches}
 \usage{
-match_list_number(this_list, this_string = "fail")
+match_list_number(this_list, this_string = "fail", match_substring = FALSE)
 }
 \arguments{
 \item{this_list}{List of character strings.}
 
 \item{this_string}{Character string to match against elements of the list, ie,
 \code{this_string = 'pass'}. Default is \code{'fail'}.}
+
+\item{match_substring}{Logical scalar; if \code{TRUE}, the function will consider a match to be
+a match of any substring in the string. The default is \code{FALSE}, where the string must
+match the entire string to be considered a match.}
 }
 \value{
 The number of list items that match \code{this_string}.
+Users can specify that the whole string matches, or that a substring matches.
 }
 \description{
 Returns number of elements in list that matches \code{this_string}.
 }
 \details{
-Version 3.1, 5/21/2023
+Version 4.0, 2025-09-11
 }
 \examples{
 unemp_seas <- 
-     seasonal::seas(unemployment_list, x11 = "", 
-                    slidingspans = "", 
-                    transform.function = "log",
-                    arima.model = "(0 1 1)(0 1 1)",
-                    forecast.maxlead = 60, 
-                    check.print = c( "pacf", "pacfplot" ))
+   seasonal::seas(unemployment_list, x11 = "", 
+      slidingspans = "", 
+      transform.function = "log",
+      arima.model = "(0 1 1)(0 1 1)",
+      forecast.maxlead = 60, 
+      check.print = c( "pacf", "pacfplot" ))
 test_seas_update <- 
      Filter(function(x) inherits(x, "seas"), unemp_seas)
 test_acf_test <- 

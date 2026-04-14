@@ -1,8 +1,8 @@
 #' Get F-test info from external UDG file
 #'
-#' Parse \code{udg} file and get information for model-based F-test for a regressor.
+#' Parse external \code{udg} file and get information for model-based F-test for a regressor.
 #'
-#' Version 1.1, 1/10/2024
+#' Version 1.2, 2026-02-25 
 #'
 #' @param this_base Character scalar; Filename of output file of the X-13 run.
 #'        This is a required entry.
@@ -16,11 +16,16 @@
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
 #' @examples
-#' \dontrun{this_ftest<-get_ftest_from_udg("AE1011330000_auto", "X:/code/census_build_60/basic/",
-#'                                         "Trigonometric Seasonal")}
+#' \dontrun{this_ftest<- 
+#'              get_ftest_from_udg(this_file = "AE1011330000_auto", 
+#'                                 this_path = "X:/code/census_build_60/basic/",
+#'                                 this_reg = "Trigonometric Seasonal")}
 #' @export
-get_ftest_from_udg <- function(this_base = NULL, this_path = NULL, this_reg = "Seasonal") {
-  # Author: Brian C. Monsell (OEUS) Version 1.1, 1/10/2024
+get_ftest_from_udg <- 
+   function(this_base = NULL, 
+            this_path = NULL, 
+            this_reg = "Seasonal") {
+  # Author: Brian C. Monsell (OEUS) Version 1.2, 2026-02-25 
   
   if (is.null(this_base)) {
     cat("  must specify the name of output file of the X-13 run")

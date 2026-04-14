@@ -2,43 +2,73 @@
 % Please edit documentation in R/static_with_outlier_list.r
 \name{static_with_outlier_list}
 \alias{static_with_outlier_list}
-\title{Add outliers to list of \code{seas} object}
+\title{Add outliers options and updated data to a list of \code{seas} object}
 \usage{
 static_with_outlier_list(
   seas_obj_list = NULL,
   new_data_list = NULL,
   outlier_span = ",",
-  outlier_types = "ao,ls"
+  outlier_types = "ao,ls",
+  outlier_method = "addone",
+  outlier_critical = NULL,
+  cv_alpha = 0.01
 )
 }
 \arguments{
-\item{seas_obj_list}{list of seasonal objects. This is a required entry.}
+\item{seas_obj_list}{List object of \code{seas} objects generated from a call
+of \code{seas} on a list consisting of individual time series.
+can be found in \insertCite{rprojectAdjustingMultiple;textual}{sautilities}.
+This is a required entry.}
 
-\item{new_data_list}{list of time series objects; updated data sets from the data used
-to generate \code{seas_obj_list}. This is a required entry.}
+\item{new_data_list}{List object of time series (\code{ts})objects;
+updated data sets from the data used to generate \code{seas_obj_list}.
+This is a required entry.}
 
 \item{outlier_span}{character string; sets the argument \code{outlier.span}.
 Default is \code{","}.}
 
 \item{outlier_types}{character string; sets the argument \code{outlier.types}.
 Default is \code{"ao,ls"}.}
+
+\item{outlier_method}{Character string; sets the argument \code{outlier.method}.
+Default is \code{"addone")}.}
+
+\item{outlier_critical}{Character string; sets the argument \code{outlier.critica}.
+Default is Ljung choice for number of observations in \code{new_data}.
+\insertCite{Ljung93}{sautilities}.}
+
+\item{cv_alpha}{Numeric scalar; alpha for critical value.
+Default is \code{0.01}.}
 }
 \value{
 A list of updated static seas object with outlier arguments included.
+For more information about arguments to the \code{outlier} spec,
+see Section 7.11 of \insertCite{Census2025;textual}{sautilities}.
 }
 \description{
-Add outlier arguments to each element of a list of \code{seas} objects .
+Add outlier arguments and updated data to each element of a list of
+\code{seas} objects .
+This function uses the \code{static} function of the \code{seasonal} pacakge;
+for more information on generating and evaluating a static seas object,
+see Section 8.1 of \insertCite{seasonal2018;textual}{sautilities}.
 }
 \details{
-Version 3.4, 5/25/2023
+Version 5.0, 2026-03-09
 }
 \examples{
 xt_seas_old <- 
-   seasonal::seas(xt_data_old, slidingspans = "", 
-                  transform.function = "log", 
-                  x11 = "", forecast.maxlead = 60)
+   seasonal::seas(xt_data_old, 
+      transform.function = "log", 
+      forecast.maxlead = 60, 
+      x11 = "")
 xt_outlier_seas <- 
-   static_with_outlier_list(xt_seas_old, xt_data_new) 
+   static_with_outlier_list(xt_seas_old, 
+      new_data_list = xt_data_new,
+      outlier_types = "all",
+      outlier_critical = 4.0) 
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

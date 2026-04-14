@@ -2,7 +2,7 @@
 % Please edit documentation in R/NP_test.r
 \name{NP_test}
 \alias{NP_test}
-\title{Non-Parametric test from Maravall (2012)}
+\title{Non-Parametric test from \insertCite{Maravall2012;textual}{sautilities}}
 \usage{
 NP_test(x = NULL)
 }
@@ -14,16 +14,20 @@ List object with three elements: \code{ken} (test statistic), \code{df}
 (degrees of freedom), \code{cv} (test probability)
 }
 \description{
-Non-Parametric test for seasonality based on Kendall and Ord (1990), and
-originally due to Friedman from a paper by Maravall.
+Non-Parametric test for seasonality based on
+\insertCite{KendalOrd90;textual}{sautilities},
+and originally due to Friedman from \insertCite{Maravall2012;textual}{sautilities}.
 This code is adapted from \code{kendalls} subroutine in \code{ansub11.f}
-from the \code{X-13ARIMA-SEATS} source code
+from the \code{X-13ARIMA-SEATS} source code \insertCite{Census2025}{sautilities}.
 }
 \details{
-Version 1.7, 5/23/2023
+Version 2.1, 2026-03-09
 }
 \examples{
 NP_test_air <- NP_test(AirPassengers)
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

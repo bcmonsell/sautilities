@@ -20,15 +20,16 @@ returns \code{TRUE} if \code{this_name} is an element of \code{this_list},
 Determines if a name is a member of a list.
 }
 \details{
-Version 1.4, 5/22/2023
+Version 1.4, 2023-05-22
 }
 \examples{
-emp_seas_list <- seasonal::seas(employment_list, 
-                      slidingspans = "", x11 = "",
-                      transform.function = "log",
-                      arima.model = "(0 1 1)(0 1 1)",
-                      forecast.maxlead=36,
-                      check.print = c( "pacf", "pacfplot" ))
+emp_seas_list <- 
+   seasonal::seas(employment_list, 
+      slidingspans = "", x11 = "",
+      transform.function = "log",
+      arima.model = "(0 1 1)(0 1 1)",
+      forecast.maxlead=36,
+      check.print = c( "pacf", "pacfplot" ))
 emp_seas_update <- 
      Filter(function(x) inherits(x, "seas"), emp_seas_list)
 if (member_of_list(emp_seas_update, 'n2000014')) {

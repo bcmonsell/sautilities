@@ -7,24 +7,32 @@
 convert_date_string_to_date(this_date_string)
 }
 \arguments{
-\item{this_date_string}{date string usually extracted from the X-13 UDG output}
+\item{this_date_string}{date string usually extracted from the X-13 UDG output.}
 }
 \value{
-integer array of length 2 with the year and month/quarter of from the date string
+integer array of length 2 with the year and month/quarter of from the date string.
 }
 \description{
-convert a date string from the X-13 UDG file to a \code{c(year, month)} date
+Convert a date string from the output of the \code{udg} function from the
+\code{seasonal} package \insertCite{seasonal2018}{sautilities}
+to a \code{c(year, month)} date.
 }
 \details{
-Version 1.1, 4/22/2021
+Version 2.0, 2026-02-24
 }
 \examples{
 air_seas <- seasonal::seas(AirPassengers, 
-                    arima.model="(0 1 1)(0 1 1)", 
-                    forecast.maxlead = 36, slidingspans = "", 
-                    transform.function = "log")
+                           series.save = "b1",
+                           transform.function = "log",
+                           arima.model="(0 1 1)(0 1 1)",
+                           forecast.maxlead = 36, 
+                           slidingspans = "")
 this_start_spec_string <- seasonal::udg(air_seas, "startspec")
-this_start_spec        <- convert_date_string_to_date(this_start_spec_string)
+this_start_spec        <- 
+    convert_date_string_to_date(this_start_spec_string)
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

@@ -1,30 +1,43 @@
 #' Ljung Box Q Test failure message
 #'
 #' Tests whether the sample autocorrelation of the residuals from a time series model fails 
-#' the Ljung-Box Q test.
+#' the Ljung-Box Q test \insertCite{LjungBox78}{sautilities}.
 #'
-#' Version 1.5, 9/19/2023
+#' Version 2.2, 2026-03-09
 #'
 #' @param this_acf Matrix object of the saved acf table.
 #'        This is a required entry.
 #' @param lbq_lags_fail Lags of the ACF to test
 #'        Default is \code{c(12, 24)}.
-#' @param p_limit - numeric limit for the p-value of the Ljung-Box Q
+#' @param p_limit Numeric limit for the p-value of the Ljung-Box Q
 #'        Default is \code{0.01}.
-#' @return Logical object which is \code{TRUE} if series fails the Ljung Box Q test, \code{FALSE} otherwise
+#' @return Logical object which is \code{TRUE} if series fails the Ljung Box Q test, 
+#'         \code{FALSE} otherwise
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
+#' @references
+#'  \insertAllCited{}
+#'
 #' @examples
 #' ukgas_seas <- 
-#'    seasonal::seas(UKgas, series.period = 4, arima.model = "(0 1 1)(0 1 1)", 
-#'                   x11="", transform.function = "log", forecast.maxlead=20,
-#'                   check.save = 'acf', check.maxlag = 12, check.qlimit = 0.01)
-#' ukgas_acf <- ukgas_seas$series$acf
-#' ukgas_lbq_fail <- lbq_fail(ukgas_acf, lbq_lags_fail = c(4, 8))
+#'    seasonal::seas(UKgas, 
+#'       series.period = 4, 
+#'       arima.model = "(0 1 1)(0 1 1)", 
+#'       x11="", 
+#'       transform.function = "log", 
+#'       forecast.maxlead=20,
+#'       check.print = c( "pacf", "pacfplot" ))
+#' ukgas_acf <- seasonal::series(ukgas_seas, "acf")
+#' ukgas_lbq_fail <- 
+#'      lbq_fail(ukgas_acf, lbq_lags_fail = c(4, 8))
+#' @importFrom Rdpack reprompt
 #' @export
-lbq_fail <- function(this_acf = NULL, lbq_lags_fail, p_limit = 0.01) {
-    # Author: Brian C. Monsell (OEUS) Version 1.5, 9/19/2023
+lbq_fail <- 
+   function(this_acf = NULL, 
+            lbq_lags_fail, 
+            p_limit = 0.01) {
+    # Author: Brian C. Monsell (OEUS) Version 2.2, 2026-03-09
 
     # check if a value is specified for \code{this_acf}
     if (is.null(this_acf)) {

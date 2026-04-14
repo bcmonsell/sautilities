@@ -4,34 +4,39 @@
 \alias{match_list}
 \title{List element match}
 \usage{
-match_list(this_list, this_string = "fail")
+match_list(this_list, this_string = "fail", match_substring = FALSE)
 }
 \arguments{
 \item{this_list}{List of character strings.}
 
 \item{this_string}{Character string to match against elements of the list, ie,
-\code{this_string = 'pass'}. Default is \code{'fail'}}
+\code{this_string = 'pass'}. Default is \code{'fail'}.}
+
+\item{match_substring}{Logical scalar; if \code{TRUE}, the function will consider a match to be
+a match of any substring in the string. The default is \code{FALSE}, where the string must
+match the entire string to be considered a match.}
 }
 \value{
 A vector of list element names that match \code{this_string}.
+Users can specify that the whole string matches, or that a substring matches.
 If nothing matches, the function will output the string \code{'none'}.
 }
 \description{
 Returns element of list that matches \code{this_string}.
 }
 \details{
-Version 3.1, 5/22/2023
+Version 4.2, 2025-09-11
 }
 \examples{
 unemp_seas <- 
-      seasonal::seas(unemployment_list, x11 = "", 
-                     slidingspans = "", 
-                     transform.function = "log",
-                     arima.model = "(0 1 1)(0 1 1)",
-                     forecast.maxlead = 60, 
-                     check.print = c( "pacf", "pacfplot" ))
+   seasonal::seas(unemployment_list, x11 = "", 
+      slidingspans = "", 
+      transform.function = "log",
+      arima.model = "(0 1 1)(0 1 1)",
+      forecast.maxlead = 60, 
+      check.print = c( "pacf", "pacfplot" ))
 test_seas_update <- 
-     Filter(function(x) inherits(x, "seas"), unemp_seas)
+   Filter(function(x) inherits(x, "seas"), unemp_seas)
 test_acf_test <- lapply(test_seas_update, function(x) 
      try(acf_test(x, return_this = 'test')))
 test_acf_fail <- match_list(test_acf_test, 'fail')

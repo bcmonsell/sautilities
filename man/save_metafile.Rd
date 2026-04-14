@@ -5,7 +5,7 @@
 \title{Generate X-13ARIMA-SEATS metafile}
 \usage{
 save_metafile(
-  this_seas_list = NULL,
+  seas_obj_list = NULL,
   this_name_vec = NULL,
   metafile_name = NULL,
   this_directory = NULL,
@@ -16,65 +16,64 @@ save_metafile(
 )
 }
 \arguments{
-\item{this_seas_list}{\itemize{
-\item list of seas objects the metafile will be generated from.
-This is a required entry.
-}}
+\item{seas_obj_list}{List object of \code{seas} objects generated from
+a call of \code{seas} on a list consisting of individual time series.
+Information on generating adjustments of multiple time series stored
+in a list object with the \code{seasonal} package can be found in
+\insertCite{rprojectAdjustingMultiple;textual}{sautilities}.
+This is a required entry.}
 
-\item{this_name_vec}{vector of character string; vector of series names from the list of
-seas objects that will be saved.
-Default is all elements of the seasonal object list \code{this_seas_list} are saved.}
+\item{this_name_vec}{vector of character string; vector of series names from
+the list of \code{seas} objects that will be saved.
+Default is all elements of the seasonal object list \code{seas_obj_list}
+are saved.}
 
-\item{metafile_name}{\itemize{
-\item character string; base name of metafile to be generated.
+\item{metafile_name}{character string; base name of metafile to be generated.
 If not specified, use name of list input as metafile name.
-Note - do not specify the \code{".mta"} file extension.
-}}
+Note - do not specify the \code{".mta"} file extension.}
 
-\item{this_directory}{\itemize{
-\item optional directory where the meta file is stored.
-If not specified, the metafile will be saved in the current working directory.
-}}
+\item{this_directory}{optional directory where the meta file is stored.
+If not specified, the metafile will be saved in the current working
+directory.}
 
-\item{this_spec_directory}{\itemize{
-\item optional directory where the spec files are stored.
-If not specified, the spec files are saved in the current working directory.
-}}
+\item{this_spec_directory}{optional directory where the spec files are stored.
+If not specified, the spec files are saved in the current working directory.}
 
-\item{this_output_code}{\itemize{
-\item optional character code added to the end of the names in
+\item{this_output_code}{optional character code added to the end of the names in
 \code{this_name_vec} to form the output name.
-If not specified, the metafile will not have alternate output file name(s).
-}}
+If not specified, the metafile will not have alternate output file name(s).}
 
-\item{this_output_directory}{\itemize{
-\item optional directory where the output files are stored.
-If not specified, the output files are saved in the current working directory.
-}}
+\item{this_output_directory}{optional directory where the output files are
+stored. If not specified, the output files are saved in the current
+working directory.}
 
-\item{include_directory}{\itemize{
-\item logical scalar; if \code{TRUE}, include directory specified
-in \code{this_directory} with file name output.
-Otherwise, output only names in \code{this_name_vec}. Default is \code{FALSE}.
-Note that the argument \code{this_directory} must also be specified.
-}}
+\item{include_directory}{logical scalar; if \code{TRUE}, include directory
+specified in \code{this_directory} with file name output.
+Otherwise, output only names in \code{this_name_vec}.
+Default is \code{FALSE}.
+Note that the argument \code{this_directory} must also be specified.}
 }
 \value{
-Generates metafile that can be used directly with the X-13ARIMA-SEATS program.
+Generates metafile that can be used directly with the X-13ARIMA-SEATS
+program.
 }
 \description{
-Generates external metafile for spec files generated from a list of \code{seas} objects
+Generates external input metafile for spec files generated from a list of
+\code{seas} objects. For information on input metafiles used with X-13ARIMA-SEATS,
+see Section 2.5 of \insertCite{Census2025;textual}{sautilities}.
 }
 \details{
-Version 3.11, 9/6/2023
+Version 4.2, 2026-04-14
 }
 \examples{
-unemp_seas_list <- seasonal::seas(unemployment_list, 
-                      slidingspans = "", x11 = "",
-                      arima.model = "(0 1 1)(0 1 1)",
-                      transform.function = "log",
-                      forecast.maxlead=36,
-                      check.print = c( "pacf", "pacfplot" ))
+unemp_seas_list <- 
+   seasonal::seas(unemployment_list,
+      transform.function = "log", 
+      arima.model = "(0 1 1)(0 1 1)",
+      check.print = c( "pacf", "pacfplot" ),
+      forecast.maxlead=36, 
+      x11 = "",
+      slidingspans = "")
 unemp_seas_update <- 
      Filter(function(x) inherits(x, "seas"), unemp_seas_list)
 \dontrun{save_metafile(unemp_seas_update, metafile_name = 'unemp',
@@ -82,6 +81,9 @@ unemp_seas_update <-
               this_spec_directory = 'X:\\\\seasonalAdj\\\\testing\\\\spc',
               this_output_directory = 'X:\\\\seasonalAdj\\\\testing\\\\out',
               include_directory = TRUE)}
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

@@ -1,6 +1,7 @@
 #' X-13 Tables Available
 #'
-#' Generates a list of X-13 tables that can be extracted with the \code{seasonal} package.
+#' Generates a list of X-13 tables that can be extracted with the \code{seasonal} package
+#' \insertCite{seasonal2018}{sautilities}. 
 #'
 #' Version 2.4, 05/24/2023
 #'
@@ -13,11 +14,15 @@
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
+#' @references
+#'  \insertAllCited{}
+#'
 #' @examples
 #' x13_tables_all <- gen_x13_table_list()
+#' @importFrom Rdpack reprompt
 #' @export
 gen_x13_table_list <- function(this_table_type = "all") {
-    # Author: Brian C. Monsell (OEUS) Version 2.4, 05/24/2023
+    # Author: Brian C. Monsell (OEUS) Version 3,0, 05/24/2023
     
     # Initialize list of available X-13 tables
     x13_tables <- list()

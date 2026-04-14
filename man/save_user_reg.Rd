@@ -12,35 +12,44 @@ save_user_reg(
 )
 }
 \arguments{
-\item{this_reg}{double precision time series array or matrix to be saved.
+\item{this_reg}{Double precision time series array or matrix to be saved.
 This is a required argument.}
 
-\item{this_reg_file}{character string; name of file time series array or matrix to be saved to.
-This is a required argument.}
+\item{this_reg_file}{Character string; name of file time series array or matrix
+to be saved to. This is a required argument.}
 
-\item{add_dates}{logical scalar; save the file with dates on each record (datevalue format).
-Default is TRUE.}
+\item{add_dates}{Logical scalar; save the file with dates on each record
+(datevalue format). Default is TRUE.}
 
-\item{start_date}{Integer vector of length 2, Start date for series to be stored, where the
-first element is the year and the second element is the month or quarter..
-Default is start of series.}
+\item{start_date}{Integer vector of length 2, Start date for series to be stored,
+where the first element is the year and the second element is the month
+or quarter. Default is start of series.}
 }
 \value{
 file with user-defined regressors will be produced.
 }
 \description{
-Save a user-defined regression array or matrix with time series attributes to an external ASCII file
-in X-13ARIMA-SEATS' datevalue format
+Save a user-defined regression array or matrix with time series attributes to
+an external ASCII file in X-13ARIMA-SEATS' datevalue format.
+For more information on the \code{datevalue} format of X-13ARIMA-SEATS,
+see \insertCite{MonsellLytrasFindley2016;textual}{sautilities}.
 }
 \details{
-Version 3.2, 12/27/2024
+Version 4.0, 2026-03-04
 }
 \examples{
 UKgas_tc_date <- c(1970, 2)
 UKgas_tc_1970_2 <-
-   gen_tc_outlier_ts(UKgas_tc_date, this_start = c(1960, 1), this_end = c(1990, 4), 
-                     this_freq = 4, tc_alpha = 0.9, return_matrix = TRUE)
+   gen_tc_outlier_ts(UKgas_tc_date, 
+      this_start = c(1960, 1), 
+      this_end = c(1990, 4), 
+      this_freq = 4, 
+      tc_alpha = 0.9, 
+      return_matrix = TRUE)
 \dontrun{save_user_reg(UKgas_tc_1970_2, 'UKgas_tc_1970_2.txt')}
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

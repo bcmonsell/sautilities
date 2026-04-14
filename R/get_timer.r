@@ -1,8 +1,9 @@
 #' Generate elapsed time of run in miliseconds
 #'
-#' Read profiler information from saved files and generate the elapsed time of an X-13 run in miliseconds.
+#' Read profiler information from saved files and generate the elapsed time 
+#' of an X-13 run in miliseconds.
 #'
-#' Version 1.1, 11/29/2023
+#' Version 1.1, 2023-11-29
 #'
 #' @param this_base Character scalar; Filename of output file of the X-13 run.
 #'        This is a required entry.
@@ -13,10 +14,11 @@
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
 #' @examples
-#' \dontrun{AE1011330000_time <- get_timer("AE1011330000_auto", "X:/code/census_build_60/basic/")} 
+#' \dontrun{AE1011330000_time <- 
+#'             get_timer("AE1011330000_auto", "X:/code/census_build_60/basic/")} 
 #' @export
 get_timer <- function(this_base = NULL, this_path = NULL) {
-    # Author: Brian C. Monsell (OEUS) Version 1.1, 11/29/2023
+    # Author: Brian C. Monsell (OEUS) Version 1.1, 2023-11-29
     
     if (is.null(this_base)) {
         stop("must specify the name of output file of the X-13 run")

@@ -1,22 +1,33 @@
 #' AR(30) Spectrum Critical Value
 #'
-#' Generate critical values for AR(30) spectrum as in Maravall (2012).
+#' Generate critical values for AR(30) spectrum as in 
+#' \insertCite{Maravall2012;textual}{sautilities}.
+#' For more information on the AR(30) specrum, see
+#' Section 6.1.2 of \insertCite{Census2025;textual}{sautilities}.
 #'
-#' Version 1.5, 5/25/2023
+#' Version 2.1, 2026-03-06
 #'
 #' @param n_sim integer scalar; number of simulations; default is 100000
 #' @param series_length integer scalar; length of each series simulated.
 #'        Default is 121.
 #' @param freq integer scalar; frequency of the time series; default is 12 (monthly). 
-#' @return List of critical values for each seasonal frequency for the 95th and 99th percentile.
+#' @return List of critical values for each seasonal frequency for the 
+#'         95th and 99th percentile.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
+#' @references
+#'  \insertAllCited{}
+#'
 #' @examples 
 #' ar30_spec_cv <- gen_ar_spec_cv(1000, 97, 12)
+#' @importFrom Rdpack reprompt
 #' @export
-gen_ar_spec_cv <- function(n_sim = 100000, series_length = 121, freq = 12) {
-    # Author: Brian C. Monsell (OEUS) Version 1.5, 5/25/2023
+gen_ar_spec_cv <- 
+   function(n_sim = 100000, 
+            series_length = 121, 
+            freq = 12) {
+    # Author: Brian C. Monsell (OEUS) Version 2.1, 2026-03-06
    if (freq == 12) {
        f_index <- c(11, 21, 31, 41, 51, 61)
        f_num   <- 6

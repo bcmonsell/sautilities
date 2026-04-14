@@ -2,10 +2,10 @@
 #'
 #' Import data from a file saved by the X-13ARIMA-SEATS program
 #'
-#' Version 1.2, 5/25/2023
+#' Version 1.2, 2023-05-25
 #'
-#' @param filename Character string, filename of a file saved by the \code{X-13ARIMA-SEATS}  
-#'        program. This is a required entry.
+#' @param filename Character string, filename of a file saved by the 
+#'        \code{X-13ARIMA-SEATS} program. This is a required entry.
 #' @param pos Integer scalar, column of data to be extracted from \code{filename}. 
 #'        Default is 2.
 #' @param ncol Integer scalar, number of columns of data that exist within \code{filename}. 
@@ -21,7 +21,7 @@
 #' @import stats
 #' @export
 input_saved_x13_file <- function(filename = NULL, pos=2, ncol=2) {
-    # Author: Brian C. Monsell (OEUS), Version 1.2, 5/25/2023
+    # Author: Brian C. Monsell (OEUS), Version 1.2, 2023-05-25
    if(is.null(filename)) stop("must specify filename")
    wlist <-vector("list", ncol)
    for (i in 1:ncol) wlist[[i]] <-0

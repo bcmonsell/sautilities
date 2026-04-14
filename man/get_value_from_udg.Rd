@@ -28,15 +28,19 @@ Default is TRUE, returns value as a number.}
 Numeric value associated with \code{this_key}.
 }
 \description{
-parse external \code{udg} file and get value for a user supplied key
+Parse external \code{udg} file and get value for a user supplied key
 }
 \details{
-Version 1.4, 12/12/2023
+Version 2.0, 2026-02-25
 }
 \examples{
-\dontrun{this_ftest<-get_ftest_from_udg("AE1011330000_auto", 
-                                        "X:/code/census_build_60/basic/",
-                                        "aicc")}
+\dontrun{this_ftest <- 
+             get_ftest_from_udg(this_base = "AE1011330000_auto", 
+                                this_path = "X:/code/census_build_60/basic/",
+                                this_key = "aicc")}
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

@@ -1,9 +1,10 @@
 #' Generate a hybrid seasonal adjustment
 #'
 #' Generates a "hybrid" seasonal adjustment by replacing a span of a multiplicative seasonal 
-#' adjustment with an additive adjustment.
+#' adjustment with an additive adjustment. For more information on the need for hybrid seasonal'
+#' adjustment, see \insertCite{Monsell2021;textual}{sautilities}.
 #'
-#' Version 2.2, 5/25/2023
+#' Version 3.0, 2026-02-25
 #'
 #' @param this_mult_sa time series object of a multiplicative seasonal adjustment
 #'        This is a required entry.
@@ -13,7 +14,10 @@
 #'        adjustments replace multiplicative adjustment. This is a required entry.
 #' @param this_end_hybrid integer vector of length 2, end of the span where additive adjustments 
 #'        replace multiplicative adjustment. This is a required entry.
-#' @return time series object with hybrid seasonal adjustment.
+#' @return Time series object with hybrid seasonal adjustment.
+#'
+#' @references
+#'  \insertAllCited{}
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
@@ -23,10 +27,14 @@
 #' air_add_seas  <- seasonal::seas(AirPassengers, transform.function = "none")
 #' air_add_sa    <- seasonal::final(air_add_seas)
 #' air_hybrid_sa <- gen_hybrid_sa(air_mult_sa, air_add_sa, c(1956,1), c(1956,12))
+#' @importFrom Rdpack reprompt
 #' @export
-gen_hybrid_sa <- function(this_mult_sa = NULL, this_add_sa = NULL, this_start_hybrid = NULL, 
-                          this_end_hybrid = NULL) {
-    # Author: Brian C. Monsell (OEUS) Version 2.2, 5/25/2023
+gen_hybrid_sa <- 
+   function(this_mult_sa = NULL, 
+            this_add_sa = NULL, 
+            this_start_hybrid = NULL, 
+            this_end_hybrid = NULL) {
+    # Author: Brian C. Monsell (OEUS) Version 3.0, 2026-02-25
     # check if a value is specified for \code{this_mult_sa}
     if (is.null(this_mult_sa)) {
         stop("must specify a multiplicative adjustment")

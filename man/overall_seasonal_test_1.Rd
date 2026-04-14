@@ -2,7 +2,7 @@
 % Please edit documentation in R/overall_seasonal_test_1.r
 \name{overall_seasonal_test_1}
 \alias{overall_seasonal_test_1}
-\title{First overall sasonality test from Maravall (2012)}
+\title{First overall sasonality test from \insertCite{Maravall2012;textual}{sautilities}.}
 \usage{
 overall_seasonal_test_1(
   seas_obj = NULL,
@@ -12,40 +12,54 @@ overall_seasonal_test_1(
 )
 }
 \arguments{
-\item{seas_obj}{\code{seas} object for a single series
-This argument is required.}
+\item{seas_obj}{A \code{seas} object for a single series generated from the
+\code{seasonal} package \insertCite{seasonal2018}{sautilities}.
+This is a required entry.}
 
-\item{this_series}{character string; the table used to generate the AR(30) spectrum.
+\item{this_series}{Character string; the table used to generate the AR(30)
+spectrum.
 Default is \code{"a1"}.}
 
-\item{take_log}{logical scalar; indicates if the AR spectrum is generated from the log
-of the data. Default is \code{TRUE}.}
+\item{take_log}{Logical scalar; indicates if the AR spectrum is generated
+from the log of the data.
+Default is \code{TRUE}.}
 
-\item{this_ori_qs}{character string; code for which original series QS will be used in this
-analysis. Default is \code{"qsori"} (original series, full span); other choices are
-\code{"qssorievadj"} (original series adjusted for extreme values,short span),
+\item{this_ori_qs}{Character string; code for which original series QS will
+be used in this analysis.
+Default is \code{"qsori"} (original series, full span); other choices are
+\code{"qssorievadj"} (original series adjusted for extreme values,
+short span),
 \code{"qsorievadj"} (original series adjusted for extreme values, full span), and
-\code{"qssori"} (original series, short span)}
+\code{"qssori"} (original series, short span).
+For more information on the QS statistic,
+see \insertCite{Bell2022;textual}{sautilities}.}
 }
 \value{
 A list with 3 elements: \code{QStest} (test probability for QS),
 \code{NPtest} (test probability for NP),
-and \code{result} (character string with test result - possible values of either
-\code{"evidence of seasonality"} and \code{"no evidence of seasonality"})
+and \code{result} (character string with test result -
+possible values of either \code{"evidence of seasonality"} and
+\code{"no evidence of seasonality"}).
 }
 \description{
-Conduct the first overall test for seasonality as laid out in Maravall (2012)
+Conduct the first overall test for seasonality as laid out in
+\insertCite{Maravall2012;textual}{sautilities}.
 }
 \details{
-Version 3.4, 5/21/2024
+Version 4.1, 2026-03-09
 }
 \examples{
-air_seas <- seasonal::seas(AirPassengers,
-                    arima.model="(0 1 1)(0 1 1)",
-                    forecast.maxlead = 36, slidingspans = "",
-                    transform.function = "log", 
-                    series.save = "a1")
+air_seas <- 
+   seasonal::seas(AirPassengers,
+      arima.model="(0 1 1)(0 1 1)",
+      forecast.maxlead = 36, 
+      slidingspans = "",
+      transform.function = "log", 
+      series.save = "a1")
 first_test <- overall_seasonal_test_1(air_seas)
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

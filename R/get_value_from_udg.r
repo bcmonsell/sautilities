@@ -1,8 +1,8 @@
 #' Get value from external UDG file
 #'
-#' parse external \code{udg} file and get value for a user supplied key
+#' Parse external \code{udg} file and get value for a user supplied key
 #'
-#' Version 1.4, 12/12/2023
+#' Version 2.0, 2026-02-25
 #'
 #' @param this_base Character scalar; Filename of output file of the X-13 run.
 #'        This is a required entry.
@@ -16,14 +16,22 @@
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
+#' @references
+#'  \insertAllCited{}
+#'
 #' @examples
-#' \dontrun{this_ftest<-get_ftest_from_udg("AE1011330000_auto", 
-#'                                         "X:/code/census_build_60/basic/",
-#'                                         "aicc")}
+#' \dontrun{this_ftest <- 
+#'              get_ftest_from_udg(this_base = "AE1011330000_auto", 
+#'                                 this_path = "X:/code/census_build_60/basic/",
+#'                                 this_key = "aicc")}
+#' @importFrom Rdpack reprompt
 #' @export
-get_value_from_udg <- function(this_base = NULL, this_path = NULL, this_key = NULL,
-                               return_numeric = TRUE) {
-  # Author: Brian C. Monsell (OEUS) Version 1.4, 12/12/2023
+get_value_from_udg <- 
+   function(this_base = NULL, 
+            this_path = NULL, 
+			this_key = NULL,
+            return_numeric = TRUE) {
+  # Author: Brian C. Monsell (OEUS) Version 2.0, 2026-02-25
   
   if (is.null(this_base)) {
     stop("must specify the name of output file of the X-13 run")

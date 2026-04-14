@@ -11,8 +11,10 @@ model_summary_list(
 )
 }
 \arguments{
-\item{seas_obj_list}{list of \code{seas} objects generated from a call of \code{seas}
-on a single time series. A required argument.}
+\item{seas_obj_list}{List object of \code{seas} objects generated from a call
+of \code{seas} on a list consisting of individual time series.
+can be found in \insertCite{rprojectAdjustingMultiple;textual}{sautilities}.
+This is a required entry.}
 
 \item{add_diff}{logical scalar; add differencing information, if included in model}
 
@@ -27,7 +29,7 @@ for a given set of series
 Generate a matrix that summarizes ARIMA models from a list of \code{seas} objects.
 }
 \details{
-Version 2.1, 5/22/2024
+Version 3.0, 2026-02-26
 }
 \examples{
 unemp_seas_list <- 
@@ -44,6 +46,9 @@ unemp_model_matrix <-
 unemp_model_df <- 
     model_summary_list(unemp_seas_update, add_diff = TRUE, 
                        return_data_frame = TRUE)
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

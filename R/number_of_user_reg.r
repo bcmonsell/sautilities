@@ -2,24 +2,34 @@
 #'
 #' Extreact the number of user-defined regressors in a \code{seas} objects series.
 #'
-#' Version 1.0, 5/1/2025
+#' Version 2.0, 2026-02-26
 #'
-#' @param seas_obj \code{seas} object generated from a call of \code{seas} 
-#'        on a single time series. A required argument.
-#' @return number of user defined regressors in the model contained in seas_obj
+#' @param seas_obj A \code{seas} object for a single series generated from the 
+#'        \code{seasonal} package \insertCite{seasonal2018}{sautilities}.
+#'        This is a required entry.
+#' @return number of user defined regressors in the model contained in \code{seas_obj}.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
+#' @references
+#'  \insertAllCited{}
+#'
 #' @examples
-#' air_seas <- 
-#'    seasonal::seas(AirPassengers, x11="", slidingspans = "", 
-#'                   transform.function = "log", arima.model = "(0 1 1)(0 1 1)", 
-#'                   regression.aictest = "td", forecast.maxlead=36, 
-#'                   check.print = c( "pacf", "pacfplot" ), check.save = "acf")
-#' air_num_user_reg <- number_of_user_reg(air_seas)
+#' ukgas_seas <- 
+#'    seasonal::seas(UKgas, 
+#'       series.period = 4, 
+#'       transform.function = "log", 
+#'       arima.model = "(0 1 1)(0 1 1)", 
+#'       forecast.maxlead = 20,
+#'       check.print = c( "pacf", "pacfplot" ), 
+#'       check.save = "acf", 
+#'       x11="", 
+#'       slidingspans = "")
+#' ukgas_num_user_reg <- number_of_user_reg(ukgas_seas)
+#' @importFrom Rdpack reprompt
 #' @export
 number_of_user_reg <- function(seas_obj = NULL) {
-  # Author: Brian C. Monsell (OEUS) Version 1.0, 5/1/2025
+  # Author: Brian C. Monsell (OEUS) Version 2.0, 2026-02-26
 
     # check if a value is specified for \code{seas_obj}
     if (is.null(seas_obj)) {

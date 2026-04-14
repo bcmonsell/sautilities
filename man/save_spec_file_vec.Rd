@@ -5,7 +5,7 @@
 \title{Save List of Seas Objects}
 \usage{
 save_spec_file_vec(
-  this_seas_object_list = NULL,
+  seas_obj_list = NULL,
   this_name_vec = NULL,
   this_directory = NULL,
   this_data_directory = NULL,
@@ -22,39 +22,48 @@ save_spec_file_vec(
 )
 }
 \arguments{
-\item{this_seas_object_list}{list of \code{seasonal} objects.
+\item{seas_obj_list}{List object of \code{seas} objects generated from a call
+of \code{seas} on a list consisting of individual time series.
+Information on generating adjustments of multiple time series stored in a
+list object with the \code{seasonal} package can be found in
+\insertCite{rprojectAdjustingMultiple;textual}{sautilities}.
 This is a required entry.}
 
-\item{this_name_vec}{vector of character string; vector of series names from the list of
-\code{seas} objects that will be saved.
-Default is all elements of the \code{seasonal} object list \code{this_seas_object_list} are saved.}
+\item{this_name_vec}{vector of character string; vector of series names from the
+list of \code{seas} objects that will be saved.
+Default is all elements of the \code{seasonal} object list
+\code{this_seas_object_list} are saved.}
 
-\item{this_directory}{character string; optional directory where the spec file is stored.}
+\item{this_directory}{Character string; optional directory where the spec file
+is stored.}
 
-\item{this_data_directory}{character string; optional directory where the data files are stored.
-Data files are assumed to have the same names as in \code{this_name_vec} with the file
-extension specified in \code{this_ext}.
+\item{this_data_directory}{Character string; optional directory where the data
+files are stored. Data files are assumed to have the same names as in
+\code{this_name_vec} with the file extension specified in \code{this_ext}.
 Default is no change in \code{file} entry in the spec file.}
 
-\item{this_ext}{character string; file extension for data files. Default is \code{".dat"}.}
+\item{this_ext}{Character string; file extension for data files.
+Default is \code{".dat"}.}
 
-\item{this_title_list}{list of character strings with the titles for each series.
+\item{this_title_list}{List of character strings with the titles for each series.
 Default is to set \code{title} to the series name.}
 
-\item{this_title_base}{character string; optional base for custom title; series name will be
-added at the end of the title; quotes will be added by the routine.
+\item{this_title_base}{character string; Optional base for custom title;
+series name will be added at the end of the title; quotes will be
+added by the routine.
 Default is to set \code{title} to the series name.}
 
-\item{this_xreg_list}{list of character strings with the filenames of user defined regressors
-or \code{NULL} for each series.
+\item{this_xreg_list}{list of character strings with the filenames of user defined
+regressors or \code{NULL} for each series.
 Default is to not set \code{regression.file} for the individual series.}
 
-\item{this_user_list}{list of vectors of character strings with the names of user defined
-regressors or NULL for each series.
+\item{this_user_list}{list of vectors of character strings with the names of
+user defined regressors or NULL for each series.
 Default is to not set \code{regression.file} for the individual series.}
 
-\item{make_metafile}{logical scalar; if \code{TRUE}, generate a makefile for this set of files;
-do not otherwise. Default is \code{FALSE}.}
+\item{make_metafile}{logical scalar; if \code{TRUE}, generate a makefile for
+this set of files; do not otherwise.
+Default is \code{FALSE}.}
 
 \item{this_metafile_name}{\itemize{
 \item character string; base name of metafile to be generated.
@@ -64,48 +73,52 @@ Note - do not specify the \code{".mta"} file extension.
 
 \item{this_meta_directory}{\itemize{
 \item optional directory where the meta file is stored.
-If not specified, the metafile will be saved in the current working directory.
+If not specified, the metafile will be saved in the current working
+directory.
 }}
 
 \item{this_output_directory}{\itemize{
-\item optional directory where the output files are stored in the
-metafile. If not specified, the output files are saved in the current working directory.
+\item optional directory where the output files are
+stored in the metafile. If not specified, the output files are saved
+in the current working directory.
 }}
 
 \item{include_directory}{\itemize{
-\item logical scalar; if \code{TRUE}, include directory specified in
-\code{this_directory} with file name output.
-Otherwise, output only names in \code{this_name_vec}. Default is \code{FALSE}.
+\item logical scalar; if \code{TRUE}, include directory
+specified in \code{this_directory} with file name output.
+Otherwise, output only names in \code{this_name_vec}.
+Default is \code{FALSE}.
 }}
 }
 \value{
-Stores the spec file representation of each element of a list of \code{seas} objects
-into separate files.
+Stores the spec file representation of each element of a list of
+\code{seas} objects into separate files.
 }
 \description{
 Stores each element of a list of \code{seas} object \code{this_seas_object}
-into separate files
+into separate files.
 }
 \details{
-Version 6.5, 9/26/2024
+Version 7.1, 2026-03-05
 }
 \examples{
 unemp_seas_list <-
-   seasonal::seas(unemployment_list, slidingspans = "",
-                  arima.model = "(0 1 1)(0 1 1)",
-                  transform.function = "log",
-                  regression.aictest = NULL, 
-                  forecast.maxlead=36,
-                  check.print = c( "pacf", "pacfplot" ))
+   seasonal::seas(unemployment_list, 
+      slidingspans = "",
+      arima.model = "(0 1 1)(0 1 1)",
+      transform.function = "log",
+      regression.aictest = NULL, 
+      forecast.maxlead = 36,
+      check.print = c( "pacf", "pacfplot" ))
 test_seas_update <- 
      Filter(function(x) inherits(x, "seas"), unemp_seas_list)
 \dontrun{save_spec_file_vec(test_seas_update, 
-                   this_name_vec = c('n3000013', 'n3000014', 'n3000025', 'n3000026'),
-                   this_data_directory = 'X:\\\\seasonalAdj\\\\testing\\\\data',
-                   this_directory = 'X:\\\\seasonalAdj\\\\testing\\\\sautilities',
-                   this_meta_directory = 'X:\\\\seasonalAdj\\\\testing\\\\sautilities',
-                   this_title_base = 'Production Run for US Unemployment : ',
-                   make_metafile = TRUE, include_directory = TRUE)}
+             this_name_vec = c('n3000013', 'n3000014', 'n3000025', 'n3000026'),
+             this_data_directory = 'X:\\\\seasonalAdj\\\\testing\\\\data',
+             this_directory = 'X:\\\\seasonalAdj\\\\testing\\\\sautilities',
+             this_meta_directory = 'X:\\\\seasonalAdj\\\\testing\\\\sautilities',
+             this_title_base = 'Production Run for US Unemployment : ',
+             make_metafile = TRUE, include_directory = TRUE)}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

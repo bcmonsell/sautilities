@@ -7,10 +7,12 @@
 compare_dates(this_date = NULL, comp_date = NULL)
 }
 \arguments{
-\item{this_date}{Integer array of length 2, a date where the first element is the year and
-the second element is the month or quarter. This is a required entry.}
+\item{this_date}{Integer array of length 2, a date where the first element
+is the year and the second element is the month or quarter.
+This is a required entry.}
 
-\item{comp_date}{Integer array of length 2, a date to comapare to \code{this_date}.}
+\item{comp_date}{Integer array of length 2, a date to comapare to \code{this_date}.
+This is a required entry.}
 }
 \value{
 Logical scalar; \code{TRUE} if the dates match, \code{FALSE} if they don't.
@@ -19,7 +21,7 @@ Logical scalar; \code{TRUE} if the dates match, \code{FALSE} if they don't.
 Compare two dates to see if they match.
 }
 \details{
-Version 3.2, 5/23/2023
+Version 3.3, 2026-02-24
 }
 \examples{
 match_start <- compare_dates(start(shoes2007), c(1990,1))

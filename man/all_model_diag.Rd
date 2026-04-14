@@ -28,16 +28,19 @@ all_model_diag(
 )
 }
 \arguments{
-\item{seas_obj}{\code{seas} object generated from a call of \code{seas} on a single time series
+\item{seas_obj}{\code{seas} object generated from a call of \code{seas}
+on a single time series \insertCite{seasonal2018}{sautilities}.
 This is a required entry.}
 
 \item{add_aicc}{logical scalar; add AICC value to the summary.
+\insertCite{Akaike73,BurnhamAnderson2004}{sautilities}.
 Default is \code{FALSE}}
 
 \item{add_norm}{logical scalar; add normality statistics to the summary.
 Default is \code{FALSE}}
 
-\item{add_auto_out}{logical scalar; add identified automatic outliers to the summary.
+\item{add_auto_out}{logical scalar; add identified automatic outliers to
+the summary.
 Default is \code{FALSE}}
 
 \item{add_seasonal}{logical scalar; add QS test for seasonality to the summary.
@@ -46,51 +49,53 @@ Default is \code{FALSE}.}
 \item{add_spec}{logical scalar; add test for spectral peaks to the summary.
 Default is \code{FALSE}.}
 
-\item{add_lbq}{logical scalar; add test for Ljung-Box Q to the summary.
-Default is \code{TRUE}; if set to \code{FALSE}, a more extensive test of ACF
-will be done.}
+\item{add_lbq}{logical scalar; add test for Ljung-Box Q to the summary
+\insertCite{LjungBox78}{sautilities}.
+Default is \code{TRUE};
+if set to \code{FALSE}, a more extensive test of ACF will be done.}
 
-\item{set_lbq_lags_fail}{\itemize{
-\item lags of the Ljung-Box Q to test
-Default is \code{c(12, 24)}.
-}}
+\item{set_lbq_lags_fail}{Integer vector; lags of the Ljung-Box Q to test.
+Default is \code{c(12, 24)}.}
 
-\item{set_lbq_p_limit}{Numeric scalar; P-value limit for Ljung-Box Q test
+\item{set_lbq_p_limit}{Numeric scalar; P-value limit for Ljung-Box Q test.
 Default is \code{0.01}.}
 
-\item{set_acf_num_sig}{Limit for number of lags with significant ACF values
+\item{set_acf_num_sig}{Limit for number of lags with significant ACF values.
 Default is \code{8}.}
 
-\item{set_acf_lags_fail}{\itemize{
-\item lags of the ACF to test
-Default is \code{c(1, 2, 3, 4, 12, 24)}.
-}}
+\item{set_acf_lags_fail}{Integer vector; lags of the ACF to test
+Default is \code{c(1, 2, 3, 4, 12, 24)}.}
 
-\item{set_acf_lags_warn}{\itemize{
-\item lags of the ACF to test for warnings
-Default is \code{c(12, 24)}.
-}}
+\item{set_acf_lags_warn}{Integer vector; lags of the ACF to test for warnings.
+Default is \code{c(12, 24)}.}
 
 \item{add_pacf}{logical scalar; include PACF in ACF results.
 Default is \code{TRUE}.}
 
-\item{qs_test_span}{logical scalar; test span of data in QS seasonal test rather than full series.
-Default is \code{FALSE}}
+\item{qs_test_span}{logical scalar; test span of data in QS seasonal test
+rather than full series. For details on the QS test,
+see Section 7.17 of \insertCite{Census2025;textual}{sautilities},
+\insertCite{Maravall2012;textual}{sautilities}, and
+\insertCite{Bell2022;textual}{sautilities}.
+Default is \code{FALSE}.}
 
-\item{set_qs_p_limit_pass}{Numeric scalar; P-value limit for QS statistic for passing
+\item{set_qs_p_limit_pass}{Numeric scalar; P-value limit for QS statistic
+for passing QS test.
 Default is \code{0.01}.}
 
-\item{set_qs_p_limit_warn}{Numeric scalar; P-value limit for QS statistic for warning
+\item{set_qs_p_limit_warn}{Numeric scalar; P-value limit for QS statistic
+for warning message.
 Default is \code{0.05}.}
 
-\item{set_qs_robust_sa}{Logical scalar indicating if original series adjusted for extremes is
-included in testing. Default is \code{TRUE}.}
+\item{set_qs_robust_sa}{Logical scalar indicating if original series adjusted
+for extremes is included in testing. Default is \code{TRUE}.}
 
-\item{set_spec_peak_level}{Integer scalar - limit to determine if a frequency has a spectral peak.
+\item{set_spec_peak_level}{Integer scalar; a limit to determine if a
+frequency has a spectral peak.
 Default is \code{6}.}
 
-\item{set_spec_peak_warn}{Integer scalar - limit to produce a warning that a frequency may have a
-spectral peak. Default is \code{3}.}
+\item{set_spec_peak_warn}{Integer scalar; a limit to produce a warning that a
+frequency may have a spectral peak. Default is \code{3}.}
 
 \item{return_list}{logical scalar; return a list rather than a vector.
 Default is \code{FALSE}}
@@ -99,21 +104,33 @@ Default is \code{FALSE}}
 vector or list of model diagnostics for a given series
 }
 \description{
-Generate a summary of model diagnostics for a single series
+Generate a summary of model diagnostics for a single series.
 }
 \details{
-Version 5.5, 6/21/2024
+Version 6.5, 2026-03-09
 }
 \examples{
 air_seas <- 
-   seasonal::seas(AirPassengers, x11="", slidingspans = "", 
-                  transform.function = "log", arima.model = "(0 1 1)(0 1 1)", 
-                  regression.aictest = "td", forecast.maxlead=36, 
-                  check.print = c( "pacf", "pacfplot" ), check.save = "acf")
+   seasonal::seas(AirPassengers, x11="", 
+                  slidingspans = "", 
+                  transform.function = "log", 
+                  arima.model = "(0 1 1)(0 1 1)", 
+                  regression.aictest = "td", 
+                  forecast.maxlead=36, 
+                  check.print = c( "pacf", "pacfplot" ), 
+                  check.save = "acf")
 air_diag <- 
-    all_model_diag(air_seas, add_seasonal = TRUE, add_aicc = TRUE, add_norm = TRUE, 
-                   add_auto_out = TRUE, add_pacf = FALSE, qs_test_span = TRUE, 
-                   return_list = TRUE)
+  all_model_diag(air_seas, 
+     add_seasonal = TRUE, 
+     add_aicc = TRUE, 
+     add_norm = TRUE, 
+     add_auto_out = TRUE, 
+     add_pacf = FALSE, 
+     qs_test_span = TRUE, 
+     return_list = TRUE)
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

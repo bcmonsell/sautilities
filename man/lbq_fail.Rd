@@ -13,28 +13,35 @@ This is a required entry.}
 \item{lbq_lags_fail}{Lags of the ACF to test
 Default is \code{c(12, 24)}.}
 
-\item{p_limit}{\itemize{
-\item numeric limit for the p-value of the Ljung-Box Q
-Default is \code{0.01}.
-}}
+\item{p_limit}{Numeric limit for the p-value of the Ljung-Box Q
+Default is \code{0.01}.}
 }
 \value{
-Logical object which is \code{TRUE} if series fails the Ljung Box Q test, \code{FALSE} otherwise
+Logical object which is \code{TRUE} if series fails the Ljung Box Q test,
+\code{FALSE} otherwise
 }
 \description{
 Tests whether the sample autocorrelation of the residuals from a time series model fails
-the Ljung-Box Q test.
+the Ljung-Box Q test \insertCite{LjungBox78}{sautilities}.
 }
 \details{
-Version 1.5, 9/19/2023
+Version 2.2, 2026-03-09
 }
 \examples{
 ukgas_seas <- 
-   seasonal::seas(UKgas, series.period = 4, arima.model = "(0 1 1)(0 1 1)", 
-                  x11="", transform.function = "log", forecast.maxlead=20,
-                  check.save = 'acf', check.maxlag = 12, check.qlimit = 0.01)
-ukgas_acf <- ukgas_seas$series$acf
-ukgas_lbq_fail <- lbq_fail(ukgas_acf, lbq_lags_fail = c(4, 8))
+   seasonal::seas(UKgas, 
+      series.period = 4, 
+      arima.model = "(0 1 1)(0 1 1)", 
+      x11="", 
+      transform.function = "log", 
+      forecast.maxlead=20,
+      check.print = c( "pacf", "pacfplot" ))
+ukgas_acf <- seasonal::series(ukgas_seas, "acf")
+ukgas_lbq_fail <- 
+     lbq_fail(ukgas_acf, lbq_lags_fail = c(4, 8))
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

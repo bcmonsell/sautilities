@@ -37,15 +37,20 @@ time series matrix object. Default: \code{TRUE}}
 }
 \description{
 Generates a \code{ts} object for a TC (temporary change) outlier regressor
+For more information on TC outliers, see Sections 4.3 and 7.11 of
+\insertCite{Census2025;textual}{sautilities}.
 }
 \details{
-Version 1.7, 5/25/2023
+Version 2.0, 2026-02-24
 }
 \examples{
 UKgas_tc_date <- c(1970, 2)
 UKgas_tc_1970_2 <-
    gen_tc_outlier_ts(UKgas_tc_date, this_start = c(1960, 1), this_end = c(1990, 4), 
                      this_freq = 4, tc_alpha = 0.9, return_matrix = TRUE)
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

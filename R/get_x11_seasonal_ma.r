@@ -2,9 +2,10 @@
 #'
 #' Returns the seasonal moving average used in an X-ll seasonal adjustment from a seas object.
 #'
-#' Version 1.1 3/12/2025
+#' Version 2.0, 2026-02-25
 #'
-#' @param seas_obj \code{seas} object for a single series,
+#' @param seas_obj A \code{seas} object for a single series generated from the 
+#'        \code{seasonal} package \insertCite{seasonal2018}{sautilities}. 
 #'        This is a required entry.
 #' @return Returns the seasonal moving average used in an X-ll seasonal adjustment from a seas object. 
 #          Can be a single entry if the same moving average is used for all periods, or a vector for each period.
@@ -12,15 +13,23 @@
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
+#' @references
+#'  \insertAllCited{}
+#'
 #' @examples 
-#' air_seas_short <- seasonal::seas(AirPassengers, series.span = ',1960.9', 
-#'                     arima.model="(0 1 1)(0 1 1)", 
-#'                     forecast.maxlead = 36, slidingspans = "", 
-#'                     transform.function = "log", x11.save = "d11")
+#' air_seas_short <- 
+#'    seasonal::seas(AirPassengers, 
+#'                   series.span = ',1960.9', 
+#'                   transform.function = "log", 
+#'                   arima.model="(0 1 1)(0 1 1)",
+#'                   forecast.maxlead = 36, 
+#'                   x11 = "", 
+#'                   slidingspans = "")
 #' air_sf_short  <- get_x11_seasonal_ma(air_seas_short)
+#' @importFrom Rdpack reprompt
 #' @export
 get_x11_seasonal_ma <- function(seas_obj = NULL) {
-    # Author: Brian C. Monsell (OEUS) Version 1.1 3/12/2025
+    # Author: Brian C. Monsell (OEUS) Version 2.0, 2026-02-25
 	
 	# check if a value is specified for \code{seas_obj}
     if (is.null(seas_obj)) {

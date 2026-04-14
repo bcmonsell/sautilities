@@ -7,8 +7,8 @@
 input_saved_x13_file(filename = NULL, pos = 2, ncol = 2)
 }
 \arguments{
-\item{filename}{Character string, filename of a file saved by the \code{X-13ARIMA-SEATS}
-program. This is a required entry.}
+\item{filename}{Character string, filename of a file saved by the
+\code{X-13ARIMA-SEATS} program. This is a required entry.}
 
 \item{pos}{Integer scalar, column of data to be extracted from \code{filename}.
 Default is 2.}
@@ -23,7 +23,7 @@ A time series array
 Import data from a file saved by the X-13ARIMA-SEATS program
 }
 \details{
-Version 1.2, 5/25/2023
+Version 1.2, 2023-05-25
 }
 \examples{
 \dontrun{

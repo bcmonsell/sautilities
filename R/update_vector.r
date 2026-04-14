@@ -2,13 +2,13 @@
 #'
 #' Fill unspecified elements of a vector with the first element of the input series.
 #'
-#' Version 2.3, 5/25/2023
+#' Version 2.4, 2026-03-04
 #'
 #' @param this_series Original time series. This is a required entry.
-#' @param this_num Length of updated series. Must be more than the length of \code{this_series}.
-#'        This is a required entry.
-#' @return An updated vector of length \code{this_num} augmented with the first value of the 
-#'         input series.
+#' @param this_num Length of updated series. Must be more than the length of 
+#'        \code{this_series}. This is a required entry.
+#' @return An updated vector of length \code{this_num} augmented with the 
+#'         first value of the input series.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
@@ -17,7 +17,7 @@
 #' updated_vector <- update_vector(this_vector, 4)
 #' @export
 update_vector <- function(this_series = NULL, this_num = NULL) {
-    # Author: Brian C. Monsell (OEUS) Version 2.3, 5/25/2023
+    # Author: Brian C. Monsell (OEUS) Version 2.4, 2026-03-04
     
     if (is.null(this_series)) {
         stop("Argument this_series must be specified.")

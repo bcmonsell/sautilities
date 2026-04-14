@@ -4,30 +4,47 @@
 \alias{difference_dates}
 \title{Date difference}
 \usage{
-difference_dates(first_date = NULL, second_date = NULL, this_frequency = 12)
+difference_dates(
+  start_date = NULL,
+  end_date = NULL,
+  this_frequency = 12,
+  include_start = TRUE,
+  return_absolute = FALSE
+)
 }
 \arguments{
-\item{first_date}{Integer array of length 2, a date where the first element is the year and
+\item{start_date}{Integer array of length 2, a date where the first element is the year and
 the second element is the month or quarter. This is a required entry.}
 
-\item{second_date}{Integer array of length 2, a date to comapare to \code{this_date}.
+\item{end_date}{Integer array of length 2, a date to comapare to \code{this_date}.
 This is a required entry.}
 
 \item{this_frequency}{Integer scalar, frequency of target time series.
-Entries limited to 1 (yearly), 2 (biannual), 3 (triannual), 4 (quarterly),
-6 (Bimonthly), and 12. Default is 12 (monthly).}
+Entries limited to \code{1} (yearly), \code{2} (biannual), \code{3} (triannual),
+\code{4} (quarterly), \code{6} (Bimonthly), \code{365} (daily) and \code{12}.
+Default is \code{12} (monthly).}
+
+\item{include_start}{Logical scalar; if \code{TRUE}, include the starting date in the difference,
+otherwise, the difference is left as computed. Default is \code{TRUE}.}
+
+\item{return_absolute}{Logical scalar; if \code{TRUE}, returns the absolute value of the
+number of days if the difference is negative}
 }
 \value{
 Integer scalar; difference between first date and second date.
 }
 \description{
 Generate the difference between two dates.
+This function uses the \code{lubridate} package \insertCite{lubridate}{sautilities}.
 }
 \details{
-Version 1.4, 12/31/2024
+Version 4.0, 2026-02-24
 }
 \examples{
-diff_start <- difference_dates(start(shoes2007), c(1990,1))
+diff_start <- difference_dates(c(1990,1), c(1995,1))
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

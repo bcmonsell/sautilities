@@ -1,21 +1,27 @@
 #' Make a UDG key for X-11-ARIMA M and Q statistics
 #'
-#' Generates the UDG key for \code{X-11-ARIMA} M and Q statistics based on a label
+#' Generates the UDG key for \code{X-11-ARIMA} M and Q statistics based on a label.
+#' For more information on the X-11-ARIMA quality control statistics,
+#' \insertCite{@see @LothianMorry78 and @LadirayQuenneville2001;textual}{sautilities}.
 #'
-#' Version 1.3, 05/24/2023
+#' Version 2.0, 2026-03-06
 #'
-#' @param this_label character string; name of an \code{X-11-ARIMA} M and Q statistics 
+#' @param this_label character string; name of an \code{X-11-ARIMA} M and Q statistics.
 #'        This is a required entry.
 #' @return character string with the corresponding UDG label for \code{this_label}. 
 #'         If incorrect label is specified, returns \code{NULL}.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
+#' @references
+#'  \insertAllCited{}
+#'
 #' @examples
 #' m7_key  <- get_mq_key('M7')
+#' @importFrom Rdpack reprompt
 #' @export
 get_mq_key <- function(this_label = NULL) {
-    # Author: Brian C. Monsell (OEUS) Version 1.3, 05/24/2023
+    # Author: Brian C. Monsell (OEUS) Version 2.0, 2026-03-06
     
     # check if a value is specified for \code{this_label}
     if (is.null(this_label)) {

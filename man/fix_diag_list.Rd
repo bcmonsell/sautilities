@@ -21,10 +21,10 @@ received a warning, or \code{'both'}. Default is \code{'both'}.}
 diagnostic list object with missing names filled in
 }
 \description{
-Fix an incomplete diagnostic list by filling in missing elements with NAs
+Fix an incomplete diagnostic list by filling in missing elements with NAs.
 }
 \details{
-Version 1.6, 5/25/2023
+Version 1.7, 2026-02-24
 }
 \examples{
 xt_composite_seas <- seasonal::seas(xt_data_new,
@@ -46,6 +46,7 @@ xt_test_m7 <- lapply(xt_comp_update, function(x)
      try(mq_test(x, return_this = 'both')))
 test_names <- names(xt_data_new)
 num_names <- length(test_names)
+
 if (!is.null(xt_test_m7)) {
     if (length(xt_test_m7) < num_names) {
       xt_test_m7 <- 

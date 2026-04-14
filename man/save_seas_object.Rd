@@ -18,56 +18,68 @@ save_seas_object(
 )
 }
 \arguments{
-\item{seas_obj}{seasonal object. This is a required entry.}
+\item{seas_obj}{\code{seas} object. This is a required entry.}
 
-\item{file_name}{character string; file name where \code{seas} object is stored;
-default is the name of the seasonal object.}
+\item{file_name}{character string; file name where \code{seas} object is stored.
+Default is the name of the seasonal object.}
 
-\item{series_name}{character string; name of time series object used by the \code{seas} object;
-default is the name of the seasonal object.}
+\item{series_name}{character string; name of time series object used by the
+\code{seas} object. default is the name of the seasonal object.}
 
-\item{data_list}{character string; name of the list object that holds data; there is no default.}
+\item{data_list}{character string; name of the list object that holds data.}
 
-\item{list_element}{character string; name of the list element used as data;
-default is the name of the seasonal object.}
+\item{list_element}{character string; name of the list element used as data.
+Default is the name of the seasonal object.}
 
-\item{user_reg}{character string; name of a time series matrix containing user defined
-regressors; there is no default.
-If not set, will set variables related to user defined regressors to \code{NULL}
-in the static version of the \code{seas} object.}
+\item{user_reg}{character string; name of a time series matrix containing
+user defined regressors. There is no default.
+If not set, will set variables related to user defined regressors to
+\code{NULL} in the static version of the \code{seas} object.}
 
-\item{this_window}{logical indicator variable; determines if a span of the original series
+\item{this_window}{logical indicator variable; determines if a span of the
+\code{window()} function.
 If \code{FALSE}, the entire series will be used in the saved file.}
 
-\item{this_directory}{character string; optional directory where the spec file is stored.}
+\item{this_directory}{character string; optional directory where the spec
+file is stored.}
 
 \item{this_sep}{character string; separator between elements of the file name.
 Default is \code{"_"}.}
 
-\item{print_out}{logical indicator variable; determines if an \code{out()} function is
-printed at the end of the script. If \code{FALSE}, the \code{out()} function is commented out.
-Default is \code{FALSE}.}
+\item{print_out}{logical indicator variable; determines if a call to the
+\code{out()} function of the \code{seasonal} package is put
+at the end of the script. If \code{FALSE}, the \code{out()} function
+is commented out. Default is \code{FALSE}.}
 }
 \value{
-stores the \code{seas} command to reproduce the \code{seas} object
+Stores the \code{seas} command to reproduce the \code{seas} object
 \code{seas_obj} into the file \code{file_name.r} -
 if \code{file_name} is not specified, the name of the seasonal object will be used
 to form the output file name.
 }
 \description{
-Stores \code{seas} command to reproduce the \code{seas} object \code{seas_obj}
-into the file \code{file_name.r}.
+Saves the \code{seas} command to reproduce the \code{seas} object \code{seas_obj}
+into the file \code{file_name.r}. More information on the \code{seasonal} package
+can be found at \insertCite{seasonal2018;textual}{sautilities}.
 }
 \details{
-Version 9.5, 5/14/2024
+Version 10.1, 2026-03-05
 }
 \examples{
 ukgas_seas <-
-   seasonal::seas(UKgas, series.period = 4, arima.model = "(0 1 1)(0 1 1)",
-                  x11 = "", transform.function = "log", forecast.maxlead = 20,
-                  check.print = c( "pacf", "pacfplot" ))
-\dontrun{save_seas_object(ukgas_seas, file_name = "ukgas_seas", series_name = "ukgas",
-                 print_out = TRUE)}
+   seasonal::seas(UKgas, 
+      series.period = 4, 
+      transform.function = "log", 
+      arima.model = "(0 1 1)(0 1 1)", 
+      forecast.maxlead = 20,
+      check.print = c( "pacf", "pacfplot" ),
+      x11 = "")
+\dontrun{save_seas_object(ukgas_seas, 
+            file_name = "ukgas_seas", series_name = "ukgas",
+            print_out = TRUE)}
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

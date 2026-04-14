@@ -7,7 +7,8 @@
 get_x11_seasonal_ma(seas_obj = NULL)
 }
 \arguments{
-\item{seas_obj}{\code{seas} object for a single series,
+\item{seas_obj}{A \code{seas} object for a single series generated from the
+\code{seasonal} package \insertCite{seasonal2018}{sautilities}.
 This is a required entry.}
 }
 \value{
@@ -18,14 +19,21 @@ Returns NULL if X-11 seasonal adjustment is not done.
 Returns the seasonal moving average used in an X-ll seasonal adjustment from a seas object.
 }
 \details{
-Version 1.1 3/12/2025
+Version 2.0, 2026-02-25
 }
 \examples{
-air_seas_short <- seasonal::seas(AirPassengers, series.span = ',1960.9', 
-                    arima.model="(0 1 1)(0 1 1)", 
-                    forecast.maxlead = 36, slidingspans = "", 
-                    transform.function = "log", x11.save = "d11")
+air_seas_short <- 
+   seasonal::seas(AirPassengers, 
+                  series.span = ',1960.9', 
+                  transform.function = "log", 
+                  arima.model="(0 1 1)(0 1 1)",
+                  forecast.maxlead = 36, 
+                  x11 = "", 
+                  slidingspans = "")
 air_sf_short  <- get_x11_seasonal_ma(air_seas_short)
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

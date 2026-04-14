@@ -14,7 +14,8 @@ get_seasonal_theta(
 }
 \arguments{
 \item{seas_obj}{A \code{seas} object for a single series generated from the
-\code{seasonal} package. This is a required entry.}
+\code{seasonal} package \insertCite{seasonal2018}{sautilities}.
+This is a required entry.}
 
 \item{freq}{A numeric scalar, the frequency of the time series. Default is 12.}
 
@@ -39,12 +40,19 @@ t-value of the seasonal MA coefficient can be returned depending on the value of
 Get the value of a seasonal moving average coefficient estimated from an airline model.
 }
 \details{
-Version 3.0, 5/14/2024
+Version 3.0, 2026-02-25
 }
 \examples{
-air_seas <- seasonal::seas(AirPassengers, transform.function = "log", 
-                        arima.model = "(0 1 1)(0 1 1)", x11="")
-this_seasonal_theta <- get_seasonal_theta(air_seas, return_string = FALSE)
+air_seas <- 
+   seasonal::seas(AirPassengers, 
+                  transform.function = "log", 
+                  arima.model = "(0 1 1)(0 1 1)", 
+                  x11="")
+this_seasonal_theta <- 
+    get_seasonal_theta(air_seas, return_string = FALSE)
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

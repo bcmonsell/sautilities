@@ -1,8 +1,10 @@
 #' Temporary change outlier regression as a \code{ts} object
 #'
 #' Generates a \code{ts} object for a TC (temporary change) outlier regressor
+#' For more information on TC outliers, see Sections 4.3 and 7.11 of 
+#' \insertCite{Census2025;textual}{sautilities}.
 #'
-#' Version 1.7, 5/25/2023
+#' Version 2.0, 2026-02-24
 #'
 #' @param tc_date Integer vector of length two - dates for TC outlier to be generated
 #'        This is a required entry.
@@ -20,16 +22,25 @@
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
+#' @references
+#'  \insertAllCited{}
+#'
 #' @examples
 #' UKgas_tc_date <- c(1970, 2)
 #' UKgas_tc_1970_2 <-
 #'    gen_tc_outlier_ts(UKgas_tc_date, this_start = c(1960, 1), this_end = c(1990, 4), 
 #'                      this_freq = 4, tc_alpha = 0.9, return_matrix = TRUE)
 #' @import stats
+#' @importFrom Rdpack reprompt
 #' @export
-gen_tc_outlier_ts <- function(tc_date = NULL, this_start = NULL, this_end = NULL, this_freq = 12,  
-                              tc_alpha = NULL, return_matrix = TRUE) {
-    # Author: Brian C. Monsell (OEUS), Version 1.7, 5/25/2023
+gen_tc_outlier_ts <- 
+   function(tc_date = NULL, 
+            this_start = NULL, 
+            this_end = NULL, 
+            this_freq = 12,  
+            tc_alpha = NULL, 
+            return_matrix = TRUE) {
+    # Author: Brian C. Monsell (OEUS), Version 2.0, 2026-02-24
     
     # check if a value is specified for \code{tc_date}
     if (is.null(tc_date)) {

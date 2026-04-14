@@ -1,47 +1,55 @@
 #' Generate diagnostic summary data frame
 #'
 #' Generates a data frame with seasonal adjustment and modeling diagnostics.
+#' For information on these diagnostics, see various sections of 
+#' \insertCite{Census2025;textual}{sautilities} and \insertCite{Bell2022;textual}{sautilities}
 #'
-#' Version 6.0, 5/21/2024
+#' Version 7.1, 2026-03-09
 #'
-#' @param this_data_names vector object with names of time series used in seasonal adjustment.
+#' @param this_data_names Vector object with names of time series used in seasonal 
+#'        adjustment.
 #'        This is a required entry.
-#' @param this_acf_test list object with results from test of regARIMA residual ACF
-#' @param this_d11f_test list object with results from test of D11F
-#' @param this_spec_peak_test list object with results from testing for spectral peaks 
-#'        in the seasonally adjusted series
-#' @param this_spec_peak_ori_test list object with results from testing for spectral peaks 
-#'        in the original series
-#' @param this_qs_test list object with results from QS test
-#' @param this_qs_rsd_test list object with results from residual QS test
-#' @param this_qs_seasonal_test list object with results from seasonal QS test
-#' @param this_model_test list object with results from model diagnostics test
-#' @param this_sspan_test list object with results from sliding spans test
-#' @param this_m7_test list object with results from M7 test
-#' @param this_q2_test list object with results from Q2 test
+#' @param this_acf_test List object with results from test of regARIMA residual ACF.
+#' @param this_d11f_test List object with results from test of D11F.
+#' @param this_spec_peak_test List object with results from testing for spectral  
+#'        peaks in the seasonally adjusted series.
+#' @param this_spec_peak_ori_test List object with results from testing for 
+#'        spectral peaks in the original series.
+#' @param this_qs_test List object with results from QS test.
+#' @param this_qs_rsd_test List object with results from residual QS test.
+#' @param this_qs_seasonal_test List object with results from seasonal QS test.
+#' @param this_model_test List object with results from model diagnostics test.
+#' @param this_sspan_test List object with results from sliding spans test.
+#' @param this_m7_test List object with results from M7 test.
+#' @param this_q2_test List object with results from Q2 test.
 #' @param return_this Character string; what the function returns - 
 #'        \code{'why'} returns why the test failed or received a warning,
 #'        \code{'test'} returns test results, or \code{'both'}.
 #'        Default is \code{'both'}.
-#' @return A data frame with X-13 Diagnostics, with the elements not expressed as factors
+#' @return A data frame with X-13 Diagnostics, with the elements not expressed 
+#'         as factors.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
+#'
+#' @references
+#'  \insertAllCited{}
 #'
 #' @examples
 #' unemp_seasonal_filter <- lapply(unemployment_list, function(x) 
 #'      try(optimal_seasonal_filter(x, use_msr = TRUE)))
-#' unemp_seas_list <- seasonal::seas(unemployment_list,
-#'                      x11 = "", slidingspans = "",
-#'                      arima.model = "(0 1 1)(0 1 1)",
-#'                      transform.function = "log",
-#'                      forecast.maxlead=60,
-#'                      check.print = c( "pacf", "pacfplot" ),
-#'                      list = list(
-#' 		          list(x11.seasonalma = unemp_seasonal_filter$n3000013),
-#' 		          list(x11.seasonalma = unemp_seasonal_filter$n3000014),
-#' 		          list(x11.seasonalma = unemp_seasonal_filter$n3000025),
-#' 		          list(x11.seasonalma = unemp_seasonal_filter$n3000026)
-#'                      ))
+#' unemp_seas_list <- 
+#'    seasonal::seas(unemployment_list,
+#'       x11 = "", slidingspans = "",
+#'       arima.model = "(0 1 1)(0 1 1)",
+#'       transform.function = "log",
+#'       forecast.maxlead=60,
+#'       check.print = c( "pacf", "pacfplot" ),
+#'       list = list(
+#'          list(x11.seasonalma = unemp_seasonal_filter$n3000013),
+#'          list(x11.seasonalma = unemp_seasonal_filter$n3000014),
+#'          list(x11.seasonalma = unemp_seasonal_filter$n3000025),
+#'          list(x11.seasonalma = unemp_seasonal_filter$n3000026)
+#'       ))
 #' unemp_seas_update <- 
 #'      Filter(function(x) inherits(x, "seas"), unemp_seas_list)
 #' unemp_acf <- lapply(unemp_seas_update, function(x) 
@@ -74,24 +82,35 @@
 #' unemp_names <- names(unemployment_list)
 #' unemp_diag_df <-
 #'     make_diag_df(unemp_names, 
-#'                  this_acf_test = unemp_acf, 
-#'                  this_d11f_test = unemp_d11f, 
-#'                  this_spec_peak_test = unemp_spec_peak, 
-#'                  this_spec_peak_ori_test = unemp_spec_peak_ori,
-#'                  this_qs_test = unemp_qs, 
-#'                  this_qs_rsd_test = unemp_qs_rsd,
-#'                  this_qs_seasonal_test = unemp_qs_seasonal, 
-#'                  this_model_test = unemp_model,
-#'                  this_sspan_test = unemp_sspan, 
-#'                  this_m7_test = unemp_m7, 
-#'                  this_q2_test = unemp_q2)
+#'         this_acf_test = unemp_acf, 
+#'         this_d11f_test = unemp_d11f, 
+#'         this_spec_peak_test = unemp_spec_peak, 
+#'         this_spec_peak_ori_test = unemp_spec_peak_ori,
+#'         this_qs_test = unemp_qs, 
+#'         this_qs_rsd_test = unemp_qs_rsd,
+#'         this_qs_seasonal_test = unemp_qs_seasonal, 
+#'         this_model_test = unemp_model,
+#'         this_sspan_test = unemp_sspan, 
+#'         this_m7_test = unemp_m7, 
+#'         this_q2_test = unemp_q2)
 #' 
+#' @importFrom Rdpack reprompt
 #' @export
-make_diag_df <- function(this_data_names = NULL, this_acf_test = NULL, this_d11f_test = NULL, 
-    this_spec_peak_test = NULL, this_spec_peak_ori_test = NULL, this_qs_test = NULL, 
-    this_qs_rsd_test = NULL, this_qs_seasonal_test = NULL, this_model_test = NULL, 
-    this_sspan_test = NULL, this_m7_test = NULL, this_q2_test = NULL, return_this = "both") {
-    # Author: Brian C. Monsell (OEUS) Version 6.0, 5/21/2024
+make_diag_df <- 
+    function(this_data_names = NULL, 
+	    this_acf_test = NULL, 
+		this_d11f_test = NULL, 
+        this_spec_peak_test = NULL, 
+		this_spec_peak_ori_test = NULL, 
+		this_qs_test = NULL, 
+		this_qs_rsd_test = NULL, 
+		this_qs_seasonal_test = NULL, 
+		this_model_test = NULL, 
+		this_sspan_test = NULL, 
+		this_m7_test = NULL, 
+		this_q2_test = NULL, 
+		return_this = "both") {
+    # Author: Brian C. Monsell (OEUS) Version 7.1, 2026-03-09
     
     # check if a value is specified for \code{this_data_names}
     if (is.null(this_data_names)) {

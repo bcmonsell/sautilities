@@ -1,23 +1,31 @@
 #' Get automatic outlier names
 #'
 #' Get the names of outliers identified in the \code{seas} object for a single series.
+#' Details on outliers (Sections 4.3 and 7.13) and outlier identification (Sections 4.7 and 7.11) 
+#' can be found in \insertCite{Census2025;textual}{sautilities}.
 #'
-#' Version 3.0, 5/14/2024
+#' Version 4.1, 2026-03-05
 #'
 #' @param seas_obj A \code{seas} object for a single series generated from the 
-#'        \code{seasonal} package. This is a required entry.
+#'        \code{seasonal} package \insertCite{seasonal2018}{sautilities}. 
+#'        This is a required entry.
 #' @return Character string containing a summary of the outliers identified in the 
 #'         regARIMA model. If no regressors or automatic outliers in the model, the routine 
 #'         will return a blank character.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
+#' @references
+#'  \insertAllCited{}
+#'
 #' @examples
-#' air_seas <- seasonal::seas(AirPassengers, arima.model = "(0 1 1)(0 1 1)", x11="")
+#' air_seas <- 
+#'    seasonal::seas(AirPassengers, arima.model = "(0 1 1)(0 1 1)", x11="")
 #' this_auto_outlier <- get_auto_outlier_string(air_seas)
+#' @importFrom Rdpack reprompt
 #' @export
 get_auto_outlier_string <- function(seas_obj = NULL) {
-    # Author: Brian C. Monsell (OEUS) Version 3.0, 5/14/2024
+    # Author: Brian C. Monsell (OEUS) Version 4.1, 2026-03-05
     
     # check if a value is specified for \code{seas_obj}
     if (is.null(seas_obj)) {

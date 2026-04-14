@@ -7,8 +7,8 @@
 get_mq_label(this_key = "f3.q")
 }
 \arguments{
-\item{this_key}{character string; name of an X-11-ARIMA M and Q statistics used in the
-UDG X-13 output. Default is \code{"f3.q"}.}
+\item{this_key}{character string; name of an X-11-ARIMA M and Q statistics
+used in the \code{UDG} X-13 output. Default is \code{"f3.q"}.}
 }
 \value{
 character string with the corresponding label for \code{this_key}.
@@ -16,12 +16,17 @@ If incorrect label is specified, returns \code{NULL}.
 }
 \description{
 Generates a label for X-11-ARIMA M and Q statistics
+For more information on the X-11-ARIMA quality control statistics,
+\insertCite{@see @LothianMorry78 and @LadirayQuenneville2001;textual}{sautilities}.
 }
 \details{
-Version 1.2, 05/24/2023
+Version 2.0, 2026-03-06
 }
 \examples{
 m7_label  <- get_mq_label('f3.m07')
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

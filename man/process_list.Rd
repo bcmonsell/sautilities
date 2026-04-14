@@ -12,29 +12,31 @@ process_list(
 )
 }
 \arguments{
-\item{this_list}{List of numeric values. The elements should be scalars, not arrays.
-This is a required entry.}
+\item{this_list}{List of numeric values. The elements should be scalars,
+not arrays or text. This is a required entry.}
 
-\item{this_limit}{Numeric scalar which serves as the limit of the numbers stored in
-\code{this_list}. This is a required entry.}
+\item{this_limit}{Numeric scalar which serves as the limit of the numbers
+stored in \code{this_list}. This is a required entry.}
 
-\item{abs_value}{Logical scalar that indicates whether the absolute value is taken of the
-numbers before the comparison is made. (default is \code{FALSE})}
+\item{abs_value}{Logical scalar that indicates whether the absolute value
+is taken of the numbers before the comparison is made.
+Default is \code{FALSE}.}
 
-\item{greater_than}{logical object that specified whether the element names returned are
-greater than or less than the limit specified in this_limit (default is \code{TRUE})}
+\item{greater_than}{Logical object that specified whether the element names
+returned are greater than or less than the limit specified in this_limit.
+Default is \code{TRUE}.}
 }
 \value{
-A vector of list element names where the value in \code{this_list} is greater than or
-less than the limit specified in \code{this_limit}. If nothing matches,
-the function will output the string \code{'none'}
+A vector of list element names where the value in \code{this_list}
+is greater than or less than the limit specified in \code{this_limit}.
+If nothing matches, the function will output the string \code{'none'}
 }
 \description{
 Process list object of numbers and return names of elements that are either greater than or
 less than a limit.
 }
 \details{
-Version 2.2, 5/23/2023
+Version 2.3, 2026-02-26
 }
 \examples{
 emp_seas_list <- 
@@ -46,10 +48,14 @@ emp_seas_list <-
 emp_seas_update <- 
     Filter(function(x) inherits(x, "seas"), emp_seas_list)
 m7_key          <- get_mq_key('M7')
-emp_m7_list     <- lapply(emp_seas_update, function(x) 
-                          try(get_udg_entry(x, m7_key)))
-emp_m7_pass     <- process_list(emp_m7_list, this_limit = 1.0, 
-                          abs_value = TRUE, greater_than = FALSE)
+emp_m7_list     <- 
+   lapply(emp_seas_update, function(x) 
+          try(get_udg_entry(x, m7_key)))
+emp_m7_pass     <- 
+   process_list(emp_m7_list, 
+      this_limit = 1.0, 
+      abs_value = TRUE, 
+      greater_than = FALSE)
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

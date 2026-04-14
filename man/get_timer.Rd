@@ -17,13 +17,15 @@ This is an optional entry.}
 Numeric object of the elapsed time of the X-13 run.
 }
 \description{
-Read profiler information from saved files and generate the elapsed time of an X-13 run in miliseconds.
+Read profiler information from saved files and generate the elapsed time
+of an X-13 run in miliseconds.
 }
 \details{
-Version 1.1, 11/29/2023
+Version 1.1, 2023-11-29
 }
 \examples{
-\dontrun{AE1011330000_time <- get_timer("AE1011330000_auto", "X:/code/census_build_60/basic/")} 
+\dontrun{AE1011330000_time <- 
+            get_timer("AE1011330000_auto", "X:/code/census_build_60/basic/")} 
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

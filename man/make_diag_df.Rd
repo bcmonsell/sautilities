@@ -21,32 +21,33 @@ make_diag_df(
 )
 }
 \arguments{
-\item{this_data_names}{vector object with names of time series used in seasonal adjustment.
+\item{this_data_names}{Vector object with names of time series used in seasonal
+adjustment.
 This is a required entry.}
 
-\item{this_acf_test}{list object with results from test of regARIMA residual ACF}
+\item{this_acf_test}{List object with results from test of regARIMA residual ACF.}
 
-\item{this_d11f_test}{list object with results from test of D11F}
+\item{this_d11f_test}{List object with results from test of D11F.}
 
-\item{this_spec_peak_test}{list object with results from testing for spectral peaks
-in the seasonally adjusted series}
+\item{this_spec_peak_test}{List object with results from testing for spectral
+peaks in the seasonally adjusted series.}
 
-\item{this_spec_peak_ori_test}{list object with results from testing for spectral peaks
-in the original series}
+\item{this_spec_peak_ori_test}{List object with results from testing for
+spectral peaks in the original series.}
 
-\item{this_qs_test}{list object with results from QS test}
+\item{this_qs_test}{List object with results from QS test.}
 
-\item{this_qs_rsd_test}{list object with results from residual QS test}
+\item{this_qs_rsd_test}{List object with results from residual QS test.}
 
-\item{this_qs_seasonal_test}{list object with results from seasonal QS test}
+\item{this_qs_seasonal_test}{List object with results from seasonal QS test.}
 
-\item{this_model_test}{list object with results from model diagnostics test}
+\item{this_model_test}{List object with results from model diagnostics test.}
 
-\item{this_sspan_test}{list object with results from sliding spans test}
+\item{this_sspan_test}{List object with results from sliding spans test.}
 
-\item{this_m7_test}{list object with results from M7 test}
+\item{this_m7_test}{List object with results from M7 test.}
 
-\item{this_q2_test}{list object with results from Q2 test}
+\item{this_q2_test}{List object with results from Q2 test.}
 
 \item{return_this}{Character string; what the function returns -
 \code{'why'} returns why the test failed or received a warning,
@@ -54,29 +55,33 @@ in the original series}
 Default is \code{'both'}.}
 }
 \value{
-A data frame with X-13 Diagnostics, with the elements not expressed as factors
+A data frame with X-13 Diagnostics, with the elements not expressed
+as factors.
 }
 \description{
 Generates a data frame with seasonal adjustment and modeling diagnostics.
+For information on these diagnostics, see various sections of
+\insertCite{Census2025;textual}{sautilities} and \insertCite{Bell2022;textual}{sautilities}
 }
 \details{
-Version 6.0, 5/21/2024
+Version 7.1, 2026-03-09
 }
 \examples{
 unemp_seasonal_filter <- lapply(unemployment_list, function(x) 
      try(optimal_seasonal_filter(x, use_msr = TRUE)))
-unemp_seas_list <- seasonal::seas(unemployment_list,
-                     x11 = "", slidingspans = "",
-                     arima.model = "(0 1 1)(0 1 1)",
-                     transform.function = "log",
-                     forecast.maxlead=60,
-                     check.print = c( "pacf", "pacfplot" ),
-                     list = list(
-		          list(x11.seasonalma = unemp_seasonal_filter$n3000013),
-		          list(x11.seasonalma = unemp_seasonal_filter$n3000014),
-		          list(x11.seasonalma = unemp_seasonal_filter$n3000025),
-		          list(x11.seasonalma = unemp_seasonal_filter$n3000026)
-                     ))
+unemp_seas_list <- 
+   seasonal::seas(unemployment_list,
+      x11 = "", slidingspans = "",
+      arima.model = "(0 1 1)(0 1 1)",
+      transform.function = "log",
+      forecast.maxlead=60,
+      check.print = c( "pacf", "pacfplot" ),
+      list = list(
+         list(x11.seasonalma = unemp_seasonal_filter$n3000013),
+         list(x11.seasonalma = unemp_seasonal_filter$n3000014),
+         list(x11.seasonalma = unemp_seasonal_filter$n3000025),
+         list(x11.seasonalma = unemp_seasonal_filter$n3000026)
+      ))
 unemp_seas_update <- 
      Filter(function(x) inherits(x, "seas"), unemp_seas_list)
 unemp_acf <- lapply(unemp_seas_update, function(x) 
@@ -109,18 +114,21 @@ unemp_q2 <- lapply(unemp_seas_update, function(x)
 unemp_names <- names(unemployment_list)
 unemp_diag_df <-
     make_diag_df(unemp_names, 
-                 this_acf_test = unemp_acf, 
-                 this_d11f_test = unemp_d11f, 
-                 this_spec_peak_test = unemp_spec_peak, 
-                 this_spec_peak_ori_test = unemp_spec_peak_ori,
-                 this_qs_test = unemp_qs, 
-                 this_qs_rsd_test = unemp_qs_rsd,
-                 this_qs_seasonal_test = unemp_qs_seasonal, 
-                 this_model_test = unemp_model,
-                 this_sspan_test = unemp_sspan, 
-                 this_m7_test = unemp_m7, 
-                 this_q2_test = unemp_q2)
+        this_acf_test = unemp_acf, 
+        this_d11f_test = unemp_d11f, 
+        this_spec_peak_test = unemp_spec_peak, 
+        this_spec_peak_ori_test = unemp_spec_peak_ori,
+        this_qs_test = unemp_qs, 
+        this_qs_rsd_test = unemp_qs_rsd,
+        this_qs_seasonal_test = unemp_qs_seasonal, 
+        this_model_test = unemp_model,
+        this_sspan_test = unemp_sspan, 
+        this_m7_test = unemp_m7, 
+        this_q2_test = unemp_q2)
 
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

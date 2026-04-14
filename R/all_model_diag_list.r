@@ -1,53 +1,74 @@
 #' Model diagnostic summary from a list
 #'
 #' Generate a summary of model diagnostics from a list of \code{seas} objects series.
+#' See \insertCite{rprojectAdjustingMultiple;textual}{sautilities} for code to apply
+#' the \code{seasonal} package on multiple series. 
+#' 
+#' Version 9.3, 2026-03-06
 #'
-#' Version 8.0, 6/21/2024
-#'
-#' @param seas_obj_list list of \code{seas} objects generated from a call of \code{seas} 
-#'        on a single time series. A required argument.
+#' @param seas_obj_list List object of \code{seas} objects generated from a call 
+#'        of \code{seas} on a list consisting of individual time series.
+#         Information on generating adjustments with the \code{seasonal} package 
+#'        can be found in \insertCite{rprojectAdjustingMultiple;textual}{sautilities}. 
+#'        This is a required entry.
 #' @param add_aicc logical scalar; add AICC value to the summary. 
+#'        \insertCite{Akaike73,BurnhamAnderson2004}{sautilities}.
 #'        Default is \code{TRUE}
 #' @param add_norm logical scalar; add normality statistics to the summary. 
 #'        Default is \code{FALSE}
-#' @param add_auto_out logical scalar; add identified automatic outliers to the summary. 
+#' @param add_auto_out logical scalar; add identified automatic outliers to the 
+#'        summary. 
 #'        Default is \code{FALSE}
 #' @param add_seasonal logical scalar; add QS test for seasonality to the summary. 
+#'        For details on the QS test, 
+#'        see \insertCite{@Section 7.17 of @Census2025;textual}{sautilities}
+#'        and \insertCite{Maravall2012;textual}{sautilities}.
 #'        Default is \code{FALSE}.
 #' @param add_spec logical scalar; add test for spectral peaks to the summary. 
 #'        Default is \code{FALSE}
-#' @param add_lbq logical scalar; add test for Ljung-Box Q to the summary.
-#'        Default is \code{TRUE}; if set to \code{FALSE}, a more extensive test of ACF
-#'        will be done.
-#' @param set_lbq_lags_fail - lags of the Ljung-Box Q to test
+#' @param add_lbq logical scalar; add test for Ljung-Box Q to the summary
+#'        \insertCite{LjungBox78}{sautilities}.
+#'        Default is \code{TRUE}; if set to \code{FALSE}, a more extensive test 
+#'        of ACF will be done.
+#' @param set_lbq_lags_fail Integer vector; lags of the Ljung-Box Q to test
 #'        Default is \code{c(12, 24)}.
 #' @param set_lbq_p_limit Numeric scalar; P-value limit for Ljung-Box Q test
 #'        Default is \code{0.01}.
 #' @param set_acf_num_sig Limit for number of lags with significant ACF values
 #'        Default is \code{8}.
-#' @param set_acf_lags_fail - lags of the ACF to test
+#' @param set_acf_lags_fail Integer vector; lags of the ACF to test
 #'        Default is \code{c(1, 2, 3, 4, 12, 24)}.
-#' @param set_acf_lags_warn - lags of the ACF to test for warnings
+#' @param set_acf_lags_warn Integer vector; lags of the ACF to test for warnings
 #'        Default is \code{c(12, 24)}.
 #' @param add_pacf logical scalar; include PACF in ACF results. 
 #'        Default is \code{TRUE}
-#' @param qs_test_span logical scalar; test span of data in QS seasonal test rather than full series. 
+#' @param qs_test_span logical scalar; test span of data in QS seasonal test 
+#'        rather than the full series. 
 #'        Default is \code{FALSE}
-#' @param set_qs_p_limit_pass Numeric scalar; P-value limit for QS statistic for passing
+#' @param set_qs_p_limit_pass Numeric scalar; P-value limit for QS statistic 
+#'        for passing.
 #'        Default is \code{0.01}.
-#' @param set_qs_p_limit_warn Numeric scalar; P-value limit for QS statistic for warning
+#' @param set_qs_p_limit_warn Numeric scalar; P-value limit for QS statistic  
+#'        for warning messages.
 #'        Default is \code{0.05}.
-#' @param set_qs_robust_sa Logical scalar indicating if original series adjusted for extremes is 
-#'        included in testing. Default is \code{TRUE}.
-#' @param set_spec_peak_level Integer scalar - limit to determine if a frequency has a spectral peak.
+#' @param set_qs_robust_sa Logical scalar indicating if original series adjusted 
+#'        for extremes is included in testing. 
+#'        Default is \code{TRUE}.
+#' @param set_spec_peak_level Integer scalar; limit to determine if a frequency 
+#'        has a spectral peak.
 #'        Default is \code{6}.
-#' @param set_spec_peak_warn Integer scalar - limit to produce a warning that a frequency may have a 
-#'        spectral peak. Default is \code{3}.
-#' @param return_data_frame logical scalar; if \code{TRUE}, return a data frame of the diagnostics, 
-#'        otherwise return a matrix. Default is \code{FALSE}.
+#' @param set_spec_peak_warn Integer scalar; limit to produce a warning that a 
+#'        frequency may have a spectral peak. 
+#'        Default is \code{3}.
+#' @param return_data_frame logical scalar; if \code{TRUE}, return a data frame 
+#'        of the diagnostics, otherwise return a matrix. 
+#'        Default is \code{FALSE}.
 #' @return matrix or data frame of model diagnostics for a given set of series series
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
+#'
+#' @references
+#'  \insertAllCited{}
 #'
 #' @examples
 #' unemp_seas_list <- 
@@ -61,18 +82,37 @@
 #' unemp_seas_update <- 
 #'      Filter(function(x) inherits(x, "seas"), unemp_seas_list)
 #' unemp_diag <- 
-#'     all_model_diag_list(unemp_seas_update, add_aicc = TRUE, 
-#'                         add_norm = TRUE, add_auto_out = TRUE, 
-#'                         add_spec = TRUE, add_pacf = FALSE, qs_test_span = TRUE)
+#'     all_model_diag_list(unemp_seas_update, 
+#'                         add_aicc = TRUE, 
+#'                         add_norm = TRUE, 
+#'                         add_auto_out = TRUE, 
+#'                         add_spec = TRUE, 
+#'                         add_pacf = FALSE, 
+#'                         qs_test_span = TRUE)
+#' @importFrom Rdpack reprompt
 #' @export
-all_model_diag_list <- function(seas_obj_list = NULL, add_aicc = FALSE, add_norm = FALSE, 
-    add_auto_out = FALSE, add_seasonal = FALSE, add_spec = FALSE, add_lbq = TRUE, 
-   set_lbq_lags_fail = c(12, 24), set_lbq_p_limit = 0.01, set_acf_num_sig = 8, 
-    set_acf_lags_fail = c(1, 2, 3, 4, 12, 24), set_acf_lags_warn = c(12, 24), 
-    add_pacf = TRUE, qs_test_span = FALSE, set_qs_p_limit_pass = 0.01, 
-    set_qs_p_limit_warn = 0.05, set_qs_robust_sa = TRUE, set_spec_peak_level = 6, 
-    set_spec_peak_warn = 3, return_data_frame = FALSE) {
-    # Author: Brian C. Monsell (OEUS) Version 8.0, 6/21/2024
+all_model_diag_list <- 
+   function(seas_obj_list = NULL, 
+            add_aicc = FALSE, 
+            add_norm = FALSE, 
+            add_auto_out = FALSE, 
+            add_seasonal = FALSE, 
+            add_spec = FALSE, 
+            add_lbq = TRUE, 
+            set_lbq_lags_fail = c(12, 24), 
+            set_lbq_p_limit = 0.01, 
+            set_acf_num_sig = 8, 
+            set_acf_lags_fail = c(1, 2, 3, 4, 12, 24), 
+            set_acf_lags_warn = c(12, 24), 
+            add_pacf = TRUE, 
+            qs_test_span = FALSE, 
+            set_qs_p_limit_pass = 0.01, 
+            set_qs_p_limit_warn = 0.05, 
+            set_qs_robust_sa = TRUE, 
+            set_spec_peak_level = 6, 
+            set_spec_peak_warn = 3, 
+            return_data_frame = FALSE) {
+    # Author: Brian C. Monsell (OEUS) Version 9.3, 2026-03-06
     
     # check if a value is specified for \code{seas_obj_list}
     if (is.null(seas_obj_list)) {

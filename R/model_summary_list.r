@@ -2,10 +2,13 @@
 #'
 #' Generate a matrix that summarizes ARIMA models from a list of \code{seas} objects.  
 #'
-#' Version 2.1, 5/22/2024
+#' Version 3.0, 2026-02-26
 #'
-#' @param seas_obj_list list of \code{seas} objects generated from a call of \code{seas} 
-#'        on a single time series. A required argument.
+#' @param seas_obj_list List object of \code{seas} objects generated from a call 
+#'        of \code{seas} on a list consisting of individual time series.
+#         Information on generating adjustments with the \code{seasonal} package 
+#'        can be found in \insertCite{rprojectAdjustingMultiple;textual}{sautilities}. 
+#'        This is a required entry.
 #' @param add_diff logical scalar; add differencing information, if included in model
 #' @param return_data_frame logical scalar; if \code{TRUE}, return a data frame of the diagnostics, 
 #'        otherwise return a matrix. Default is \code{FALSE}.
@@ -13,6 +16,9 @@
 #'         for a given set of series
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
+#'
+#' @references
+#'  \insertAllCited{}
 #'
 #' @examples
 #' unemp_seas_list <- 
@@ -29,11 +35,14 @@
 #' unemp_model_df <- 
 #'     model_summary_list(unemp_seas_update, add_diff = TRUE, 
 #'                        return_data_frame = TRUE)
+#' @importFrom Rdpack reprompt
 #' @export
-model_summary_list <- function(seas_obj_list = NULL, add_diff = FALSE, 
-                               return_data_frame = FALSE)
+model_summary_list <- 
+   function(seas_obj_list = NULL, 
+            add_diff = FALSE, 
+            return_data_frame = FALSE)
 {
-    # Author: Brian C. Monsell (OEUS) Version 2.1, 5/22/2024
+    # Author: Brian C. Monsell (OEUS) Version 3.0, 2026-02-26
     
     # check if a value is specified for \code{seas_obj_list}
     if (is.null(seas_obj_list)) {

@@ -8,7 +8,8 @@ get_auto_outlier_string(seas_obj = NULL)
 }
 \arguments{
 \item{seas_obj}{A \code{seas} object for a single series generated from the
-\code{seasonal} package. This is a required entry.}
+\code{seasonal} package \insertCite{seasonal2018}{sautilities}.
+This is a required entry.}
 }
 \value{
 Character string containing a summary of the outliers identified in the
@@ -17,13 +18,19 @@ will return a blank character.
 }
 \description{
 Get the names of outliers identified in the \code{seas} object for a single series.
+Details on outliers (Sections 4.3 and 7.13) and outlier identification (Sections 4.7 and 7.11)
+can be found in \insertCite{Census2025;textual}{sautilities}.
 }
 \details{
-Version 3.0, 5/14/2024
+Version 4.1, 2026-03-05
 }
 \examples{
-air_seas <- seasonal::seas(AirPassengers, arima.model = "(0 1 1)(0 1 1)", x11="")
+air_seas <- 
+   seasonal::seas(AirPassengers, arima.model = "(0 1 1)(0 1 1)", x11="")
 this_auto_outlier <- get_auto_outlier_string(air_seas)
+}
+\references{
+\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}
