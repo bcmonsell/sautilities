@@ -7,7 +7,7 @@
 get_reg_string(seas_obj = NULL, xreg_names = NULL, exclude_user = FALSE)
 }
 \arguments{
-\item{seas_obj}{A seas object for a single series generated from the
+\item{seas_obj}{A \code{seas} object for a single series generated from the
 \code{seasonal} package \insertCite{seasonal2018}{sautilities}.
 This is a required entry.}
 
@@ -18,7 +18,7 @@ if not, a warning message will be produced.}
 
 \item{exclude_user}{Logical scalar; determines if user defined regressors are
 included in the string of regression names output by the function.
-Default is \code{FALSE}}
+Default is \code{FALSE}.}
 }
 \value{
 Character string containing a summary of the regressors in the regARIMA model.

@@ -1,11 +1,9 @@
-#' LBQ Test Explanation
-#'
-#' Ljung-Box Q Test Failure Message
+#' Produce an Ljung-Box Q test failure message.
 #'
 #' Generates text on why the sample autocorrelation of the residuals from a time series model 
 #' fails the Ljung-Box Q test \insertCite{LjungBox78}{sautilities}.
 #'
-#' Version 2.2, 2026-03-09
+#' Version 2.3, 2026-04-16
 #'
 #' @param this_acf Matrix object of the saved acf table.
 #'        This is a required entry.
@@ -17,7 +15,7 @@
 #'        will return both the test results and why the test failed or just 
 #'        produce a warning. 
 #'        Default is \code{FALSE}.
-#' @return character object tells why series fails the Ljung-Box Q test, \code{'pass'} otherwise.
+#' @return Character object tells why series fails the Ljung-Box Q test, \code{'pass'} otherwise.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
@@ -26,13 +24,14 @@
 #'
 #' @examples
 #' ukgas_seas <- 
-#'      seasonal::seas(UKgas, 
-#'         series.period = 4, 
-#'         arima.model = "(0 1 1)(0 1 1)", 
-#'         x11="", 
-#'         transform.function = "log", 
-#'         forecast.maxlead=20,
-#'         check.print = c( "pacf", "pacfplot" ))
+#'    seasonal::seas(UKgas, 
+#'       series.period = 4, 
+#'       arima.model = "(0 1 1)(0 1 1)", 
+#'       x11="", 
+#'       transform.function = "log", 
+#'       forecast.maxlead=20,
+#'       check.save = 'acf', 
+#'       check.print = c( "acf", "pacf", "pacfplot" ))
 #' ukgas_acf <- seasonal::series(ukgas_seas, "acf")
 #' ukgas_lbq_fail_why <- 
 #'    lbq_fail_why(ukgas_acf, lbq_lags_fail = c(4, 8), 
@@ -44,7 +43,7 @@ lbq_fail_why <-
             lbq_lags_fail = c(12, 24), 
             p_limit = 0.01, 
             return_both = FALSE) {
-    # Author: Brian C. Monsell (OEUS) Version 2.2, 2026-03-09
+    # Author: Brian C. Monsell (OEUS) Version 2.3, 2026-04-16
  
     # check if a value is specified for \code{this_acf}
     if (is.null(this_acf)) {

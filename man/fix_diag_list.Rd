@@ -7,10 +7,10 @@
 fix_diag_list(this_test = NULL, this_names = NULL, return_this = "both")
 }
 \arguments{
-\item{this_test}{list object of a seasonal adjustment or modeling diagnostic
+\item{this_test}{list object of a seasonal adjustment or modeling diagnostic.
 This is a required entry.}
 
-\item{this_names}{character vector; complete set of names to check against
+\item{this_names}{character vector; complete set of names to check against.
 This is a required entry.}
 
 \item{return_this}{character string; what the function returns -
@@ -18,10 +18,10 @@ This is a required entry.}
 received a warning, or \code{'both'}. Default is \code{'both'}.}
 }
 \value{
-diagnostic list object with missing names filled in
+diagnostic list object with missing names filled in.
 }
 \description{
-Fix an incomplete diagnostic list by filling in missing elements with NAs.
+Fix an incomplete diagnostic list by filling in missing elements with \code{NA}s.
 }
 \details{
 Version 1.7, 2026-02-24

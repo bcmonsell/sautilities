@@ -12,7 +12,7 @@ number_of_user_reg(seas_obj = NULL)
 This is a required entry.}
 }
 \value{
-number of user defined regressors in the model contained in \code{seas_obj}.
+Number of user defined regressors in the model contained in \code{seas_obj}.
 }
 \description{
 Extreact the number of user-defined regressors in a \code{seas} objects series.

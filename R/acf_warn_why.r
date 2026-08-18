@@ -1,6 +1,7 @@
 #' ACF Test Warning Message
 #'
-#' Generates text on why the sample autocorrelation of the residuals from a time series model fails the Ljung-Box or Box-Pierce Q test
+#' Generates text on why the sample autocorrelation of the residuals from a time series 
+#' model fails the Ljung-Box or Box-Pierce Q test.
 #'
 #' Version 4.1, 2026-03-06
 #'
@@ -9,8 +10,11 @@
 #'        This is a required entry.
 #' @param acf_lags_warn Integer vector; lags of the ACF to test for warnings.
 #'        Default is \code{c(12, 24)}.
-#' @param return_both Logical scalar indicating whether the calling function will return both the test results and why the test failed or produced a warning. Default is FALSE.
-#' @return Character string which tells why the series generates a warning for the ACF test, 'pass' otherwise.
+#' @param return_both Logical scalar indicating whether the calling function will return 
+#'        both the test results and why the test failed or produced a warning. 
+#'        Default is \code{FALSE}.
+#' @return Character string which tells why the series generates a warning for the ACF test, 
+#'        \code{'pass'} otherwise.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'

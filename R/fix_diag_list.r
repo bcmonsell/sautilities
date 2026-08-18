@@ -1,17 +1,17 @@
 #' Fix Diagnostic List
 #'
-#' Fix an incomplete diagnostic list by filling in missing elements with NAs.
+#' Fix an incomplete diagnostic list by filling in missing elements with \code{NA}s.
 #'
 #' Version 1.7, 2026-02-24
 #'
-#' @param this_test list object of a seasonal adjustment or modeling diagnostic
+#' @param this_test list object of a seasonal adjustment or modeling diagnostic.
 #'        This is a required entry.
-#' @param this_names character vector; complete set of names to check against
+#' @param this_names character vector; complete set of names to check against.
 #'        This is a required entry.
 #' @param return_this character string; what the function returns - 
 #'        \code{'test'} returns test results, \code{'why'} returns why the test failed or 
 #'        received a warning, or \code{'both'}. Default is \code{'both'}.
-#' @return diagnostic list object with missing names filled in
+#' @return diagnostic list object with missing names filled in.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'

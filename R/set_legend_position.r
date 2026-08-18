@@ -10,11 +10,11 @@
 #' @param this_plot_start Integer scalar; start date of the plot.  
 #'        This is a required entry.
 #' @param this_plot_freq Integer scalar; Frequency of time series plotted. 
-#'        Default is 12. 
+#'        Default is \code{12}. 
 #' @param time_disp Integer scalar; number of observations on the x-axis taken up 
-#'        by the legend. Default is 3. 
+#'        by the legend. Default is \code{3}. 
 #' @param value_disp Numeric scalar; factor representing the percentage of the  
-#'        y axis taken up by the legend. Default is 1/6. 
+#'        y axis taken up by the legend. Default is \code{1/6}. 
 #' @param default_code Character string; default position code if the corners are not available. 
 #'         Possible values are \code{"bottomright"}, \code{"bottom"}, 
 #'         \code{"bottomleft"}, \code{"left"}, \code{"topleft"}, \code{"topright"}, 

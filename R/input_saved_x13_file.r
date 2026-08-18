@@ -1,16 +1,16 @@
-#' Import File Saved by X-13ARIMA-SEATS 
+#' Import File Saved by X-13ARIMA-SEATS
 #'
-#' Import data from a file saved by the X-13ARIMA-SEATS program
+#' Import data from a file saved by the X-13ARIMA-SEATS program.
 #'
 #' Version 1.2, 2023-05-25
 #'
 #' @param filename Character string, filename of a file saved by the 
-#'        \code{X-13ARIMA-SEATS} program. This is a required entry.
+#'        X-13ARIMA-SEATS program. This is a required entry.
 #' @param pos Integer scalar, column of data to be extracted from \code{filename}. 
-#'        Default is 2.
+#'        Default is \code{2}.
 #' @param ncol Integer scalar, number of columns of data that exist within \code{filename}. 
-#'        Default is 2.
-#' @return A time series array
+#'        Default is \code{2}.
+#' @return A time series object.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'

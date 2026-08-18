@@ -7,14 +7,14 @@
 #' @param seas_obj A \code{seas} object for a single series generated from the 
 #'        \code{seasonal} package \insertCite{seasonal2018}{sautilities}. 
 #'        This is a required entry.
-#' @param freq A numeric scalar, the frequency of the time series. Default is 12.
+#' @param freq A numeric scalar, the frequency of the time series. Default is \code{12}.
 #' @param this_index An integer scalar, an index of the vector values to be passed. 
 #'        Acceptable values are \code{1} (seasonal MA coefficient value), 
 #'        \code{2} (seasonal MA coefficent standard error), or 
 #'        \code{3} (t-value of the Seasonal MA coefficient). Default is \code{1}.
 #' @param return_string A Logical scalar; indicates whether value returned is a string or numeric. 
 #'        Default is \code{TRUE}.
-#' @param significant_digits an integer scalar; significant digits to be saved when a string 
+#' @param significant_digits An integer scalar; significant digits to be saved when a string 
 #'        is returned. Default is \code{3}.
 #' @return Character string containing a value related to the seasonal MA coefficient from the  
 #'         regARIMA model fit in the \code{seas} object \code{seas_obj}. The standard error or 

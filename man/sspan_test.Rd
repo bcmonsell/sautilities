@@ -23,7 +23,7 @@ flagged. Default is \code{25}.}
 \item{change_limit}{Numeric object; limit for the percentage of month-to-month
 changes flagged. Default is \code{40}.}
 
-\item{additivesa}{logical scalar; if \code{TRUE}, the adjustment is assumed}
+\item{additivesa}{Logical scalar; if \code{TRUE}, the adjustment is assumed}
 
 \item{return_this}{Character string; what the function returns -
 \code{'test'} returns test results, \code{'why'} returns why the test
@@ -36,8 +36,9 @@ by the sliding spans diagnostics.
 }
 \description{
 Results from the sliding spans diagnostic.
-For more information on sliding spans analysis, see Section 6.2 and 7.16 of
-\insertCite{Census2025;textual}{sautilities} and
+For more information on sliding spans analysis,
+see Section 6.2 and 7.16 of the X-13ARIMA-SEATS Reference Manual
+\insertCite{Census2025}{sautilities} and
 \insertCite{Findley90;textual}{sautilities}.
 }
 \details{

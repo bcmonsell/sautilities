@@ -7,7 +7,7 @@
 get_regression_estimates_matrix(seas_obj = NULL, this_xreg_names = NULL)
 }
 \arguments{
-\item{seas_obj}{A seas object for a single series generated from the
+\item{seas_obj}{A \code{seas} object for a single series generated from the
 \code{seasonal} package \insertCite{seasonal2018}{sautilities}.
 This is a required entry.}
 
@@ -15,11 +15,11 @@ This is a required entry.}
 Default is \code{NULL}, no user defined regressors.}
 }
 \value{
-matrix of regression coefficients, standard errors, and
-t-statistics for a given series
+Matrix of regression coefficients, standard errors, and
+t-statistics for a given series.
 }
 \description{
-Generate a summary of regression coefficients for a single series
+Generate a summary of regression coefficients for a single series.
 }
 \details{
 Version 3.4, 2024-05-14

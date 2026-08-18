@@ -13,13 +13,13 @@ This is a required entry.}
 }
 \value{
 Character string containing a summary of the outliers identified in the
-regARIMA model. If no regressors or automatic outliers in the model, the routine
-will return a blank character.
+regARIMA model. If no regressors or automatic outliers in the model,
+the routine will return a blank character.
 }
 \description{
 Get the names of outliers identified in the \code{seas} object for a single series.
 Details on outliers (Sections 4.3 and 7.13) and outlier identification (Sections 4.7 and 7.11)
-can be found in \insertCite{Census2025;textual}{sautilities}.
+can be found in the X-13ARIMA-SEATS Reference Manual \insertCite{Census2025}{sautilities}.
 }
 \details{
 Version 4.1, 2026-03-05

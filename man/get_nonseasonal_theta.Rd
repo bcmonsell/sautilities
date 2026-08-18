@@ -12,7 +12,7 @@ get_nonseasonal_theta(
 )
 }
 \arguments{
-\item{seas_obj}{A seas object for a single series generated from the
+\item{seas_obj}{A \code{seas} object for a single series generated from the
 \code{seasonal} package \insertCite{seasonal2018}{sautilities}.
 This is a required entry.}
 
@@ -25,7 +25,7 @@ Default is \code{1}.}
 \item{return_string}{A Logical scalar; indicates whether value returned is a string
 or numeric. Default is \code{TRUE}.}
 
-\item{significant_digits}{an integer scalar; significant digits to be saved when
+\item{significant_digits}{An integer scalar; significant digits to be saved when
 a string is returned. Default is \code{3}.}
 }
 \value{

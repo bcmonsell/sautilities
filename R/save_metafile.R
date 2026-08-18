@@ -2,35 +2,36 @@
 #'
 #' Generates external input metafile for spec files generated from a list of 
 #' \code{seas} objects. For information on input metafiles used with X-13ARIMA-SEATS,
-#' see Section 2.5 of \insertCite{Census2025;textual}{sautilities}.
+#' see Section 2.5 of the X-13ARIMA-SEATS Reference Manual 
+#' \insertCite{Census2025}{sautilities}.
+#' Information on generating adjustments of multiple time series stored 
+#' in a list object with the \code{seasonal} package can be found in 
+#' \insertCite{rprojectAdjustingMultiple;textual}{sautilities}. 
 #'
 #' Version 4.2, 2026-04-14
 #'
 #' @param seas_obj_list List object of \code{seas} objects generated from  
 #'        a call of \code{seas} on a list consisting of individual time series.
-#'        Information on generating adjustments of multiple time series stored 
-#'        in a list object with the \code{seasonal} package can be found in 
-#'        \insertCite{rprojectAdjustingMultiple;textual}{sautilities}. 
 #'        This is a required entry.
-#' @param this_name_vec vector of character string; vector of series names from 
+#' @param this_name_vec Vector of character string; vector of series names from 
 #'        the list of \code{seas} objects that will be saved.
 #'        Default is all elements of the seasonal object list \code{seas_obj_list} 
 #'        are saved.
-#' @param metafile_name character string; base name of metafile to be generated. 
+#' @param metafile_name Character string; base name of metafile to be generated. 
 #'        If not specified, use name of list input as metafile name.
 #'        Note - do not specify the \code{".mta"} file extension.
-#' @param this_directory optional directory where the meta file is stored. 
+#' @param this_directory Optional directory where the meta file is stored. 
 #'        If not specified, the metafile will be saved in the current working 
 #'        directory.
-#' @param this_spec_directory optional directory where the spec files are stored. 
+#' @param this_spec_directory Optional directory where the spec files are stored. 
 #'        If not specified, the spec files are saved in the current working directory.
-#' @param this_output_code optional character code added to the end of the names in 
+#' @param this_output_code Optional character code added to the end of the names in 
 #'        \code{this_name_vec} to form the output name.
 #'        If not specified, the metafile will not have alternate output file name(s).
-#' @param this_output_directory optional directory where the output files are  
+#' @param this_output_directory Optional directory where the output files are  
 #'        stored. If not specified, the output files are saved in the current 
 #'        working directory.
-#' @param include_directory logical scalar; if \code{TRUE}, include directory 
+#' @param include_directory Logical scalar; if \code{TRUE}, include directory 
 #'        specified in \code{this_directory} with file name output.
 #'        Otherwise, output only names in \code{this_name_vec}. 
 #'        Default is \code{FALSE}. 

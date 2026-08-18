@@ -1,7 +1,7 @@
 #' save user regression matrix
 #'
 #' Save a user-defined regression array or matrix with time series attributes to 
-#' an external ASCII file in X-13ARIMA-SEATS' datevalue format.
+#' an external ASCII file in X-13ARIMA-SEATS' \code{datevalue} format.
 #' For more information on the \code{datevalue} format of X-13ARIMA-SEATS,
 #' see \insertCite{MonsellLytrasFindley2016;textual}{sautilities}.
 #'
@@ -12,11 +12,11 @@
 #' @param this_reg_file Character string; name of file time series array or matrix 
 #'        to be saved to. This is a required argument.
 #' @param add_dates Logical scalar; save the file with dates on each record 
-#'        (datevalue format). Default is TRUE.
+#'        (datevalue format). Default is \code{TRUE}.
 #' @param start_date Integer vector of length 2, Start date for series to be stored, 
 #'        where the first element is the year and the second element is the month 
 #'        or quarter. Default is start of series.
-#' @return file with user-defined regressors will be produced.
+#' @return File with user-defined regressors will be produced.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'

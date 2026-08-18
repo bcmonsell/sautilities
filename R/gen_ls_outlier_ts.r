@@ -2,7 +2,7 @@
 #'
 #' Generates a ts object for a LS (level shift) outlier regressor.
 #' For more information on LS outliers, see Sections 4.3 and 7.11 of 
-#' \insertCite{Census2025;textual}{sautilities}.
+#' the X-13ARIMA-SEATS Reference Manual \insertCite{Census2025}{sautilities}.
 #'
 #' Version 2.0, 2026-02-24
 #'

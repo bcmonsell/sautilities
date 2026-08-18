@@ -39,7 +39,7 @@ Generates text explaining why the QS diagnostic failed or generated a warning
 for regARIMA residuals. For details on the QS test, see Section 7.17 of
 \insertCite{Census2025;textual}{sautilities},
 \insertCite{Maravall2012;textual}{sautilities}, and
-\insertCite{Bell2022;textual}{sautilities}..
+\insertCite{Bell2022;textual}{sautilities}.
 }
 \details{
 Version 4.1, 2026-03-05

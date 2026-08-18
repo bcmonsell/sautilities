@@ -18,7 +18,7 @@ Default is \code{Seasonal}.}
 }
 \value{
 Numeric vector of the degrees of freedom, F-test, and p-value for this
-model based F-test
+model based F-test.
 }
 \description{
 Parse external \code{udg} file and get information for model-based F-test for a regressor.

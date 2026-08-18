@@ -14,13 +14,17 @@ This is a required entry.}
 \item{acf_lags_warn}{Integer vector; lags of the ACF to test for warnings.
 Default is \code{c(12, 24)}.}
 
-\item{return_both}{Logical scalar indicating whether the calling function will return both the test results and why the test failed or produced a warning. Default is FALSE.}
+\item{return_both}{Logical scalar indicating whether the calling function will return
+both the test results and why the test failed or produced a warning.
+Default is \code{FALSE}.}
 }
 \value{
-Character string which tells why the series generates a warning for the ACF test, 'pass' otherwise.
+Character string which tells why the series generates a warning for the ACF test,
+\code{'pass'} otherwise.
 }
 \description{
-Generates text on why the sample autocorrelation of the residuals from a time series model fails the Ljung-Box or Box-Pierce Q test
+Generates text on why the sample autocorrelation of the residuals from a time series
+model fails the Ljung-Box or Box-Pierce Q test.
 }
 \details{
 Version 4.1, 2026-03-06

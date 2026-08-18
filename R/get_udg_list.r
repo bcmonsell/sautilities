@@ -1,13 +1,15 @@
 #' Generate a list of \code{udg} elements from a list of \code{seas} objects.
 #' 
-#' Process a list of \code{seas} elements to get a list of results from the \code{udg} function of the seasonal package
+#' Process a list of \code{seas} elements to get a list of results from the 
+#' \code{udg} function of the \code{seasonal} package.
+#' Information on generating adjustments of multiple time series stored in a
+#' list object with the \code{seasonal} package can be found in 
+#' \insertCite{rprojectAdjustingMultiple;textual}{sautilities}. 
 #' 
-#' Version 2.1, 2026-03-05
+#' Version 2.2, 2026-04-22
 #'
 #' @param seas_obj_list List object of \code{seas} objects generated from a call 
 #'        of \code{seas} on a list consisting of individual time series.
-#         Information on generating adjustments with the \code{seasonal} package 
-#'        can be found in \insertCite{rprojectAdjustingMultiple;textual}{sautilities}. 
 #'        This is a required entry.
 #' @param this_key Character string containing keyword of the \code{udg} function 
 #'        that returns a numeric value. Default is \code{'autoout'}.
@@ -39,7 +41,7 @@
 get_udg_list <- 
    function(seas_obj_list = NULL, 
             this_key = "autoout") {
-    # Author: Brian C. Monsell (OEUS) Version 2.1, 2026-03-05
+    # Author: Brian C. Monsell (OEUS) Version 2.2, 2026-04-22
     
     # check if a value is specified for \code{this_seas_list}
     if (is.null(seas_obj_list)) {
@@ -70,6 +72,8 @@ get_udg_list <-
         print("No series to process.")
         return(NULL)
     }
+    
+  udg_list <- lapply(udg_list, as.vector)
     
 	return(udg_list)
 	

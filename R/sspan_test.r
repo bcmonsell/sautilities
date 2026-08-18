@@ -1,8 +1,9 @@
 #' Sliding Spans Diagnostic 
 #'
 #' Results from the sliding spans diagnostic.
-#' For more information on sliding spans analysis, see Section 6.2 and 7.16 of
-#' \insertCite{Census2025;textual}{sautilities} and 
+#' For more information on sliding spans analysis, 
+#' see Section 6.2 and 7.16 of the X-13ARIMA-SEATS Reference Manual 
+#' \insertCite{Census2025}{sautilities} and 
 #' \insertCite{Findley90;textual}{sautilities}.
 #'
 #' Version 4.2, 2026-03-05
@@ -14,7 +15,7 @@
 #'        flagged. Default is \code{25}.
 #' @param change_limit Numeric object; limit for the percentage of month-to-month 
 #'        changes flagged. Default is \code{40}.
-#' @param additivesa logical scalar; if \code{TRUE}, the adjustment is assumed 
+#' @param additivesa Logical scalar; if \code{TRUE}, the adjustment is assumed 
 #;        to be additive. Default is \code{FALSE}.
 #' @param return_this Character string; what the function returns - 
 #'        \code{'test'} returns test results, \code{'why'} returns why the test 

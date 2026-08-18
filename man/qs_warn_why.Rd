@@ -32,6 +32,7 @@ for extremes is included in testing.
 Default is \code{TRUE}.}
 
 \item{return_both}{Logical scalar indicating whether the calling function will
+return both the test results and why the test failed or produced a warning.
 Default is \code{FALSE}.}
 }
 \value{
@@ -44,7 +45,7 @@ Generates text explaining why the QS diagnostic generated a warning.
 For details on the QS test, see Section 7.17 of
 \insertCite{Census2025;textual}{sautilities},
 \insertCite{Maravall2012;textual}{sautilities}, and
-\insertCite{Bell2022;textual}{sautilities}..
+\insertCite{Bell2022;textual}{sautilities}.
 }
 \details{
 Version 5.2, 2026-03-05

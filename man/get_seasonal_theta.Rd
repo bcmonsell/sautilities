@@ -17,7 +17,7 @@ get_seasonal_theta(
 \code{seasonal} package \insertCite{seasonal2018}{sautilities}.
 This is a required entry.}
 
-\item{freq}{A numeric scalar, the frequency of the time series. Default is 12.}
+\item{freq}{A numeric scalar, the frequency of the time series. Default is \code{12}.}
 
 \item{this_index}{An integer scalar, an index of the vector values to be passed.
 Acceptable values are \code{1} (seasonal MA coefficient value),
@@ -27,7 +27,7 @@ Acceptable values are \code{1} (seasonal MA coefficient value),
 \item{return_string}{A Logical scalar; indicates whether value returned is a string or numeric.
 Default is \code{TRUE}.}
 
-\item{significant_digits}{an integer scalar; significant digits to be saved when a string
+\item{significant_digits}{An integer scalar; significant digits to be saved when a string
 is returned. Default is \code{3}.}
 }
 \value{

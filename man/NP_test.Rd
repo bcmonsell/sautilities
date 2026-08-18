@@ -11,14 +11,14 @@ NP_test(x = NULL)
 }
 \value{
 List object with three elements: \code{ken} (test statistic), \code{df}
-(degrees of freedom), \code{cv} (test probability)
+(degrees of freedom), \code{cv} (test probability).
 }
 \description{
 Non-Parametric test for seasonality based on
 \insertCite{KendalOrd90;textual}{sautilities},
 and originally due to Friedman from \insertCite{Maravall2012;textual}{sautilities}.
 This code is adapted from \code{kendalls} subroutine in \code{ansub11.f}
-from the \code{X-13ARIMA-SEATS} source code \insertCite{Census2025}{sautilities}.
+from the X-13ARIMA-SEATS source code \insertCite{Census2025}{sautilities}.
 }
 \details{
 Version 2.1, 2026-03-09

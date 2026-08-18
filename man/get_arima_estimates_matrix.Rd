@@ -11,10 +11,10 @@ get_arima_estimates_matrix(seas_obj = NULL, add_diff = FALSE)
 \code{seasonal} package \insertCite{seasonal2018}{sautilities}.
 This is a required entry.}
 
-\item{add_diff}{logical scalar; add differencing information, if included in model}
+\item{add_diff}{logical scalar; add differencing information, if included in the model.}
 }
 \value{
-matrix of ARMA coefficients, standard errors, and t-statistics for a given series
+matrix of ARMA coefficients, standard errors, and t-statistics for a given series.
 }
 \description{
 Generate a summary of ARMA coefficients for a single series.

@@ -17,7 +17,7 @@
 #'        Default is \code{TRUE}.
 #' @return A vector of list element names where the value in \code{this_list}  
 #'         is greater than or less than the limit specified in \code{this_limit}. 
-#'         If nothing matches, the function will output the string \code{'none'}
+#'         If nothing matches, the function will output the string \code{'none'}.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'

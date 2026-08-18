@@ -30,28 +30,28 @@ all_model_diag_list(
 \arguments{
 \item{seas_obj_list}{List object of \code{seas} objects generated from a call
 of \code{seas} on a list consisting of individual time series.
-can be found in \insertCite{rprojectAdjustingMultiple;textual}{sautilities}.
 This is a required entry.}
 
-\item{add_aicc}{logical scalar; add AICC value to the summary.
-\insertCite{Akaike73,BurnhamAnderson2004}{sautilities}.
-Default is \code{TRUE}}
+\item{add_aicc}{logical scalar; add AICC value \insertCite{BurnhamAnderson2004}{sautilities}
+to the summary. \insertCite{Akaike73}{sautilities}.
+Default is \code{TRUE}.}
 
 \item{add_norm}{logical scalar; add normality statistics to the summary.
-Default is \code{FALSE}}
+Default is \code{FALSE}.}
 
 \item{add_auto_out}{logical scalar; add identified automatic outliers to the
 summary.
-Default is \code{FALSE}}
+Default is \code{FALSE}.}
 
 \item{add_seasonal}{logical scalar; add QS test for seasonality to the summary.
 For details on the QS test,
-see \insertCite{@Section 7.17 of @Census2025;textual}{sautilities}
+see Section 7.17 of the X-13ARIMA-SEATS Referene Manual
+\insertCite{Census2025}{sautilities},
 and \insertCite{Maravall2012;textual}{sautilities}.
 Default is \code{FALSE}.}
 
 \item{add_spec}{logical scalar; add test for spectral peaks to the summary.
-Default is \code{FALSE}}
+Default is \code{FALSE}.}
 
 \item{add_lbq}{logical scalar; add test for Ljung-Box Q to the summary
 \insertCite{LjungBox78}{sautilities}.
@@ -74,11 +74,11 @@ Default is \code{c(1, 2, 3, 4, 12, 24)}.}
 Default is \code{c(12, 24)}.}
 
 \item{add_pacf}{logical scalar; include PACF in ACF results.
-Default is \code{TRUE}}
+Default is \code{TRUE}.}
 
 \item{qs_test_span}{logical scalar; test span of data in QS seasonal test
 rather than the full series.
-Default is \code{FALSE}}
+Default is \code{FALSE}.}
 
 \item{set_qs_p_limit_pass}{Numeric scalar; P-value limit for QS statistic
 for passing.
@@ -105,12 +105,13 @@ of the diagnostics, otherwise return a matrix.
 Default is \code{FALSE}.}
 }
 \value{
-matrix or data frame of model diagnostics for a given set of series series
+Matrix or data frame of model diagnostics for a given set of series.
 }
 \description{
 Generate a summary of model diagnostics from a list of \code{seas} objects series.
-See \insertCite{rprojectAdjustingMultiple;textual}{sautilities} for code to apply
-the \code{seasonal} package on multiple series.
+Information on generating adjustments of multiple time series stored in a
+list object with the \code{seasonal} package can be found in
+\insertCite{rprojectAdjustingMultiple;textual}{sautilities}.
 }
 \details{
 Version 9.3, 2026-03-06

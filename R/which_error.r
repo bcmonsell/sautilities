@@ -9,7 +9,7 @@
 #'
 #' @param this_list List object which potentially contains \code{'try-error'} 
 #'        class objects.  
-#' @return vector of the names of list elements that are \code{'try-error'} 
+#' @return Vector of the names of list elements that are \code{'try-error'} 
 #'         class objects. If the list contains no \code{'try-error'} class objects, 
 #'         the function will return \code{NULL}.
 #'

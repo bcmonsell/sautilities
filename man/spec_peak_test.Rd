@@ -41,8 +41,8 @@ For more information on spectral peak detection in X-13ARIMA-SEATS,
 }
 \description{
 Test if spectral peaks are flagged by X-13ARIMA-SEATS.
-For more information on spectral plots in X-13ARIMA-SEATS, see Section 6.1 of
-\insertCite{Census2025;textual}{sautilities}
+For more information on spectral plots, see Section 6.1 of the X-13ARIMA-SEATS
+Reference Manual \insertCite{Census2025}{sautilities}.
 }
 \details{
 Version 5.2, 2026-03-05

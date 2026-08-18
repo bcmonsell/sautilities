@@ -18,7 +18,7 @@ This is a required entry}
 \item{column_name}{Array of character strings; names for the columns of the
 estimates matrix. Array must be of length 5.
 Default is \code{c("Unscaled_Stochastic", "Scale_Factors", "Scaled_Stochastic", 
-       "Regression_Effects", "Combined_Estimate")}.}
+"Regression_Effects", "Combined_Estimate")}.}
 
 \item{return_matrix}{Logical scalar; determines if a matrix or data frame object is returned.
 Default is \code{TRUE}, a \code{ts} matrix object will be returned.}

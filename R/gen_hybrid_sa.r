@@ -6,13 +6,13 @@
 #'
 #' Version 3.0, 2026-02-25
 #'
-#' @param this_mult_sa time series object of a multiplicative seasonal adjustment
+#' @param this_mult_sa Time series object of a multiplicative seasonal adjustment.
 #'        This is a required entry.
-#' @param this_add_sa time series object of an additive seasonal adjustment
+#' @param this_add_sa Time series object of an additive seasonal adjustment.
 #'        This is a required entry.
-#' @param this_start_hybrid integer vector of length 2, start of the span where additive  
+#' @param this_start_hybrid Integer vector of length 2, start of the span where additive  
 #'        adjustments replace multiplicative adjustment. This is a required entry.
-#' @param this_end_hybrid integer vector of length 2, end of the span where additive adjustments 
+#' @param this_end_hybrid Integer vector of length 2, end of the span where additive adjustments 
 #'        replace multiplicative adjustment. This is a required entry.
 #' @return Time series object with hybrid seasonal adjustment.
 #'

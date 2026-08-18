@@ -4,10 +4,10 @@
 #'
 #' Version 3.0, 2026-02-25
 #'
-#' @param seas_obj A seas object for a single series generated from the 
+#' @param seas_obj A \code{seas} object for a single series generated from the 
 #'        \code{seasonal} package \insertCite{seasonal2018}{sautilities}.
 #'        This is a required entry.
-#' @param add_diff logical scalar; add differencing information, if included in model
+#' @param add_diff logical scalar; add differencing information, if included in the model.
 #' @param this_xreg_names Character array; name of user defined regressors.  
 #'        Default is \code{NULL}, no user defined regressors. 
 #'        Number of names in this vector should match number of user-defined regressors; 

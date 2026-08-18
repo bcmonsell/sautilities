@@ -12,10 +12,10 @@ significant_t_stats(seas_obj = NULL, critical_value = 2, user_def_only = FALSE)
 This is a required entry.}
 
 \item{critical_value}{Numeric scalar; sets the critical value used to test
-t-statistics of regressors. Default is 2.0.}
+t-statistics of regressors. Default is \code{2.0}.}
 
 \item{user_def_only}{Logical scalar; only test user-defined regressors
-Default is FALSE.}
+Default is \code{FALSE}.}
 }
 \value{
 Number of regressors with significant t-statistics.

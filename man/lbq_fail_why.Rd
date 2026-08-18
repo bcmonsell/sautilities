@@ -2,7 +2,7 @@
 % Please edit documentation in R/lbq_fail_why.r
 \name{lbq_fail_why}
 \alias{lbq_fail_why}
-\title{LBQ Test Explanation}
+\title{Produce an Ljung-Box Q test failure message.}
 \usage{
 lbq_fail_why(
   this_acf = NULL,
@@ -27,26 +27,25 @@ produce a warning.
 Default is \code{FALSE}.}
 }
 \value{
-character object tells why series fails the Ljung-Box Q test, \code{'pass'} otherwise.
+Character object tells why series fails the Ljung-Box Q test, \code{'pass'} otherwise.
 }
 \description{
-Ljung-Box Q Test Failure Message
-}
-\details{
 Generates text on why the sample autocorrelation of the residuals from a time series model
 fails the Ljung-Box Q test \insertCite{LjungBox78}{sautilities}.
-
-Version 2.2, 2026-03-09
+}
+\details{
+Version 2.3, 2026-04-16
 }
 \examples{
 ukgas_seas <- 
-     seasonal::seas(UKgas, 
-        series.period = 4, 
-        arima.model = "(0 1 1)(0 1 1)", 
-        x11="", 
-        transform.function = "log", 
-        forecast.maxlead=20,
-        check.print = c( "pacf", "pacfplot" ))
+   seasonal::seas(UKgas, 
+      series.period = 4, 
+      arima.model = "(0 1 1)(0 1 1)", 
+      x11="", 
+      transform.function = "log", 
+      forecast.maxlead=20,
+      check.save = 'acf', 
+      check.print = c( "acf", "pacf", "pacfplot" ))
 ukgas_acf <- seasonal::series(ukgas_seas, "acf")
 ukgas_lbq_fail_why <- 
    lbq_fail_why(ukgas_acf, lbq_lags_fail = c(4, 8), 

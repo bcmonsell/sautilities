@@ -8,7 +8,8 @@ overall_seasonal_test_1(
   seas_obj = NULL,
   this_series = "a1",
   take_log = TRUE,
-  this_ori_qs = "qsori"
+  this_ori_qs = "qsori",
+  return_data_frame = FALSE
 )
 }
 \arguments{
@@ -33,9 +34,13 @@ short span),
 \code{"qssori"} (original series, short span).
 For more information on the QS statistic,
 see \insertCite{Bell2022;textual}{sautilities}.}
+
+\item{return_data_frame}{Logical scalar; if \code{TRUE}, return a data frame
+of the diagnostics, otherwise return a list.
+Default is \code{FALSE}.}
 }
 \value{
-A list with 3 elements: \code{QStest} (test probability for QS),
+A list or data frame with 3 elements: \code{QStest} (test probability for QS),
 \code{NPtest} (test probability for NP),
 and \code{result} (character string with test result -
 possible values of either \code{"evidence of seasonality"} and
@@ -46,7 +51,7 @@ Conduct the first overall test for seasonality as laid out in
 \insertCite{Maravall2012;textual}{sautilities}.
 }
 \details{
-Version 4.1, 2026-03-09
+Version 4.6, 2026-04-16
 }
 \examples{
 air_seas <- 
@@ -56,7 +61,8 @@ air_seas <-
       slidingspans = "",
       transform.function = "log", 
       series.save = "a1")
-first_test <- overall_seasonal_test_1(air_seas)
+first_test <- 
+     overall_seasonal_test_1(air_seas, return_data_frame = TRUE)
 }
 \references{
 \insertAllCited{}

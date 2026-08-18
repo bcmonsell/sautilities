@@ -14,13 +14,13 @@ This is a required entry.}
 }
 \value{
 returns \code{TRUE} if \code{this_name} is an element of \code{this_list},
-\code{FALSE} otherwise
+\code{FALSE} otherwise.
 }
 \description{
 Determines if a name is a member of a list.
 }
 \details{
-Version 1.4, 2023-05-22
+Version 1.5, 2026-04-16
 }
 \examples{
 emp_seas_list <- 
@@ -29,14 +29,12 @@ emp_seas_list <-
       transform.function = "log",
       arima.model = "(0 1 1)(0 1 1)",
       forecast.maxlead=36,
+      forecast.save = "fct",
       check.print = c( "pacf", "pacfplot" ))
 emp_seas_update <- 
      Filter(function(x) inherits(x, "seas"), emp_seas_list)
 if (member_of_list(emp_seas_update, 'n2000014')) {
-    \dontrun{save_spec_file(emp_seas_update$n2000014, 'n2000014',
-                  this_directory      = "X:\\\\seasonalAdj\\\\testing\\\\sautilities",
-                  this_data_directory = "X:\\\\seasonalAdj\\\\cps_dec_2022\\\\dat",
-                  data_file_name      = "n2000014.dat")}
+    n2000014_fct <- seasonal::series(emp_seas_list$n2000014, "fct")
 }
 }
 \author{

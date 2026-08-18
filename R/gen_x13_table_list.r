@@ -3,14 +3,17 @@
 #' Generates a list of X-13 tables that can be extracted with the \code{seasonal} package
 #' \insertCite{seasonal2018}{sautilities}. 
 #'
-#' Version 2.4, 05/24/2023
+#' Version 4.0, 2026-06-15
 #'
-#' @param this_table_type vector of character strings listing types of X-13 tables to output. 
-#'        Default is \code{'all'}, other choices are \code{'diagnostics'}, \code{'matrices'}, 
+#' @param this_table_type Vector of character strings listing types of X-13 tables to output. 
+#'        Default is \code{'all'}; other choices are \code{'diagnostics'}, \code{'matrices'}, 
 #'        \code{'spectrum'}, \code{'timeseries'}.
+#' @param what_code Character scalar; which codes are returned. Default is \code{'all'}; 
+#'        other choices are \code{'short'} (for short codes), or \code{'long'} 
+#'        (for the longer code names).
 #' @return A list of arrays with table names and abbreviations from X-13ARIMA-SEATS in 
-#'         several different elements specified by the user: diagnostics, matrices, spectrum, 
-#'         timeseries
+#'         several different elements specified by the user: \code{diagnostics}, 
+#'         \code{matrices}, \code{spectrum}, \code{timeseries}.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
@@ -19,19 +22,24 @@
 #'
 #' @examples
 #' x13_tables_all <- gen_x13_table_list()
+#' x13_tables_spectrum_short <- 
+#'     gen_x13_table_list(this_table_type = "spectrum", what_code = "short")
 #' @importFrom Rdpack reprompt
 #' @export
-gen_x13_table_list <- function(this_table_type = "all") {
-    # Author: Brian C. Monsell (OEUS) Version 3,0, 05/24/2023
+gen_x13_table_list <- function(this_table_type = "all", what_code = "both") {
+    # Author: Brian C. Monsell (OEUS) Version 4.0, 2026-06-15
     
     # Initialize list of available X-13 tables
     x13_tables <- list()
     
     n_type <- length(this_table_type)
+	
+	this_by_row <- TRUE
+	if (what_code == "all") { what_code <- FALSE }
     
     for (i in 1:n_type) {
         if (this_table_type[i] == "all" | this_table_type[i] == "diagnostics") {
-            x13_tables$diagnostics <- c("check.acf", "acf", "check.acfsquared", "ac2", "check.pacf", "pcf", "estimate.iterations", 
+			this_table_set <- c("check.acf", "acf", "check.acfsquared", "ac2", "check.pacf", "pcf", "estimate.iterations", 
                 "itr", "estimate.roots", "rts", "history.chngestimates", "che", "history.chngrevisions", "chr", 
                 "history.fcsterrors", "fce", "history.fcsthistory", "fch", "history.indsaestimates", "iae", "history.indsarevisions", 
                 "iar", "history.lkhdhistory", "lkh", "history.outlierhistory", "rot", "history.saestimates", 
@@ -43,29 +51,74 @@ gen_x13_table_list <- function(this_table_type = "all") {
                 "ais", "slidingspans.indsfspans", "sis", "slidingspans.indychngspans", "yis", "slidingspans.sfspans", 
                 "sfs", "slidingspans.tdspans", "tds", "slidingspans.ychngspans", "ycs", "x11.yrtotals", "e4", 
                 "x11regression.x11reg", "c15", "x11regression.x11regb", "b15", "x11regression.outlieriter", "xoi")
+			this_table_mat <- matrix(this_table_set, ncol = 2, byrow = this_by_row)
+			
+			if (what_code == "all") {
+				x13_tables$diagnostics <- as.vector(this_table_mat)
+			}
+			if (what_code == "short") {
+				x13_tables$diagnostics <- this_table_mat[,2]
+			}
+			if (what_code == "long") {
+				x13_tables$diagnostics <- this_table_mat[,1]
+			}
+			
         }
         
         if (this_table_type[i] == "all" | this_table_type[i] == "forecasts") {
-            x13_tables$forecasts <- c("forecast.backcasts", "bct", "forecast.forecasts", "fct", "forecast.transformed", 
+			this_table_set <- c("forecast.backcasts", "bct", "forecast.forecasts", "fct", "forecast.transformed", 
                 "ftr", "forecast.transformedbcst", "btr", "forecast.variances", "fvr", "seats.seasonaladjfcstdecomp", 
                 "afd", "seats.seasonalfcstdecomp", "sfd", "seats.seriesfcstdecomp", "ofd", "seats.transitoryfcstdecomp", 
                 "yfd", "seats.trendfcstdecomp", "tfd")
+			this_table_mat <- matrix(this_table_set, ncol = 2, byrow = this_by_row)
+			
+			if (what_code == "all") {
+				x13_tables$forecasts <- as.vector(this_table_mat)
+			}
+			if (what_code == "short") {
+				x13_tables$forecasts <- this_table_mat[,2]
+			}
+			if (what_code == "long") {
+				x13_tables$forecasts <- this_table_mat[,1]
+			}
         }
         
         if (this_table_type[i] == "all" | this_table_type[i] == "matrices") {
-            x13_tables$matrices <- c("estimate.armacmatrix", "acm", "estimate.regcmatrix", "rcm", "regression.regressionmatrix", 
+			this_table_set <- c("estimate.armacmatrix", "acm", "estimate.regcmatrix", "rcm", "regression.regressionmatrix", 
                 "rmx", "x11regression.xregressioncmatrix", "xrc", "x11regression.xregressionmatrix", "xrm")
+			this_table_mat <- matrix(this_table_set, ncol = 2, byrow = this_by_row)
+			
+			if (what_code == "all") {
+				x13_tables$matrices <- as.vector(this_table_mat)
+			}
+			if (what_code == "short") {
+				x13_tables$matrices <- this_table_mat[,2]
+			}
+			if (what_code == "long") {
+				x13_tables$matrices <- this_table_mat[,1]
+			}
         }
         
         if (this_table_type[i] == "all" | this_table_type[i] == "spectrum") {
-            x13_tables$spectrum <- c("spectrum.speccomposite", "is0", "spectrum.specindirr", "is2", "spectrum.specindsa", 
+			this_table_set <- c("spectrum.speccomposite", "is0", "spectrum.specindirr", "is2", "spectrum.specindsa", 
                 "is1", "spectrum.specirr", "sp2", "spectrum.specorig", "sp0", "spectrum.specresidual", "spr", 
                 "spectrum.specsa", "sp1", "spectrum.specseatsextresiduals", "ser", "spectrum.specseatsirr", "s2s", 
                 "spectrum.specseatssa", "s1s")
+			this_table_mat <- matrix(this_table_set, ncol = 2, byrow = this_by_row)
+			
+			if (what_code == "all") {
+				x13_tables$spectrum <- as.vector(this_table_mat)
+			}
+			if (what_code == "short") {
+				x13_tables$spectrum <- this_table_mat[,2]
+			}
+			if (what_code == "long") {
+				x13_tables$spectrum <- this_table_mat[,1]
+			}
         }
         
         if (this_table_type[i] == "all" | this_table_type[i] == "timeseries") {
-            x13_tables$timeseries <- c("estimate.regressioneffects", "ref", "estimate.residuals", "rsd", "force.forcefactor", 
+            this_table_set <- c("estimate.regressioneffects", "ref", "estimate.residuals", "rsd", "force.forcefactor", 
                 "ffc", "force.revsachanges", "e6a", "force.rndsachanges", "e6r", "force.saround", "rnd", "force.seasadjtot", 
                 "saa", "regression.aoutlier", "ao", "regression.holiday", "hol", "regression.levelshift", "ls", 
                 "regression.outlier", "otl", "regression.regseasonal", "a10", "regression.seasonaloutlier", "so", 
@@ -98,8 +151,20 @@ gen_x13_table_list <- function(this_table_type = "all") {
                 "c14", "x11regression.extremevalb", "b14", "x11regression.holiday", "xhl", "x11regression.holidayb", 
                 "bxh", "x11regression.priortd", "a4", "x11regression.tradingday", "c16", "x11regression.tradingdayb", 
                 "b16")
+			this_table_mat <- matrix(this_table_set, ncol = 2, byrow = this_by_row)
+			
+			if (what_code == "all") {
+				x13_tables$timeseries <- as.vector(this_table_mat)
+			}
+			if (what_code == "short") {
+				x13_tables$timeseries <- this_table_mat[,2]
+			}
+			if (what_code == "long") {
+				x13_tables$timeseries <- this_table_mat[,1]
+			}
         }
     }
+	
     return(x13_tables)
     
 }

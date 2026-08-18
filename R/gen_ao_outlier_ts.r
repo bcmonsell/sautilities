@@ -14,9 +14,9 @@
 #'        This is a required entry.
 #' @param this_freq Numeric scalar; frequency of time series. 
 #'        Default: \code{12}, for a monthly series.
-#' @param return_matrix Logical scalar; If true, the object returned is a one column 
+#' @param return_matrix Logical scalar; If \code{TRUE}, the object returned is a one column 
 #'        time series matrix object. 
-#'        Default: \code{TRUE}
+#'        Default: \code{TRUE}.
 #' @return A \code{ts} object of a point outlier regressor.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}

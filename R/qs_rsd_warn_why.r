@@ -4,7 +4,7 @@
 #' for regARIMA residuals. For details on the QS test, see Section 7.17 of 
 #' \insertCite{Census2025;textual}{sautilities}, 
 #' \insertCite{Maravall2012;textual}{sautilities}, and 
-#' \insertCite{Bell2022;textual}{sautilities}..
+#' \insertCite{Bell2022;textual}{sautilities}.
 #'
 #' Version 4.1, 2026-03-05
 #'

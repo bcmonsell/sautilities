@@ -22,7 +22,7 @@ This is an optional entry.}
 This is a required entry.}
 
 \item{return_numeric}{Logical scalar; Value returned is converted to numeric.
-Default is TRUE, returns value as a number.}
+Default is \code{TRUE}, returns value as a number.}
 }
 \value{
 Numeric value associated with \code{this_key}.
@@ -31,16 +31,13 @@ Numeric value associated with \code{this_key}.
 Parse external \code{udg} file and get value for a user supplied key
 }
 \details{
-Version 2.0, 2026-02-25
+Version 2.1, 2026-06-16
 }
 \examples{
 \dontrun{this_ftest <- 
              get_ftest_from_udg(this_base = "AE1011330000_auto", 
                                 this_path = "X:/code/census_build_60/basic/",
                                 this_key = "aicc")}
-}
-\references{
-\insertAllCited{}
 }
 \author{
 Brian C. Monsell, \email{monsell.brian@bls.gov} or \email{bcmonsell@gmail.com}

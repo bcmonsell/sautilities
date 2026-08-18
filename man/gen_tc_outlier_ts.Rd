@@ -14,7 +14,7 @@ gen_tc_outlier_ts(
 )
 }
 \arguments{
-\item{tc_date}{Integer vector of length two - dates for TC outlier to be generated
+\item{tc_date}{Integer vector of length two - dates for TC outlier to be generated.
 This is a required entry.}
 
 \item{this_start}{Numeric vector; start date of TC outlier regressor generated.
@@ -27,18 +27,20 @@ This is a required entry.}
 Default: \code{12}, for a monthly series}
 
 \item{tc_alpha}{Numeric scalar; Rate of decay for the TC outlier.
-Default: will be computed as in \code{X-13ARIMA-SEATS} for a weekly series}
+Default: will be computed as in X-13ARIMA-SEATS for a weekly series;
+see section 7.11 of the X-13ARIMA-SEATS Reference Manual
+\insertCite{Census2025}{sautilities} for more details.}
 
 \item{return_matrix}{Logical scalar; If true, the object returned is a one column
-time series matrix object. Default: \code{TRUE}}
+time series matrix object. Default: \code{TRUE}.}
 }
 \value{
-\code{ts} object for a temporary change outlier regressor
+\code{ts} object for a temporary change outlier regressor.
 }
 \description{
 Generates a \code{ts} object for a TC (temporary change) outlier regressor
 For more information on TC outliers, see Sections 4.3 and 7.11 of
-\insertCite{Census2025;textual}{sautilities}.
+the X-13ARIMA-SEATS Reference Manual \insertCite{Census2025}{sautilities}.
 }
 \details{
 Version 2.0, 2026-02-24

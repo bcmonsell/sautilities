@@ -10,22 +10,22 @@ lbq_fail(this_acf = NULL, lbq_lags_fail, p_limit = 0.01)
 \item{this_acf}{Matrix object of the saved acf table.
 This is a required entry.}
 
-\item{lbq_lags_fail}{Lags of the ACF to test
+\item{lbq_lags_fail}{Lags of the ACF to test.
 Default is \code{c(12, 24)}.}
 
-\item{p_limit}{Numeric limit for the p-value of the Ljung-Box Q
+\item{p_limit}{Numeric limit for the p-value of the Ljung-Box Q.
 Default is \code{0.01}.}
 }
 \value{
 Logical object which is \code{TRUE} if series fails the Ljung Box Q test,
-\code{FALSE} otherwise
+\code{FALSE} otherwise.
 }
 \description{
 Tests whether the sample autocorrelation of the residuals from a time series model fails
 the Ljung-Box Q test \insertCite{LjungBox78}{sautilities}.
 }
 \details{
-Version 2.2, 2026-03-09
+Version 2.3, 2026-04-16
 }
 \examples{
 ukgas_seas <- 
@@ -35,10 +35,11 @@ ukgas_seas <-
       x11="", 
       transform.function = "log", 
       forecast.maxlead=20,
-      check.print = c( "pacf", "pacfplot" ))
+      check.save = 'acf', 
+      check.print = c( "acf", "pacf", "pacfplot" ))
 ukgas_acf <- seasonal::series(ukgas_seas, "acf")
 ukgas_lbq_fail <- 
-     lbq_fail(ukgas_acf, lbq_lags_fail = c(4, 8))
+   lbq_fail(ukgas_acf, lbq_lags_fail = c(4, 8))
 }
 \references{
 \insertAllCited{}

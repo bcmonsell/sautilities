@@ -2,15 +2,15 @@
 #'
 #' Generate a summary of regARIMA model outliers from a list of \code{seas} objects.
 #' For more information on outliers, see Table 4.1 of Section 4.3 of 
-#' \insertCite{Census2025;textual}{sautilities}.
+#' the X-13ARIMA-SEATS Reference Manual \insertCite{Census2025}{sautilities}.
+#' Information on generating adjustments of multiple time series stored in a
+#' list object with the \code{seasonal} package can be found in 
+#' \insertCite{rprojectAdjustingMultiple;textual}{sautilities}. 
 #'
 #' Version 3.1, 2026-03-06
 #'
 #' @param seas_obj_list List object of \code{seas} objects generated from a call 
 #'        of \code{seas} on a list consisting of individual time series.
-#'        Information on generating adjustments of multiple time series stored in a
-#'        list object with the \code{seasonal} package can be found in 
-#'        \insertCite{rprojectAdjustingMultiple;textual}{sautilities}. 
 #'        This is a required entry.
 #' @return vector of regARIMA model outliers for a given series.
 #'

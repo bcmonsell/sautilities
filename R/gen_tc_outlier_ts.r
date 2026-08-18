@@ -2,11 +2,11 @@
 #'
 #' Generates a \code{ts} object for a TC (temporary change) outlier regressor
 #' For more information on TC outliers, see Sections 4.3 and 7.11 of 
-#' \insertCite{Census2025;textual}{sautilities}.
+#' the X-13ARIMA-SEATS Reference Manual \insertCite{Census2025}{sautilities}.
 #'
 #' Version 2.0, 2026-02-24
 #'
-#' @param tc_date Integer vector of length two - dates for TC outlier to be generated
+#' @param tc_date Integer vector of length two - dates for TC outlier to be generated.
 #'        This is a required entry.
 #' @param this_start Numeric vector; start date of TC outlier regressor generated.
 #'        This is a required entry.
@@ -15,10 +15,12 @@
 #' @param this_freq Numeric scalar; frequency of time series. 
 #'        Default: \code{12}, for a monthly series
 #' @param tc_alpha Numeric scalar; Rate of decay for the TC outlier. 
-#'        Default: will be computed as in \code{X-13ARIMA-SEATS} for a weekly series
+#'        Default: will be computed as in X-13ARIMA-SEATS for a weekly series;
+#'        see section 7.11 of the X-13ARIMA-SEATS Reference Manual
+#'        \insertCite{Census2025}{sautilities} for more details.
 #' @param return_matrix Logical scalar; If true, the object returned is a one column  
-#'        time series matrix object. Default: \code{TRUE}
-#' @return \code{ts} object for a temporary change outlier regressor
+#'        time series matrix object. Default: \code{TRUE}.
+#' @return \code{ts} object for a temporary change outlier regressor.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
@@ -62,7 +64,7 @@ gen_tc_outlier_ts <-
     this_tsp <- tsp(this_tc_outlier)
     len_otlr <- length(this_tc_outlier)
     
-    # If \code{tc_alpha} is not set, compute as in \code{X-13ARIMA-SEATS}
+    # If \code{tc_alpha} is not set, compute as in X-13ARIMA-SEATS
     if (is.null(tc_alpha)) {
         tc_alpha <- 0.7^(12/this_freq)
     }

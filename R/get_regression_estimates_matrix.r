@@ -1,16 +1,16 @@
 #' Generate regression coefficient summary
 #'
-#' Generate a summary of regression coefficients for a single series 
+#' Generate a summary of regression coefficients for a single series.
 #'
 #' Version 3.4, 2024-05-14
 #'
-#' @param seas_obj A seas object for a single series generated from the 
+#' @param seas_obj A \code{seas} object for a single series generated from the 
 #'        \code{seasonal} package \insertCite{seasonal2018}{sautilities}.
 #'        This is a required entry.
 #' @param this_xreg_names Character array; name of user defined regressors.  
 #'        Default is \code{NULL}, no user defined regressors.
-#' @return matrix of regression coefficients, standard errors, and 
-#'         t-statistics for a given series
+#' @return Matrix of regression coefficients, standard errors, and 
+#'         t-statistics for a given series.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'

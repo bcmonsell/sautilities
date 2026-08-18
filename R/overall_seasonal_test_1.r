@@ -3,7 +3,7 @@
 #' Conduct the first overall test for seasonality as laid out in 
 #' \insertCite{Maravall2012;textual}{sautilities}.
 #'
-#' Version 4.1, 2026-03-09
+#' Version 4.6, 2026-04-16
 #'
 #' @param seas_obj A \code{seas} object for a single series generated from the 
 #'        \code{seasonal} package \insertCite{seasonal2018}{sautilities}.
@@ -23,7 +23,10 @@
 #'        \code{"qssori"} (original series, short span).
 #'        For more information on the QS statistic, 
 #'        see \insertCite{Bell2022;textual}{sautilities}.
-#' @return A list with 3 elements: \code{QStest} (test probability for QS), 
+#' @param return_data_frame Logical scalar; if \code{TRUE}, return a data frame 
+#'        of the diagnostics, otherwise return a list. 
+#'        Default is \code{FALSE}.
+#' @return A list or data frame with 3 elements: \code{QStest} (test probability for QS), 
 #'         \code{NPtest} (test probability for NP),
 #'         and \code{result} (character string with test result - 
 #'         possible values of either \code{"evidence of seasonality"} and 
@@ -42,15 +45,17 @@
 #'       slidingspans = "",
 #'       transform.function = "log", 
 #'       series.save = "a1")
-#' first_test <- overall_seasonal_test_1(air_seas)
+#' first_test <- 
+#'      overall_seasonal_test_1(air_seas, return_data_frame = TRUE)
 #' @importFrom Rdpack reprompt
 #' @export
 overall_seasonal_test_1 <- 
     function(seas_obj = NULL, 
 	         this_series = "a1", 
 			 take_log = TRUE, 
-	         this_ori_qs = "qsori") {
-    # Author: Brian C. Monsell (OEUS) Version 4.1, 2026-03-09
+	         this_ori_qs = "qsori", 
+             return_data_frame = FALSE) {
+    # Author: Brian C. Monsell (OEUS) Version 4.6, 2026-04-16
 
     # check if a value is specified for \code{seas_obj}
     if (is.null(seas_obj)) {
@@ -62,7 +67,10 @@ overall_seasonal_test_1 <-
         }
     }
 
-    this_x <- seasonal::series(seas_obj, this_series)
+    # Check if this_series is b1 or adjoriginal
+	this_series <- check_table(seas_obj, this_series)
+	
+	this_x <- seasonal::series(seas_obj, this_series)
     if (take_log) { this_x <- log(this_x) }
 
     this_NP     <- NP_test(this_x)
@@ -78,5 +86,11 @@ overall_seasonal_test_1 <-
         }
     }
 
-    return(list(QStest = this_QS, NPtest = this_NP$cv, result = this_result))
+    if (return_data_frame) {
+		return(data.frame(QStest = this_QS, NPtest = this_NP$cv, 
+		                  Result = this_result))
+	} else {
+		return(list(QStest = this_QS, NPtest = this_NP$cv, 
+		            Result = this_result))
+	}
 }

@@ -28,20 +28,20 @@ all_model_diag(
 )
 }
 \arguments{
-\item{seas_obj}{\code{seas} object generated from a call of \code{seas}
+\item{seas_obj}{A \code{seas} object generated from a call of \code{seas}
 on a single time series \insertCite{seasonal2018}{sautilities}.
 This is a required entry.}
 
-\item{add_aicc}{logical scalar; add AICC value to the summary.
-\insertCite{Akaike73,BurnhamAnderson2004}{sautilities}.
-Default is \code{FALSE}}
+\item{add_aicc}{logical scalar; add AICC value \insertCite{BurnhamAnderson2004}{sautilities}
+to the summary. \insertCite{Akaike73}{sautilities}.
+Default is \code{TRUE}.}
 
 \item{add_norm}{logical scalar; add normality statistics to the summary.
-Default is \code{FALSE}}
+Default is \code{FALSE}.}
 
 \item{add_auto_out}{logical scalar; add identified automatic outliers to
 the summary.
-Default is \code{FALSE}}
+Default is \code{FALSE}.}
 
 \item{add_seasonal}{logical scalar; add QS test for seasonality to the summary.
 Default is \code{FALSE}.}
@@ -74,7 +74,8 @@ Default is \code{TRUE}.}
 
 \item{qs_test_span}{logical scalar; test span of data in QS seasonal test
 rather than full series. For details on the QS test,
-see Section 7.17 of \insertCite{Census2025;textual}{sautilities},
+see Section 7.17 of the X-13ARIMA-SEATS Referene Manual
+\insertCite{Census2025}{sautilities},
 \insertCite{Maravall2012;textual}{sautilities}, and
 \insertCite{Bell2022;textual}{sautilities}.
 Default is \code{FALSE}.}
@@ -98,10 +99,10 @@ Default is \code{6}.}
 frequency may have a spectral peak. Default is \code{3}.}
 
 \item{return_list}{logical scalar; return a list rather than a vector.
-Default is \code{FALSE}}
+Default is \code{FALSE}.}
 }
 \value{
-vector or list of model diagnostics for a given series
+vector or list of model diagnostics for a given series.
 }
 \description{
 Generate a summary of model diagnostics for a single series.

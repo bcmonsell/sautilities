@@ -23,15 +23,15 @@ This is a required entry.}
 generate \code{seas_obj}. This is a required entry.}
 
 \item{outlier_span}{character string; sets the argument \code{outlier.span}.
-Default is \code{",")}.}
+Default is \code{","}.}
 
 \item{outlier_types}{character string; sets the argument \code{outlier.types}.
-Default is \code{"ao,ls")}.}
+Default is \code{"ao,ls"}.}
 
 \item{outlier_method}{Character string; sets the argument \code{outlier.method}.
-Default is \code{"addone")}.}
+Default is \code{"addone"}.}
 
-\item{outlier_critical}{Character string; sets the argument \code{outlier.critica}.
+\item{outlier_critical}{Numeric scalar; sets the argument \code{outlier.critica}.
 Default is Ljung choice for number of observations in \code{new_data}.
 \insertCite{Ljung93}{sautilities}.}
 
@@ -41,7 +41,8 @@ Default is \code{0.01}.}
 \value{
 An updated static \code{seas} object with \code{outlier} arguments
 included. For more information about arguments to the \code{outlier}
-spec, see Section 7.11 of \insertCite{Census2025;textual}{sautilities}.
+spec, see Section 7.11 of the X-13ARIMA-SEATS Reference Manual
+\insertCite{Census2025}{sautilities}.
 }
 \description{
 Add arguments from the \code{outlier} spec to a \code{seas} object.

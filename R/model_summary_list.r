@@ -1,19 +1,22 @@
 #' ARIMA model summary from a list
 #'
 #' Generate a matrix that summarizes ARIMA models from a list of \code{seas} objects.  
+#' Information on generating adjustments of multiple time series stored in a
+#' list object with the \code{seasonal} package can be found in 
+#' \insertCite{rprojectAdjustingMultiple;textual}{sautilities}. 
 #'
 #' Version 3.0, 2026-02-26
 #'
 #' @param seas_obj_list List object of \code{seas} objects generated from a call 
 #'        of \code{seas} on a list consisting of individual time series.
-#         Information on generating adjustments with the \code{seasonal} package 
-#'        can be found in \insertCite{rprojectAdjustingMultiple;textual}{sautilities}. 
 #'        This is a required entry.
-#' @param add_diff logical scalar; add differencing information, if included in model
-#' @param return_data_frame logical scalar; if \code{TRUE}, return a data frame of the diagnostics, 
+#' @param add_diff logical scalar; add differencing information, 
+#'        if differences are included in model. Default is \code{FALSE}.
+#' @param return_data_frame logical scalar; 
+#'        if \code{TRUE}, return a data frame of the diagnostics, 
 #'        otherwise return a matrix. Default is \code{FALSE}.
-#' @return matrix of ARMA model orders, nonseasonal and seasonal total parameters 
-#'         for a given set of series
+#' @return Matrix or data frame of ARMA model orders, nonseasonal and seasonal  
+#'         parameters for a given set of series.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'

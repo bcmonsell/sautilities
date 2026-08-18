@@ -7,8 +7,8 @@
 #' @param seas_obj A \code{seas} object for a single series generated from the 
 #'        \code{seasonal} package \insertCite{seasonal2018}{sautilities}. 
 #'        This is a required entry.
-#' @param add_diff logical scalar; add differencing information, if included in model
-#' @return matrix of ARMA coefficients, standard errors, and t-statistics for a given series
+#' @param add_diff logical scalar; add differencing information, if included in the model.
+#' @return matrix of ARMA coefficients, standard errors, and t-statistics for a given series.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'

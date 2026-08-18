@@ -4,17 +4,17 @@
 #'
 #' Version 6.5, 2026-03-09
 #'
-#' @param seas_obj \code{seas} object generated from a call of \code{seas} 
+#' @param seas_obj A \code{seas} object generated from a call of \code{seas} 
 #'        on a single time series \insertCite{seasonal2018}{sautilities}.
 #'        This is a required entry.
-#' @param add_aicc logical scalar; add AICC value to the summary.
-#'        \insertCite{Akaike73,BurnhamAnderson2004}{sautilities}.
-#'        Default is \code{FALSE}
+#' @param add_aicc logical scalar; add AICC value \insertCite{BurnhamAnderson2004}{sautilities}  
+#'        to the summary. \insertCite{Akaike73}{sautilities}.
+#'        Default is \code{TRUE}.
 #' @param add_norm logical scalar; add normality statistics to the summary.
-#'        Default is \code{FALSE}
+#'        Default is \code{FALSE}.
 #' @param add_auto_out logical scalar; add identified automatic outliers to 
 #'        the summary.
-#'        Default is \code{FALSE}
+#'        Default is \code{FALSE}.
 #' @param add_seasonal logical scalar; add QS test for seasonality to the summary. 
 #'        Default is \code{FALSE}.
 #' @param add_spec logical scalar; add test for spectral peaks to the summary. 
@@ -37,7 +37,8 @@
 #'        Default is \code{TRUE}.
 #' @param qs_test_span logical scalar; test span of data in QS seasonal test 
 #'        rather than full series. For details on the QS test, 
-#'        see Section 7.17 of \insertCite{Census2025;textual}{sautilities}, 
+#'        see Section 7.17 of the X-13ARIMA-SEATS Referene Manual 
+#'        \insertCite{Census2025}{sautilities}, 
 #'        \insertCite{Maravall2012;textual}{sautilities}, and 
 #'        \insertCite{Bell2022;textual}{sautilities}.
 #'        Default is \code{FALSE}.
@@ -55,8 +56,8 @@
 #' @param set_spec_peak_warn Integer scalar; a limit to produce a warning that a 
 #'        frequency may have a spectral peak. Default is \code{3}.
 #' @param return_list logical scalar; return a list rather than a vector.
-#'        Default is \code{FALSE}
-#' @return vector or list of model diagnostics for a given series
+#'        Default is \code{FALSE}.
+#' @return vector or list of model diagnostics for a given series.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'

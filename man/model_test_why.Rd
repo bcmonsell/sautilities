@@ -19,18 +19,18 @@ model_test_why(
 This is a required entry.}
 
 \item{t_value}{Numeric scalar; t-statistic limit for regressors.
-Default is \code{3.0}}
+Default is \code{3.0}.}
 
 \item{p_value}{Numeric scalar; p-value limit for regressors.
-Default is \code{0.01}}
+Default is \code{0.01}.}
 
 \item{otl_auto_limit}{Integer scalar; limit for number of automatically
 identified outliers.
-Default is \code{4}}
+Default is \code{4}.}
 
 \item{otl_all_limit}{Integer scalar; limit for number of automatically
 identified outliers.
-Default is \code{4}}
+Default is \code{4}.}
 
 \item{return_both}{Logical scalar indicating whether the calling function
 will return both the test results and why the test failed or

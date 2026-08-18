@@ -16,17 +16,17 @@ acf_fail(
 \insertCite{seasonal2018}{sautilities}.
 This is a required entry.}
 
-\item{acf_lags_fail}{Lags of the ACF to test
+\item{acf_lags_fail}{Lags of the ACF to test.
 Default is \code{c(1, 2, 3, 4, 8)}.}
 
-\item{num_sig}{Limit for number of lags with significant ACF values
+\item{num_sig}{Limit for number of lags with significant ACF values.
 Default is \code{4}.}
 
 \item{include_pacf}{Logical scalar that indicates if the PACF is included in the testing.
-Default is TRUE}
+Default is \code{TRUE}}
 }
 \value{
-Logical object which is \code{TRUE} if series fails the ACF test, \code{FALSE} otherwise
+Logical object which is \code{TRUE} if series fails the ACF test, \code{FALSE} otherwise.
 }
 \description{
 Tests whether the sample autocorrelation of the residuals from a time series model fails

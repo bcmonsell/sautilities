@@ -34,7 +34,7 @@ Default is \code{6}.}
 \item{return_this}{character string; what the function returns -
 \code{'test'} returns test results,
 \code{'why'} returns why the test failed or received a warning, or
-\code{'both'}. Default is \code{'both'}.}
+\code{'both'}. Default is \code{'test'}.}
 }
 \value{
 A text string denoting if the series passed or failed the tests of ARIMA diagnostics.
@@ -43,7 +43,7 @@ A text string denoting if the series passed or failed the tests of ARIMA diagnos
 Tests whether the time series model has acceptable diagnostics.
 }
 \details{
-Version5.0, 2026-02-26
+Version 5.0, 2026-02-26
 }
 \examples{
 ukgas_seas <- 

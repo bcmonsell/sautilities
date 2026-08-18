@@ -19,18 +19,18 @@ This is a required argument.}
 to be saved to. This is a required argument.}
 
 \item{add_dates}{Logical scalar; save the file with dates on each record
-(datevalue format). Default is TRUE.}
+(datevalue format). Default is \code{TRUE}.}
 
 \item{start_date}{Integer vector of length 2, Start date for series to be stored,
 where the first element is the year and the second element is the month
 or quarter. Default is start of series.}
 }
 \value{
-file with user-defined regressors will be produced.
+File with user-defined regressors will be produced.
 }
 \description{
 Save a user-defined regression array or matrix with time series attributes to
-an external ASCII file in X-13ARIMA-SEATS' datevalue format.
+an external ASCII file in X-13ARIMA-SEATS' \code{datevalue} format.
 For more information on the \code{datevalue} format of X-13ARIMA-SEATS,
 see \insertCite{MonsellLytrasFindley2016;textual}{sautilities}.
 }

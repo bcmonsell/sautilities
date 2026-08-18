@@ -4,22 +4,25 @@
 \alias{get_transform}
 \title{Get transformation}
 \usage{
-get_transform(seas_obj = NULL)
+get_transform(seas_obj = NULL, return_code = TRUE)
 }
 \arguments{
 \item{seas_obj}{A \code{seas} object for a single series generated from the
 \code{seasonal} package \insertCite{seasonal2018}{sautilities}.
 This is a required entry.}
+
+\item{return_code}{logical scalar; if \code{TRUE}, return input for X-13.
+Default is \code{TRUE}.}
 }
 \value{
 Character string with transformation used to model time series in
-\code{seas} run
+\code{seas} run.
 }
 \description{
-Get transformation from the \code{seas} object of a single time series
+Get transformation from the \code{seas} object of a single time series.
 }
 \details{
-Version 2.0, 2026-02-25
+Version 3.1, 2026-04-21
 }
 \examples{
 air_seas <- 
@@ -27,6 +30,8 @@ air_seas <-
                   arima.model = "(0 1 1)(0 1 1)", 
                   x11="")
 air_trans <- get_transform(air_seas)
+air_trans_label <- 
+   get_transform(air_seas, return_code = FALSE)
 }
 \references{
 \insertAllCited{}

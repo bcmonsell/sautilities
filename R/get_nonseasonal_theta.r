@@ -4,8 +4,8 @@
 #'
 #' Version 2.0, 2026-02-25
 #'
-#' @param seas_obj A seas object for a single series generated from the 
-#'        \code{seasonal} package \insertCite{seasonal2018}{sautilities}.
+#' @param seas_obj A \code{seas} object for a single series generated from the 
+#'        \code{seasonal} package \insertCite{seasonal2018}{sautilities}. 
 #'        This is a required entry.
 #' @param this_index An integer scalar, an index of the vector values to be passed. 
 #'        Acceptable values are \code{1} (nonseasonal MA coefficient value), 
@@ -14,7 +14,7 @@
 #'        Default is \code{1}.
 #' @param return_string A Logical scalar; indicates whether value returned is a string  
 #'        or numeric. Default is \code{TRUE}.
-#' @param significant_digits an integer scalar; significant digits to be saved when  
+#' @param significant_digits An integer scalar; significant digits to be saved when  
 #'        a string is returned. Default is \code{3}.
 #' @return Character string containing a value related to the seasonal MA coefficient 
 #'         from the regARIMA model fit in the \code{seas} object \code{seas_obj}. 

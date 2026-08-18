@@ -11,11 +11,11 @@ get_regarima_estimates_matrix(
 )
 }
 \arguments{
-\item{seas_obj}{A seas object for a single series generated from the
+\item{seas_obj}{A \code{seas} object for a single series generated from the
 \code{seasonal} package \insertCite{seasonal2018}{sautilities}.
 This is a required entry.}
 
-\item{add_diff}{logical scalar; add differencing information, if included in model}
+\item{add_diff}{logical scalar; add differencing information, if included in the model.}
 
 \item{this_xreg_names}{Character array; name of user defined regressors.
 Default is \code{NULL}, no user defined regressors.

@@ -11,7 +11,7 @@ get_norm_stat(seas_obj = NULL, this_norm = NULL)
 \code{seasonal} package \insertCite{seasonal2018}{sautilities}.
 This is a required entry.}
 
-\item{this_norm}{character string; type of normality statistic being extracted.
+\item{this_norm}{Character string; type of normality statistic being extracted.
 Permissable values are \code{'a'}, \code{'kurtosis'}, \code{'skewness'}.
 This is a required entry.}
 }
@@ -20,7 +20,7 @@ Double precision number for normality statistic described in this_key.
 If incorrect \code{this_key} used, function returns a \code{NULL} value.
 If normality statistic not generated in this run, function returns a \code{NULL} value.
 Descriptions of these diagnostics can be found in Section 7.3 of
-\insertCite{Census2025;textual}{sautilities}.
+the X-13ARIMA-SEATS Reference Manual \insertCite{Census2025}{sautilities}.
 }
 \description{
 Extract normality statistics from the \code{seas} object of a single series.

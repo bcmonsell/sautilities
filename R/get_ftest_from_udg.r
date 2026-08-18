@@ -11,7 +11,7 @@
 #' @param this_reg Character scalar; Type of regressor for model-based F-test.
 #'        Default is \code{Seasonal}.
 #' @return Numeric vector of the degrees of freedom, F-test, and p-value for this 
-#'         model based F-test
+#'         model based F-test.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'

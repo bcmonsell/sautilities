@@ -25,9 +25,9 @@ This is a required entry.}
 \item{this_freq}{Numeric scalar; frequency of time series.
 Default: \code{12}, for a monthly series.}
 
-\item{return_matrix}{Logical scalar; If true, the object returned is a one column
+\item{return_matrix}{Logical scalar; If \code{TRUE}, the object returned is a one column
 time series matrix object.
-Default: \code{TRUE}}
+Default: \code{TRUE}.}
 }
 \value{
 A \code{ts} object of a point outlier regressor.

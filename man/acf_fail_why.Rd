@@ -17,24 +17,26 @@ acf_fail_why(
 \insertCite{seasonal2018}{sautilities}.
 This is a required entry.}
 
-\item{acf_lags_fail}{Integer vector; lags of the ACF to test
+\item{acf_lags_fail}{Integer vector; lags of the ACF to test.
 Default is \code{c(1, 2, 3, 4, 12, 24)}.}
 
-\item{num_sig}{Integer scalar; limit for number of lags with significant ACF values
+\item{num_sig}{Integer scalar; limit for number of lags with significant ACF values.
 Default is \code{8}.}
 
 \item{include_pacf}{Logical scalar that indicates if the PACF is included in the testing.
-Default is TRUE}
+Default is \code{TRUE}.}
 
 \item{return_both}{Logical scalar indicating whether the calling function will return both the
-test results and why the test failed or just produce a warning. Default is \code{FALSE}.}
+test results and why the test failed or just produce a warning.
+Default is \code{FALSE}.}
 }
 \value{
 Character object that tells why series fails the ACF test, \code{'pass'} otherwise.
 }
 \description{
 Generates text on why the sample autocorrelation of the residuals from a time series model
-fails the Ljung-Box \insertCite{LjungBox78}{sautilities} or Box-Pierce Q test. \insertCite{BoxPierce70}{sautilities}.
+fails the Ljung-Box \insertCite{LjungBox78}{sautilities} or Box-Pierce Q test.
+\insertCite{BoxPierce70}{sautilities}.
 }
 \details{
 Version 5.1, 2026-03-06

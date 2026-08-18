@@ -13,19 +13,20 @@
 #' @param new_data Time series object; updated data set from the data used to 
 #'        generate \code{seas_obj}. This is a required entry.
 #' @param outlier_span character string; sets the argument \code{outlier.span}.
-#'        Default is \code{",")}.
+#'        Default is \code{","}.
 #' @param outlier_types character string; sets the argument \code{outlier.types}.
-#'        Default is \code{"ao,ls")}.
+#'        Default is \code{"ao,ls"}.
 #' @param outlier_method Character string; sets the argument \code{outlier.method}.
-#'        Default is \code{"addone")}.
-#' @param outlier_critical Character string; sets the argument \code{outlier.critica}.
+#'        Default is \code{"addone"}.
+#' @param outlier_critical Numeric scalar; sets the argument \code{outlier.critica}.
 #'        Default is Ljung choice for number of observations in \code{new_data}.
 #'        \insertCite{Ljung93}{sautilities}.
 #' @param cv_alpha Numeric scalar; alpha for critical value.
 #'        Default is \code{0.01}.
 #' @return An updated static \code{seas} object with \code{outlier} arguments 
-#'          included. For more information about arguments to the \code{outlier}
-#'          spec, see Section 7.11 of \insertCite{Census2025;textual}{sautilities}.
+#'         included. For more information about arguments to the \code{outlier}
+#'         spec, see Section 7.11 of the X-13ARIMA-SEATS Reference Manual
+#'         \insertCite{Census2025}{sautilities}.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'

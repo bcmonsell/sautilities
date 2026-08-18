@@ -4,27 +4,33 @@
 \alias{gen_x13_table_list}
 \title{X-13 Tables Available}
 \usage{
-gen_x13_table_list(this_table_type = "all")
+gen_x13_table_list(this_table_type = "all", what_code = "both")
 }
 \arguments{
-\item{this_table_type}{vector of character strings listing types of X-13 tables to output.
-Default is \code{'all'}, other choices are \code{'diagnostics'}, \code{'matrices'},
+\item{this_table_type}{Vector of character strings listing types of X-13 tables to output.
+Default is \code{'all'}; other choices are \code{'diagnostics'}, \code{'matrices'},
 \code{'spectrum'}, \code{'timeseries'}.}
+
+\item{what_code}{Character scalar; which codes are returned. Default is \code{'all'};
+other choices are \code{'short'} (for short codes), or \code{'long'}
+(for the longer code names).}
 }
 \value{
 A list of arrays with table names and abbreviations from X-13ARIMA-SEATS in
-several different elements specified by the user: diagnostics, matrices, spectrum,
-timeseries
+several different elements specified by the user: \code{diagnostics},
+\code{matrices}, \code{spectrum}, \code{timeseries}.
 }
 \description{
 Generates a list of X-13 tables that can be extracted with the \code{seasonal} package
 \insertCite{seasonal2018}{sautilities}.
 }
 \details{
-Version 2.4, 05/24/2023
+Version 4.0, 2026-06-15
 }
 \examples{
 x13_tables_all <- gen_x13_table_list()
+x13_tables_spectrum_short <- 
+    gen_x13_table_list(this_table_type = "spectrum", what_code = "short")
 }
 \references{
 \insertAllCited{}

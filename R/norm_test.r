@@ -1,6 +1,8 @@
 #' Normality Tests for Time Series Models.
 #'
 #' Tests different normality statistics available in X-13ARIMA-SEATS.
+#' Descriptions of these diagnostics can be found in Section 7.3 of
+#' the X-13ARIMA-SEATS Reference Manual \insertCite{Census2025;textual}{sautilities}.
 #'
 #' Version 5.1, 2026-03-05
 #'
@@ -16,8 +18,6 @@
 #' @return A text string denoting whether the series passed or failed the specific normality test. 
 #'         If improper value is specified for this_norm, return \code{NULL}. 
 #'         If no statistic is found, return \code{NULL}.
-#'         Descriptions of these diagnostics can be found in Section 7.3 of 
-#'         \insertCite{Census2025;textual}{sautilities}
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'

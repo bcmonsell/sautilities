@@ -23,12 +23,12 @@ Default is \code{FALSE}.}
 }
 \value{
 A text string showing why a series failed the specific normality test.
-Descriptions of these diagnostics can be found in Section 7.3 of
-\insertCite{Census2025;textual}{sautilities}.
 }
 \description{
 Generates message for why different normality statistics available in
-\code{X-13ARIMA-SEATS} fail.
+X-13ARIMA-SEATS fail.
+Descriptions of these diagnostics can be found in Section 7.3 of
+the X-13ARIMA-SEATS Reference Manual \insertCite{Census2025;textual}{sautilities}.
 }
 \details{
 Version 4.2, 2026-03-09

@@ -6,9 +6,9 @@
 #'
 #' Version 2.0, 2026-03-06
 #'
-#' @param this_label character string; name of an \code{X-11-ARIMA} M and Q statistics.
+#' @param this_label Character string; name of an \code{X-11-ARIMA} M and Q statistics.
 #'        This is a required entry.
-#' @return character string with the corresponding UDG label for \code{this_label}. 
+#' @return Character string with the corresponding UDG label for \code{this_label}. 
 #'         If incorrect label is specified, returns \code{NULL}.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}

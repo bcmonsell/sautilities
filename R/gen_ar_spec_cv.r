@@ -3,14 +3,15 @@
 #' Generate critical values for AR(30) spectrum as in 
 #' \insertCite{Maravall2012;textual}{sautilities}.
 #' For more information on the AR(30) specrum, see
-#' Section 6.1.2 of \insertCite{Census2025;textual}{sautilities}.
+#' Section 6.1.2 of the X-13ARIMA-SEATS Reference Manual
+#' \insertCite{Census2025}{sautilities}.
 #'
 #' Version 2.1, 2026-03-06
 #'
-#' @param n_sim integer scalar; number of simulations; default is 100000
-#' @param series_length integer scalar; length of each series simulated.
-#'        Default is 121.
-#' @param freq integer scalar; frequency of the time series; default is 12 (monthly). 
+#' @param n_sim Integer scalar; number of simulations; default is \code{100000}.
+#' @param series_length Integer scalar; length of each series simulated.
+#'        Default is \code{121}.
+#' @param freq Integer scalar; frequency of the time series; default is \code{12} (monthly). 
 #' @return List of critical values for each seasonal frequency for the 
 #'         95th and 99th percentile.
 #'

@@ -4,13 +4,13 @@
 #' \insertCite{KendalOrd90;textual}{sautilities}, 
 #' and originally due to Friedman from \insertCite{Maravall2012;textual}{sautilities}.
 #' This code is adapted from \code{kendalls} subroutine in \code{ansub11.f} 
-#' from the \code{X-13ARIMA-SEATS} source code \insertCite{Census2025}{sautilities}.
+#' from the X-13ARIMA-SEATS source code \insertCite{Census2025}{sautilities}.
 #'
 #' Version 2.1, 2026-03-09
 #'
 #' @param x \code{ts} time series object. This is a required entry.
 #' @return List object with three elements: \code{ken} (test statistic), \code{df} 
-#'         (degrees of freedom), \code{cv} (test probability)
+#'         (degrees of freedom), \code{cv} (test probability).
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'

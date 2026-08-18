@@ -61,7 +61,8 @@ as factors.
 \description{
 Generates a data frame with seasonal adjustment and modeling diagnostics.
 For information on these diagnostics, see various sections of
-\insertCite{Census2025;textual}{sautilities} and \insertCite{Bell2022;textual}{sautilities}
+\insertCite{Census2025;textual}{sautilities} and
+\insertCite{Bell2022;textual}{sautilities}.
 }
 \details{
 Version 7.1, 2026-03-09

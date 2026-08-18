@@ -6,9 +6,9 @@
 #'
 #' Version 2.0, 2026-03-06
 #'
-#' @param this_key character string; name of an X-11-ARIMA M and Q statistics 
+#' @param this_key Character string; name of an X-11-ARIMA M and Q statistics 
 #'        used in the \code{UDG} X-13 output. Default is \code{"f3.q"}.
-#' @return character string with the corresponding label for \code{this_key}. 
+#' @return Character string with the corresponding label for \code{this_key}. 
 #'         If incorrect label is specified, returns \code{NULL}.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}

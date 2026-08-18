@@ -20,7 +20,7 @@ This is a required entry.}
 a spectral peak.
 Default is \code{6}.}
 
-\item{this_spec}{text string with the spectrum being tested allowable entries are
+\item{this_spec}{Text string with the spectrum being tested allowable entries are
 \code{'spcori'}, \code{'spcsa'}, \code{'spcirr'}, \code{'spcrsd'}.
 Default is \code{'spcori'}.}
 
@@ -37,8 +37,9 @@ For more information on spectral peak detection in X-13ARIMA-SEATS,
 }
 \description{
 Generate text on why spectral peaks are flagged.
-For more information on spectral plots in X-13ARIMA-SEATS, see Section 6.1 of
-\insertCite{Census2025;textual}{sautilities}
+For more information on spectral plots in X-13ARIMA-SEATS,
+see Section 6.1 of the X-13ARIMA-SEATS Reference Manual
+\insertCite{Census2025}{sautilities}.
 }
 \details{
 Version 4.2, 2026-03-05

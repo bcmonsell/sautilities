@@ -1,8 +1,9 @@
 #' Failure text for spectral peaks
 #'
 #' Generate text on why spectral peaks are flagged. 
-#' For more information on spectral plots in X-13ARIMA-SEATS, see Section 6.1 of 
-#' \insertCite{Census2025;textual}{sautilities}
+#' For more information on spectral plots in X-13ARIMA-SEATS, 
+#' see Section 6.1 of the X-13ARIMA-SEATS Reference Manual 
+#' \insertCite{Census2025}{sautilities}.
 #'
 #' Version 4.2, 2026-03-05
 #'
@@ -12,7 +13,7 @@
 #' @param peak_level Integer scalar - limit to determine if a frequency has 
 #'        a spectral peak.
 #'        Default is \code{6}.
-#' @param this_spec text string with the spectrum being tested allowable entries are 
+#' @param this_spec Text string with the spectrum being tested allowable entries are 
 #'        \code{'spcori'}, \code{'spcsa'}, \code{'spcirr'}, \code{'spcrsd'}.
 #'        Default is \code{'spcori'}.
 #' @param return_both Logical scalar indicating whether the calling function 

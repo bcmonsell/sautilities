@@ -11,16 +11,16 @@ choose_optimal_seasonal_filter(
 )
 }
 \arguments{
-\item{this_seasonal_theta}{numeric scalar; seasonal moving average coefficient from an
+\item{this_seasonal_theta}{Numeric scalar; seasonal moving average coefficient from an
 airline model. This is a required entry.}
 
-\item{dp_limits}{logical scalar, if \code{TRUE} limits from
+\item{dp_limits}{Logical scalar; if \code{TRUE} limits from
 \insertCite{PlanasDepoutot2002;textual}{sautilities} will be used
 to choose the moving average, else limits from
 \insertCite{ChuTiaoBell2012;textual}{sautilities} will be used.
 Default is \code{TRUE}.}
 
-\item{use_3x15}{logical scalar, if \code{TRUE} 3x15 seasonal filter will be returned if chosen,
+\item{use_3x15}{Logical scalar; if \code{TRUE} 3x15 seasonal filter will be returned if chosen,
 otherwise function will return a \code{3x9} value.
 Default is \code{FALSE}.}
 }

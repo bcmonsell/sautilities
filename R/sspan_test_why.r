@@ -1,8 +1,9 @@
 #' Sliding Spans Diagnostic Warning Messages
 #'
 #' Generate text on why tests using the sliding spans diagnostic fail.
-#' For more information on sliding spans analysis, see Section 6.2 and 7.16 of
-#' \insertCite{Census2025;textual}{sautilities} and 
+#' For more information on sliding spans analysis, 
+#' see Section 6.2 and 7.16 of the X-13ARIMA-SEATS Reference Manual 
+#' \insertCite{Census2025}{sautilities} and 
 #' \insertCite{Findley90;textual}{sautilities}.
 #'
 #' Version 5.2, 2026-03-05

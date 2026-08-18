@@ -21,13 +21,13 @@ are stored as columns. This is a required entry.}
 This is a required entry.}
 
 \item{this_plot_freq}{Integer scalar; Frequency of time series plotted.
-Default is 12.}
+Default is \code{12}.}
 
 \item{time_disp}{Integer scalar; number of observations on the x-axis taken up
-by the legend. Default is 3.}
+by the legend. Default is \code{3}.}
 
 \item{value_disp}{Numeric scalar; factor representing the percentage of the
-y axis taken up by the legend. Default is 1/6.}
+y axis taken up by the legend. Default is \code{1/6}.}
 
 \item{default_code}{Character string; default position code if the corners are not available.
 Possible values are \code{"bottomright"}, \code{"bottom"},

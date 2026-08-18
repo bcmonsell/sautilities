@@ -4,26 +4,31 @@
 \alias{save_series}
 \title{Save Series}
 \usage{
-save_series(this_series = NULL, this_file = NULL)
+save_series(this_series = NULL, this_file = NULL, save_dv = TRUE)
 }
 \arguments{
-\item{this_series}{double precision time series array to be saved.
+\item{this_series}{Time series array to be saved.
 This is a required entry.}
 
-\item{this_file}{character string; name of file time series array to be saved to.
+\item{this_file}{Character string; name of file time series array to be saved to.
 This is a required entry.}
+
+\item{save_dv}{Logical scalar; if \code{TRUE}, time series object is stored in
+\code{datevalue} format; else, the time series object is stored in
+\code{x13save} format.}
 }
 \value{
-file with user-defined regressors will be produced
+File with time series data in the specified format will be produced.
 }
 \description{
 Save an R object with time series attributes (\code{ts})
-to an external ASCII file in X-13ARIMA-SEATS' \code{datevalue} format.
+to an external ASCII file in X-13ARIMA-SEATS' \code{datevalue} format
+or X-13ARIMA-SEATS' \code{datevalue} format.
 For more information on the \code{datevalue} format of X-13ARIMA-SEATS,
 see \insertCite{MonsellLytrasFindley2016;textual}{sautilities}.
 }
 \details{
-Version 2.0, 2026-03-03
+Version 3.0, 2026-07-01
 }
 \examples{
 ukgas_seas <-

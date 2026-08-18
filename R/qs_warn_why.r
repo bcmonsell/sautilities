@@ -4,7 +4,7 @@
 #' For details on the QS test, see Section 7.17 of 
 #' \insertCite{Census2025;textual}{sautilities}, 
 #' \insertCite{Maravall2012;textual}{sautilities}, and 
-#' \insertCite{Bell2022;textual}{sautilities}..
+#' \insertCite{Bell2022;textual}{sautilities}.
 #'
 #' Version 5.2, 2026-03-05
 #'
@@ -21,7 +21,7 @@
 #'        for extremes is included in testing. 
 #'        Default is \code{TRUE}.
 #' @param return_both Logical scalar indicating whether the calling function will 
-#         return both the test results and why the test failed or produced a warning. 
+#'        return both the test results and why the test failed or produced a warning. 
 #'        Default is \code{FALSE}.
 #' @return A text string denoting why the series had a warning message from the tests  
 #'         for seasonality using the QS diagnostics. Can test the entire series or 

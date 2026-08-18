@@ -11,7 +11,7 @@ d11f_test_why(udg_list = NULL, p_level = 0.01, return_both = FALSE)
 \insertCite{seasonal2018}{sautilities}.
 This is a required entry.}
 
-\item{p_level}{p-level used to test the d11 f-test for residual seasonality
+\item{p_level}{P-level used to test the d11 f-test for residual seasonality
 Default is \code{0.01}.}
 
 \item{return_both}{Logical scalar indicating whether the calling function will return both
@@ -33,11 +33,14 @@ Version 5.0, 2026-02-24
 }
 \examples{
 ukgas_seas <- 
-   seasonal::seas(UKgas, series.period = 4, arima.model = "(0 1 1)(0 1 1)", 
-                  x11="", transform.function = "log", forecast.maxlead=20,
-                  check.print = c( "pacf", "pacfplot" ))
+   seasonal::seas(UKgas, series.period = 4, 
+      arima.model = "(0 1 1)(0 1 1)", 
+      x11="", transform.function = "log", 
+      forecast.maxlead=20,
+      check.print = c( "pacf", "pacfplot" ))
 ukgas_udg <- seasonal::udg(ukgas_seas)
-ukgas_d11f_why <- d11f_test_why(ukgas_udg, p_level = 0.05, return_both = TRUE)
+ukgas_d11f_why <- 
+   d11f_test_why(ukgas_udg, p_level = 0.05, return_both = TRUE)
 }
 \references{
 \insertAllCited{}

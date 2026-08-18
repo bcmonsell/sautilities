@@ -7,7 +7,7 @@
 #' @param seas_obj A \code{seas} object for a single series generated from the 
 #'        \code{seasonal} package \insertCite{seasonal2018}{sautilities}.
 #'        This is a required entry.
-#' @return number of user defined regressors in the model contained in \code{seas_obj}.
+#' @return Number of user defined regressors in the model contained in \code{seas_obj}.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'

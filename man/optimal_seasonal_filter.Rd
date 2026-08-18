@@ -22,45 +22,45 @@ optimal_seasonal_filter(
 \item{this_series}{A time series object.
 This is a required entry.}
 
-\item{aictest}{a character string with the entries for the \code{regression.aictest}
+\item{aictest}{Character string with the entries for the \code{regression.aictest}
 argument to the \code{seas} function from the \code{seasonal} package.
 Default is \code{NULL}, AIC testing not done.}
 
-\item{model}{a character string with the entry for the \code{arima.model} argument
+\item{model}{Character string with the entry for the \code{arima.model} argument
 to the \code{seas} function from the \code{seasonal} package.
 Default is \code{"(0 1 1)(0 1 1)"}. Model should have a \code{(0 1 1)}
 seasonal term.}
 
-\item{variables}{a character string with the entries for the \code{regression.variables}
+\item{variables}{Character string with the entries for the \code{regression.variables}
 argument to the \code{seas} function from the \code{seasonal} package.
 Default is \code{NULL}, no regressors added.}
 
-\item{outlier}{logical scalar, if \code{TRUE} outlier identification is done in the call
+\item{outlier}{Logical scalar, if \code{TRUE} outlier identification is done in the call
 to the \code{seas} function from the \code{seasonal} package.
 Default is \code{TRUE}.}
 
-\item{trans}{characater scalar, a character string with the entry for the
+\item{trans}{Character scalar, a character string with the entry for the
 \code{transform.function} argument to the \code{seas} function.
 Default is \code{NULL}, and the entry \code{auto} will be used.}
 
-\item{missing_code}{numeric scalar, a number with the entry for the
+\item{missing_code}{Numeric scalar, a number with the entry for the
 \code{series.missingcode} argument to the \code{seas} function.
 Default is \code{NULL}, no missing value code is used.}
 
-\item{this_xreg}{numeric matrix, a user defined regressor matrix to be used in the model
+\item{this_xreg}{Numeric matrix, a user defined regressor matrix to be used in the model
 estimation. Default is \code{NULL}, no user-defined regressors are used.}
 
-\item{dp_limits}{logical scalar, if \code{TRUE} limits from
+\item{dp_limits}{Logical scalar, if \code{TRUE} limits from
 \insertCite{PlanasDepoutot2002;textual}{sautilities} will be used
 to choose the moving average, else limits from
 \insertCite{ChuTiaoBell2012;textual}{sautilities} will be used.
 Default is \code{TRUE}.}
 
-\item{use_msr}{logical scalar, if \code{TRUE} result of MSR selection will be used if
+\item{use_msr}{Logical scalar, if \code{TRUE} result of MSR selection will be used if
 model cannot be estimated, otherwise function will return a \code{NULL} value.
 Default is \code{FALSE}.}
 
-\item{use_3x15}{logical scalar, if \code{TRUE} 3x15 seasonal filter will be returned
+\item{use_3x15}{Logical scalar, if \code{TRUE} 3x15 seasonal filter will be returned
 if chosen, otherwise function will return a \code{3x9} value.
 Default is \code{TRUE}.}
 }

@@ -20,33 +20,33 @@ save_seas_object(
 \arguments{
 \item{seas_obj}{\code{seas} object. This is a required entry.}
 
-\item{file_name}{character string; file name where \code{seas} object is stored.
+\item{file_name}{Character string; file name where \code{seas} object is stored.
 Default is the name of the seasonal object.}
 
-\item{series_name}{character string; name of time series object used by the
-\code{seas} object. default is the name of the seasonal object.}
+\item{series_name}{Character string; name of time series object used by the
+\code{seas} object. Default is the name of the seasonal object.}
 
-\item{data_list}{character string; name of the list object that holds data.}
+\item{data_list}{Character string; name of the list object that holds data.}
 
-\item{list_element}{character string; name of the list element used as data.
+\item{list_element}{Character string; name of the list element used as data.
 Default is the name of the seasonal object.}
 
-\item{user_reg}{character string; name of a time series matrix containing
+\item{user_reg}{Character string; name of a time series matrix containing
 user defined regressors. There is no default.
 If not set, will set variables related to user defined regressors to
 \code{NULL} in the static version of the \code{seas} object.}
 
-\item{this_window}{logical indicator variable; determines if a span of the
+\item{this_window}{Logical indicator variable; determines if a span of the
 \code{window()} function.
 If \code{FALSE}, the entire series will be used in the saved file.}
 
-\item{this_directory}{character string; optional directory where the spec
+\item{this_directory}{Character string; optional directory where the spec
 file is stored.}
 
-\item{this_sep}{character string; separator between elements of the file name.
+\item{this_sep}{Character string; separator between elements of the file name.
 Default is \code{"_"}.}
 
-\item{print_out}{logical indicator variable; determines if a call to the
+\item{print_out}{Logical indicator variable; determines if a call to the
 \code{out()} function of the \code{seasonal} package is put
 at the end of the script. If \code{FALSE}, the \code{out()} function
 is commented out. Default is \code{FALSE}.}

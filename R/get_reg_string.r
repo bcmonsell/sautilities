@@ -4,7 +4,7 @@
 #'
 #' Version 4.0, 2026-02-25
 #'
-#' @param seas_obj A seas object for a single series generated from the 
+#' @param seas_obj A \code{seas} object for a single series generated from the 
 #'        \code{seasonal} package \insertCite{seasonal2018}{sautilities}.
 #'        This is a required entry.
 #' @param xreg_names Character vector with names of user defined regressors used in model. 
@@ -13,7 +13,7 @@
 #'        if not, a warning message will be produced.
 #' @param exclude_user Logical scalar; determines if user defined regressors are 
 #'        included in the string of regression names output by the function.
-#'        Default is \code{FALSE}
+#'        Default is \code{FALSE}.
 #' @return Character string containing a summary of the regressors in the regARIMA model. 
 #'         If no regressors in the model, the routine will return a blank character.
 #'

@@ -12,16 +12,16 @@ gen_hybrid_sa(
 )
 }
 \arguments{
-\item{this_mult_sa}{time series object of a multiplicative seasonal adjustment
+\item{this_mult_sa}{Time series object of a multiplicative seasonal adjustment.
 This is a required entry.}
 
-\item{this_add_sa}{time series object of an additive seasonal adjustment
+\item{this_add_sa}{Time series object of an additive seasonal adjustment.
 This is a required entry.}
 
-\item{this_start_hybrid}{integer vector of length 2, start of the span where additive
+\item{this_start_hybrid}{Integer vector of length 2, start of the span where additive
 adjustments replace multiplicative adjustment. This is a required entry.}
 
-\item{this_end_hybrid}{integer vector of length 2, end of the span where additive adjustments
+\item{this_end_hybrid}{Integer vector of length 2, end of the span where additive adjustments
 replace multiplicative adjustment. This is a required entry.}
 }
 \value{

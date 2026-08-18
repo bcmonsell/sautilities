@@ -17,7 +17,7 @@ Default is \code{TRUE}.}
 }
 \value{
 List of either year and month/quarter of outlier, or year and month/quarter of
-start and end of outlier
+start and end of outlier.
 }
 \description{
 Process name of outlier regressor to extract the dates associated with the outlier.

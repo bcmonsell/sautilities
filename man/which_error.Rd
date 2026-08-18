@@ -11,7 +11,7 @@ which_error(this_list = NULL)
 class objects.}
 }
 \value{
-vector of the names of list elements that are \code{'try-error'}
+Vector of the names of list elements that are \code{'try-error'}
 class objects. If the list contains no \code{'try-error'} class objects,
 the function will return \code{NULL}.
 }

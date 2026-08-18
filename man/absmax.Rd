@@ -4,19 +4,23 @@
 \alias{absmax}
 \title{Maximum absolute value of a vector}
 \usage{
-absmax(x)
+absmax(x = NULL, return_abs = TRUE)
 }
 \arguments{
-\item{x}{vector of numbers}
+\item{x}{Vector of numbers. This is a required element.}
+
+\item{return_abs}{Logical scalar; if \code{TRUE}, return the absolute maximum value.
+If \code{FALSE}, maintain the sign of the original value.
+Default is \code{TRUE}.}
 }
 \value{
-Maximum of the absolute value of a vector
+Maximum of the absolute value of a vector.
 }
 \description{
 Generates the maximum of the absolute value of a numeric vector.
 }
 \details{
-Version 1.3, 3/29/2021
+Version 2.1, 2026-06-04
 }
 \examples{
 r50 <- rnorm(50)

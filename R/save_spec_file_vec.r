@@ -2,19 +2,19 @@
 #'
 #' Stores each element of a list of \code{seas} object \code{this_seas_object} 
 #' into separate files.
+#' Information on generating adjustments of multiple time series stored in a
+#' list object with the \code{seasonal} package can be found in 
+#' \insertCite{rprojectAdjustingMultiple;textual}{sautilities}. 
 #'
 #' Version 7.1, 2026-03-05
 #'
 #' @param seas_obj_list List object of \code{seas} objects generated from a call 
 #'        of \code{seas} on a list consisting of individual time series.
-#'        Information on generating adjustments of multiple time series stored in a
-#'        list object with the \code{seasonal} package can be found in 
-#'        \insertCite{rprojectAdjustingMultiple;textual}{sautilities}. 
 #'        This is a required entry.
-#' @param this_name_vec vector of character string; vector of series names from the 
+#' @param this_name_vec Vector of character string; vector of series names from the 
 #'        list of \code{seas} objects that will be saved.
 #'        Default is all elements of the \code{seasonal} object list 
-#'        \code{this_seas_object_list} are saved.
+#'        \code{seas_obj_list} are saved.
 #' @param this_directory Character string; optional directory where the spec file 
 #'        is stored.
 #' @param this_data_directory Character string; optional directory where the data 
@@ -25,29 +25,29 @@
 #'        Default is \code{".dat"}.
 #' @param this_title_list List of character strings with the titles for each series.
 #'        Default is to set \code{title} to the series name.
-#' @param this_title_base character string; Optional base for custom title; 
+#' @param this_title_base Character string; Optional base for custom title; 
 #'        series name will be added at the end of the title; quotes will be 
 #'        added by the routine.
 #'        Default is to set \code{title} to the series name.
 #' @param this_xreg_list list of character strings with the filenames of user defined  
 #'        regressors or \code{NULL} for each series.
 #'        Default is to not set \code{regression.file} for the individual series.
-#' @param this_user_list list of vectors of character strings with the names of 
+#' @param this_user_list List of vectors of character strings with the names of 
 #'        user defined regressors or NULL for each series.
 #'        Default is to not set \code{regression.file} for the individual series.
-#' @param make_metafile logical scalar; if \code{TRUE}, generate a makefile for  
+#' @param make_metafile Logical scalar; if \code{TRUE}, generate a makefile for  
 #'        this set of files; do not otherwise. 
 #'        Default is \code{FALSE}.
-#' @param this_metafile_name - character string; base name of metafile to be generated. 
+#' @param this_metafile_name Character string; base name of metafile to be generated. 
 #'        If not specified, use name of list input as metafile name.
-#'        Note - do not specify the \code{".mta"} file extension.
-#' @param this_meta_directory - optional directory where the meta file is stored. 
-#'        If not specified, the metafile will be saved in the current working 
-#'        directory.
-#' @param this_output_directory - optional directory where the output files are 
-#'        stored in the metafile. If not specified, the output files are saved 
-#'        in the current working directory.
-#' @param include_directory - logical scalar; if \code{TRUE}, include directory 
+#'        Note: do not specify the \code{".mta"} file extension.
+#' @param this_meta_directory Character string; name of optional directory  
+#'        where the meta file is stored. If not specified, the metafile will 
+#'        be saved in the current working directory.
+#' @param this_output_directory Character string; name of optional directory 
+#'        where the output files are stored in the metafile. If not specified, 
+#'        the output files are saved in the current working directory.
+#' @param include_directory Logical scalar; if \code{TRUE}, include directory 
 #'        specified in \code{this_directory} with file name output.
 #'        Otherwise, output only names in \code{this_name_vec}. 
 #'        Default is \code{FALSE}.

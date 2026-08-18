@@ -7,11 +7,11 @@
 get_mq_key(this_label = NULL)
 }
 \arguments{
-\item{this_label}{character string; name of an \code{X-11-ARIMA} M and Q statistics.
+\item{this_label}{Character string; name of an \code{X-11-ARIMA} M and Q statistics.
 This is a required entry.}
 }
 \value{
-character string with the corresponding UDG label for \code{this_label}.
+Character string with the corresponding UDG label for \code{this_label}.
 If incorrect label is specified, returns \code{NULL}.
 }
 \description{

@@ -29,7 +29,7 @@ Default is \code{TRUE}.}
 \value{
 A vector of list element names where the value in \code{this_list}
 is greater than or less than the limit specified in \code{this_limit}.
-If nothing matches, the function will output the string \code{'none'}
+If nothing matches, the function will output the string \code{'none'}.
 }
 \description{
 Process list object of numbers and return names of elements that are either greater than or

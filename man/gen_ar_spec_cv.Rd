@@ -7,12 +7,12 @@
 gen_ar_spec_cv(n_sim = 1e+05, series_length = 121, freq = 12)
 }
 \arguments{
-\item{n_sim}{integer scalar; number of simulations; default is 100000}
+\item{n_sim}{Integer scalar; number of simulations; default is \code{100000}.}
 
-\item{series_length}{integer scalar; length of each series simulated.
-Default is 121.}
+\item{series_length}{Integer scalar; length of each series simulated.
+Default is \code{121}.}
 
-\item{freq}{integer scalar; frequency of the time series; default is 12 (monthly).}
+\item{freq}{Integer scalar; frequency of the time series; default is \code{12} (monthly).}
 }
 \value{
 List of critical values for each seasonal frequency for the
@@ -22,7 +22,8 @@ List of critical values for each seasonal frequency for the
 Generate critical values for AR(30) spectrum as in
 \insertCite{Maravall2012;textual}{sautilities}.
 For more information on the AR(30) specrum, see
-Section 6.1.2 of \insertCite{Census2025;textual}{sautilities}.
+Section 6.1.2 of the X-13ARIMA-SEATS Reference Manual
+\insertCite{Census2025}{sautilities}.
 }
 \details{
 Version 2.1, 2026-03-06

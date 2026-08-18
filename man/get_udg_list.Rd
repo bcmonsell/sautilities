@@ -9,7 +9,6 @@ get_udg_list(seas_obj_list = NULL, this_key = "autoout")
 \arguments{
 \item{seas_obj_list}{List object of \code{seas} objects generated from a call
 of \code{seas} on a list consisting of individual time series.
-can be found in \insertCite{rprojectAdjustingMultiple;textual}{sautilities}.
 This is a required entry.}
 
 \item{this_key}{Character string containing keyword of the \code{udg} function
@@ -21,10 +20,14 @@ within the elements of \code{seas_obj_list}.
 An error message will be printed if \code{try} errors are found.
 }
 \description{
-Process a list of \code{seas} elements to get a list of results from the \code{udg} function of the seasonal package
+Process a list of \code{seas} elements to get a list of results from the
+\code{udg} function of the \code{seasonal} package.
+Information on generating adjustments of multiple time series stored in a
+list object with the \code{seasonal} package can be found in
+\insertCite{rprojectAdjustingMultiple;textual}{sautilities}.
 }
 \details{
-Version 2.1, 2026-03-05
+Version 2.2, 2026-04-22
 }
 \examples{
 emp_seas_list <-

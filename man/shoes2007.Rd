@@ -3,14 +3,14 @@
 \docType{data}
 \name{shoes2007}
 \alias{shoes2007}
-\title{Retail sales of shoes, 2007}
+\title{Retail sales of shoes, ending in 2007}
 \format{
-Retail sales of shoes ending in December of 2007
+A \code{ts} object of retail sales of shoes ending in December of 2007.
 }
 \usage{
 shoes2007
 }
 \description{
-A time series object
+A time series object of retail sales of shoes published by the US Census Bureau ending in December of 2007.
 }
 \keyword{datasets}

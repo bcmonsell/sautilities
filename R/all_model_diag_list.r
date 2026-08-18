@@ -1,31 +1,31 @@
 #' Model diagnostic summary from a list
 #'
 #' Generate a summary of model diagnostics from a list of \code{seas} objects series.
-#' See \insertCite{rprojectAdjustingMultiple;textual}{sautilities} for code to apply
-#' the \code{seasonal} package on multiple series. 
+#' Information on generating adjustments of multiple time series stored in a
+#' list object with the \code{seasonal} package can be found in 
+#' \insertCite{rprojectAdjustingMultiple;textual}{sautilities}. 
 #' 
 #' Version 9.3, 2026-03-06
 #'
 #' @param seas_obj_list List object of \code{seas} objects generated from a call 
 #'        of \code{seas} on a list consisting of individual time series.
-#         Information on generating adjustments with the \code{seasonal} package 
-#'        can be found in \insertCite{rprojectAdjustingMultiple;textual}{sautilities}. 
 #'        This is a required entry.
-#' @param add_aicc logical scalar; add AICC value to the summary. 
-#'        \insertCite{Akaike73,BurnhamAnderson2004}{sautilities}.
-#'        Default is \code{TRUE}
+#' @param add_aicc logical scalar; add AICC value \insertCite{BurnhamAnderson2004}{sautilities}  
+#'        to the summary. \insertCite{Akaike73}{sautilities}.
+#'        Default is \code{TRUE}.
 #' @param add_norm logical scalar; add normality statistics to the summary. 
-#'        Default is \code{FALSE}
+#'        Default is \code{FALSE}.
 #' @param add_auto_out logical scalar; add identified automatic outliers to the 
 #'        summary. 
-#'        Default is \code{FALSE}
+#'        Default is \code{FALSE}.
 #' @param add_seasonal logical scalar; add QS test for seasonality to the summary. 
 #'        For details on the QS test, 
-#'        see \insertCite{@Section 7.17 of @Census2025;textual}{sautilities}
+#'        see Section 7.17 of the X-13ARIMA-SEATS Referene Manual 
+#'        \insertCite{Census2025}{sautilities}, 
 #'        and \insertCite{Maravall2012;textual}{sautilities}.
 #'        Default is \code{FALSE}.
 #' @param add_spec logical scalar; add test for spectral peaks to the summary. 
-#'        Default is \code{FALSE}
+#'        Default is \code{FALSE}.
 #' @param add_lbq logical scalar; add test for Ljung-Box Q to the summary
 #'        \insertCite{LjungBox78}{sautilities}.
 #'        Default is \code{TRUE}; if set to \code{FALSE}, a more extensive test 
@@ -41,10 +41,10 @@
 #' @param set_acf_lags_warn Integer vector; lags of the ACF to test for warnings
 #'        Default is \code{c(12, 24)}.
 #' @param add_pacf logical scalar; include PACF in ACF results. 
-#'        Default is \code{TRUE}
+#'        Default is \code{TRUE}.
 #' @param qs_test_span logical scalar; test span of data in QS seasonal test 
 #'        rather than the full series. 
-#'        Default is \code{FALSE}
+#'        Default is \code{FALSE}.
 #' @param set_qs_p_limit_pass Numeric scalar; P-value limit for QS statistic 
 #'        for passing.
 #'        Default is \code{0.01}.
@@ -63,7 +63,7 @@
 #' @param return_data_frame logical scalar; if \code{TRUE}, return a data frame 
 #'        of the diagnostics, otherwise return a matrix. 
 #'        Default is \code{FALSE}.
-#' @return matrix or data frame of model diagnostics for a given set of series series
+#' @return Matrix or data frame of model diagnostics for a given set of series.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'

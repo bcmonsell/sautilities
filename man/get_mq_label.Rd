@@ -7,11 +7,11 @@
 get_mq_label(this_key = "f3.q")
 }
 \arguments{
-\item{this_key}{character string; name of an X-11-ARIMA M and Q statistics
+\item{this_key}{Character string; name of an X-11-ARIMA M and Q statistics
 used in the \code{UDG} X-13 output. Default is \code{"f3.q"}.}
 }
 \value{
-character string with the corresponding label for \code{this_key}.
+Character string with the corresponding label for \code{this_key}.
 If incorrect label is specified, returns \code{NULL}.
 }
 \description{

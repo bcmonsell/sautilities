@@ -5,14 +5,14 @@
 #'
 #' Version 2.0, 2026-02-24
 #'
-#' @param this_seasonal_theta numeric scalar; seasonal moving average coefficient from an 
+#' @param this_seasonal_theta Numeric scalar; seasonal moving average coefficient from an 
 #'        airline model. This is a required entry.
-#' @param dp_limits logical scalar, if \code{TRUE} limits from 
+#' @param dp_limits Logical scalar; if \code{TRUE} limits from 
 #'        \insertCite{PlanasDepoutot2002;textual}{sautilities} will be used  
 #'        to choose the moving average, else limits from 
 #'        \insertCite{ChuTiaoBell2012;textual}{sautilities} will be used. 
 #'        Default is \code{TRUE}.
-#' @param use_3x15 logical scalar, if \code{TRUE} 3x15 seasonal filter will be returned if chosen, 
+#' @param use_3x15 Logical scalar; if \code{TRUE} 3x15 seasonal filter will be returned if chosen, 
 #'        otherwise function will return a \code{3x9} value. 
 #'        Default is \code{FALSE}.
 #' @return The optimal X-11 seasonal filter.

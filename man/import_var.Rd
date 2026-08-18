@@ -12,10 +12,10 @@ This is a required entry}
 
 \item{column_name}{Array of character strings; names for the columns of the
 estimates matrix. Array must be of length 3 or 4.
-Default is \code{c("Unscaled_Stochastic", "Scaled_Stochastic", 
-       "Regression_Estimation", "Combined")} if regressors are used,
-or \code{c("Unscaled_Stochastic", "Scaled_Stochastic", "Combined")}
-if regressors are not used.}
+If regressors are used, the default is
+\code{c("Unscaled_Stochastic", "Scaled_Stochastic", "Regression_Estimation", "Combined")}.
+If regressors are not used, the default is
+\code{c("Unscaled_Stochastic", "Scaled_Stochastic", "Combined")}.}
 
 \item{return_matrix}{Logical scalar; determines if a matrix object is returned.
 Default is \code{TRUE}, which forces the function to return a data frame object.}

@@ -7,7 +7,7 @@
 update_fts(seas_obj = NULL)
 }
 \arguments{
-\item{seas_obj}{\code{seas} object generated from a call of \code{seas}
+\item{seas_obj}{A \code{seas} object generated from a call of \code{seas}
 on a single time series \insertCite{seasonal2018}{sautilities}.
 This is a required entry.}
 }
@@ -18,7 +18,7 @@ Updated \code{fts} matrix.
 Update final t-statistics from automatic outlier identification with t-statistics from
 identified outliers in final regARIMA model.
 For more information on automatic outlier identification
-in X-13ARIMA-SEATS, see Sectiona 4.6 and 7.11 of
+in X-13ARIMA-SEATS, see Sectiona 4.6 and 7.11 of the X-13ARIMA-SEATS Reference Manual
 \insertCite{Census2025;textual}{sautilities}.
 }
 \details{

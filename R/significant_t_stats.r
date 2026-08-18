@@ -8,9 +8,9 @@
 #'        \insertCite{seasonal2018}{sautilities}.
 #'        This is a required entry.
 #' @param critical_value Numeric scalar; sets the critical value used to test 
-#'        t-statistics of regressors. Default is 2.0.
+#'        t-statistics of regressors. Default is \code{2.0}.
 #' @param user_def_only Logical scalar; only test user-defined regressors
-#'        Default is FALSE.
+#'        Default is \code{FALSE}.
 #' @return Number of regressors with significant t-statistics.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}

@@ -10,7 +10,7 @@
 #' @param add_type logical scalar; determines if type of outlier is added to the output. 
 #'        Default is \code{TRUE}.
 #' @return List of either year and month/quarter of outlier, or year and month/quarter of 
-#'         start and end of outlier
+#'         start and end of outlier.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'

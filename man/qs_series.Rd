@@ -13,9 +13,7 @@ qs_series(
 }
 \arguments{
 \item{seas_obj_list}{List object of \code{seas} objects generated from a call
-of \code{seas} on a list consisting of individual time series.
-can be found in \insertCite{rprojectAdjustingMultiple;textual}{sautilities}.
-This is a required entry.}
+of \code{seas} on a list consisting of individual time series.}
 
 \item{this_stat}{Character string that specifies which QS statistic is being tested.
 Allowable values are \code{'qsori'}, \code{'qsorievadj'}, \code{'qsrsd'},
@@ -43,6 +41,9 @@ For details on the QS test, see Section 7.17 of
 \insertCite{Census2025;textual}{sautilities},
 \insertCite{Maravall2012;textual}{sautilities}, and
 \insertCite{Bell2022;textual}{sautilities}.
+Information on generating adjustments of multiple time series stored in a
+list object with the \code{seasonal} package can be found in
+\insertCite{rprojectAdjustingMultiple;textual}{sautilities}.
 }
 \details{
 Version 4.1, 2026-03-05

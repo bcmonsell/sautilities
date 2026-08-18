@@ -17,23 +17,22 @@ static_with_outlier_list(
 \arguments{
 \item{seas_obj_list}{List object of \code{seas} objects generated from a call
 of \code{seas} on a list consisting of individual time series.
-can be found in \insertCite{rprojectAdjustingMultiple;textual}{sautilities}.
 This is a required entry.}
 
-\item{new_data_list}{List object of time series (\code{ts})objects;
+\item{new_data_list}{List object of time series (\code{ts}) objects;
 updated data sets from the data used to generate \code{seas_obj_list}.
 This is a required entry.}
 
-\item{outlier_span}{character string; sets the argument \code{outlier.span}.
+\item{outlier_span}{Character string; sets the argument \code{outlier.span}.
 Default is \code{","}.}
 
-\item{outlier_types}{character string; sets the argument \code{outlier.types}.
+\item{outlier_types}{Character string; sets the argument \code{outlier.types}.
 Default is \code{"ao,ls"}.}
 
 \item{outlier_method}{Character string; sets the argument \code{outlier.method}.
 Default is \code{"addone")}.}
 
-\item{outlier_critical}{Character string; sets the argument \code{outlier.critica}.
+\item{outlier_critical}{Numeric scalar; sets the argument \code{outlier.critica}.
 Default is Ljung choice for number of observations in \code{new_data}.
 \insertCite{Ljung93}{sautilities}.}
 
@@ -43,7 +42,8 @@ Default is \code{0.01}.}
 \value{
 A list of updated static seas object with outlier arguments included.
 For more information about arguments to the \code{outlier} spec,
-see Section 7.11 of \insertCite{Census2025;textual}{sautilities}.
+see Section 7.11 of the X-13ARIMA-SEATS Reference Manual
+\insertCite{Census2025;textual}{sautilities}.
 }
 \description{
 Add outlier arguments and updated data to each element of a list of
@@ -51,6 +51,9 @@ Add outlier arguments and updated data to each element of a list of
 This function uses the \code{static} function of the \code{seasonal} pacakge;
 for more information on generating and evaluating a static seas object,
 see Section 8.1 of \insertCite{seasonal2018;textual}{sautilities}.
+Information on generating adjustments of multiple time series stored in a
+list object with the \code{seasonal} package can be found in
+\insertCite{rprojectAdjustingMultiple;textual}{sautilities}.
 }
 \details{
 Version 5.0, 2026-03-09

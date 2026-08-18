@@ -5,31 +5,33 @@
 #' This function uses the \code{static} function of the \code{seasonal} pacakge; 
 #' for more information on generating and evaluating a static seas object,  
 #' see Section 8.1 of \insertCite{seasonal2018;textual}{sautilities}.
+#' Information on generating adjustments of multiple time series stored in a
+#' list object with the \code{seasonal} package can be found in 
+#' \insertCite{rprojectAdjustingMultiple;textual}{sautilities}. 
 #'
 #' Version 5.0, 2026-03-09
 #'
 #' @param seas_obj_list List object of \code{seas} objects generated from a call 
 #'        of \code{seas} on a list consisting of individual time series.
-#         Information on generating adjustments with the \code{seasonal} package 
-#'        can be found in \insertCite{rprojectAdjustingMultiple;textual}{sautilities}. 
 #'        This is a required entry.
-#' @param new_data_list List object of time series (\code{ts})objects; 
+#' @param new_data_list List object of time series (\code{ts}) objects; 
 #'        updated data sets from the data used to generate \code{seas_obj_list}. 
 #'        This is a required entry.
-#' @param outlier_span character string; sets the argument \code{outlier.span}.
+#' @param outlier_span Character string; sets the argument \code{outlier.span}.
 #'        Default is \code{","}.
-#' @param outlier_types character string; sets the argument \code{outlier.types}.
+#' @param outlier_types Character string; sets the argument \code{outlier.types}.
 #'        Default is \code{"ao,ls"}.
 #' @param outlier_method Character string; sets the argument \code{outlier.method}.
 #'        Default is \code{"addone")}.
-#' @param outlier_critical Character string; sets the argument \code{outlier.critica}.
+#' @param outlier_critical Numeric scalar; sets the argument \code{outlier.critica}.
 #'        Default is Ljung choice for number of observations in \code{new_data}.
 #'        \insertCite{Ljung93}{sautilities}.
 #' @param cv_alpha Numeric scalar; alpha for critical value.
 #'        Default is \code{0.01}.
 #' @return A list of updated static seas object with outlier arguments included. 
 #'         For more information about arguments to the \code{outlier} spec, 
-#'         see Section 7.11 of \insertCite{Census2025;textual}{sautilities}.
+#'         see Section 7.11 of the X-13ARIMA-SEATS Reference Manual
+#'         \insertCite{Census2025;textual}{sautilities}.
 #'
 #' @author Brian C. Monsell, \email{monsell.brian@@bls.gov} or \email{bcmonsell@@gmail.com}
 #'
