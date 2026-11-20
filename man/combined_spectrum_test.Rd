@@ -43,7 +43,7 @@ Generate a test for seasonality by combining the results from the AR(30) and Tuk
 spectrums as laid out in \insertCite{Maravall2012;textual}{sautilities}.
 }
 \details{
-Version 4.3, 2026-04-21
+Version 5.0, 2026-10-23
 }
 \examples{
 air_seas <-  

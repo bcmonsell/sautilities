@@ -51,7 +51,7 @@ Conduct the first overall test for seasonality as laid out in
 \insertCite{Maravall2012;textual}{sautilities}.
 }
 \details{
-Version 4.6, 2026-04-16
+Version 5.0, 2026-10-23
 }
 \examples{
 air_seas <- 

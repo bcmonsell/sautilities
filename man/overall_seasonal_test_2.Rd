@@ -70,7 +70,7 @@ Conduct the second overall test for seasonality as laid out in
 \insertCite{Maravall2012;textual}{sautilities}.
 }
 \details{
-Version 6.6, 2026-04-16
+Version 7.0, 2026-10-23
 }
 \examples{
 air_seas <- 

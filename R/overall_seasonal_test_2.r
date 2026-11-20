@@ -3,7 +3,7 @@
 #' Conduct the second overall test for seasonality as laid out in 
 #' \insertCite{Maravall2012;textual}{sautilities}.
 #'
-#' Version 6.6, 2026-04-16
+#' Version 7.0, 2026-10-23
 #'
 #' @param seas_obj A \code{seas} object for a single series generated from the 
 #'        \code{seasonal} package \insertCite{seasonal2018}{sautilities}. 
@@ -72,7 +72,7 @@ overall_seasonal_test_2 <-
             take_diff = TRUE, 
             use_seasonal = TRUE, 
             return_data_frame = FALSE) {
-    # Author: Brian C. Monsell (OEUS) Version 6.6, 2026-04-16
+    # Author: Brian C. Monsell (OEUS) Version 7.0, 2026-10-23
 
     # check if a value is specified for \code{seas_obj}
     if (is.null(seas_obj)) {
@@ -88,7 +88,15 @@ overall_seasonal_test_2 <-
 	this_series <- check_table(seas_obj, this_series)
 	
     this_x <- seasonal::series(seas_obj, this_series)
-    if (take_log) { this_x <- log(this_x) }
+    if (take_log) {
+		x <- sum(this_x <= 0.0)
+		if (sum(x) > 0) {
+			cat("Cannot take log of series with observationss less than or equal to zero.")
+			return(NULL)
+		} else {
+			this_x <- log(this_x)
+		}
+    }
 
     this_NP     <- NP_test(this_x)
     this_QS     <- 1.0 - as.vector(seasonal::udg(seas_obj, this_ori_qs))[2]

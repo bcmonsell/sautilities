@@ -21,7 +21,6 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 8.0.0
 Depends: 
     R (>= 3.6)
 Imports: 
@@ -31,3 +30,4 @@ Imports:
     stringr,
 	stringi
 RdMacros: Rdpack
+Config/roxygen2/version: 8.1.1

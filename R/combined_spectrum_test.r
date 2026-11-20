@@ -3,7 +3,7 @@
 #' Generate a test for seasonality by combining the results from the AR(30) and Tukey nonparametric
 #' spectrums as laid out in \insertCite{Maravall2012;textual}{sautilities}.
 #'
-#' Version 4.3, 2026-04-21
+#' Version 5.0, 2026-10-23
 #'
 #' @param seas_obj A \code{seas} object for a single series generated from the 
 #'        \code{seasonal} package \insertCite{seasonal2018}{sautilities}. 
@@ -46,7 +46,7 @@ combined_spectrum_test <-
             this_series = "series.adjoriginal",
             take_log = TRUE, 
             take_diff = TRUE) {
-   # Author: Brian C. Monsell (OEUS) Version 4.3, 2026-04-21
+   # Author: Brian C. Monsell (OEUS) Version 5.0, 2026-10-23
     
    # check if a value is specified for \code{seas_obj}
    if (is.null(seas_obj)) {
@@ -76,7 +76,13 @@ combined_spectrum_test <-
 
    this_x <- window(seasonal::series(seas_obj, this_series), start = this_start_spec)
    if (take_log) {
-       this_x <- log(this_x)
+		x <- sum(this_x <= 0.0)
+		if (sum(x) > 0) {
+			cat("Cannot take log of series with observationss less than or equal to zero.")
+			return(NULL)
+		} else {
+			this_x <- log(this_x)
+		}
    }
    if (take_diff) {
        this_x <- diff(this_x)
